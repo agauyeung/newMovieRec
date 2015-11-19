@@ -1,0 +1,13 @@
+@(movies: List[Movies])
+
+<h1>View All Movies/<h1>
+
+<ul> 
+@for(movie <- movies) {
+  <li>@movie.name
+    <ul> 
+        @movie.director
+    </ul>
+  </li>
+} 
+</ul>

@@ -1,0 +1,14 @@
+@(users: List[Users])
+
+<h1>View All Users/<h1>
+
+<ul> 
+@for(users <- users) {
+  <p>@users.userID</->
+  <li>@users.username
+    <ul> 
+        @users.password
+    </ul>
+  </li>
+}
+</ul>

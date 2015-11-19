@@ -1,0 +1,4 @@
+[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/cs490_movie_rec/app/views/users.scala.html:7: value id is not a member of models.Users[0m
+[0m[[31merror[0m] [0m  <p>@users.id</->[0m
+[0m[[31merror[0m] [0m            ^[0m
+[0m[[31merror[0m] [0mone error found[0m

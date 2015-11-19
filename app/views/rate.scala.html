@@ -1,0 +1,24 @@
+@(title: String, movies: List[String], ratingsForm: Form[TenRatings])
+@import helper._
+
+@base(title) {	@*using main template, with page title as arg*@
+
+    <font color="red">
+        <br>Note that you must rate at least 10 movies before getting recommendations.
+        <br>Ignore this message if you have already rated at least 10 movies.<br><br>
+    </font>
+
+    @*@form(action = routes.Application.results(), 'id -> "ratingsForm")*@
+    @form(action = routes.Application.rate(), 'id -> "ratingsForm") {
+        @for((movie, index) <- movies.zipWithIndex) {
+            @inputRadioGroup(
+                ratingsForm("m" + (index+1)),  
+                options = Seq("0" -> "0", "1" -> "1", "2" -> "2", "3" -> "3", "4" -> "4", "5" -> "5"),
+                '_label -> movie,
+                '_error -> ratingsForm("m" + (index+1)).error.map(_.withMessage("Select Rating"))
+            ) 
+        }
+        <input type="submit" class="tenratings" value="Submit Ratings">         
+    }
+    @* Which variable the value goes to *@
+}
