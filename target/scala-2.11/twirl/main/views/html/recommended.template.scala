@@ -55,8 +55,8 @@ Seq[Any](format.raw/*1.17*/("""
 object recommended extends recommended_Scope0.recommended
               /*
                   -- GENERATED --
-                  DATE: Wed Nov 04 17:41:45 PST 2015
-                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/cs490_movie_rec/app/views/recommended.scala.html
+                  DATE: Fri Nov 20 02:00:24 PST 2015
+                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/recommended.scala.html
                   HASH: 628920ed7f168d8eebb1eab84c73b003f18aa859
                   MATRIX: 757->1|867->16|895->19|914->30|953->32|981->80|1014->124|1045->126
                   LINES: 27->1|32->1|34->3|34->3|34->3|34->3|36->5|37->6

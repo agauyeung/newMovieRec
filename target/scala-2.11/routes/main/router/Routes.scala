@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/agauyeung/typesafe_activator_1.3.6/cs490_movie_rec/conf/routes
-// @DATE:Tue Nov 17 05:43:48 PST 2015
+// @SOURCE:/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/conf/routes
+// @DATE:Fri Nov 20 02:57:05 PST 2015
 
 package router
 

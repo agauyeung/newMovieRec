@@ -72,8 +72,8 @@ Seq[Any](format.raw/*1.70*/("""
 object rate extends rate_Scope0.rate
               /*
                   -- GENERATED --
-                  DATE: Tue Nov 17 06:01:07 PST 2015
-                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/cs490_movie_rec/app/views/rate.scala.html
+                  DATE: Fri Nov 20 02:00:24 PST 2015
+                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/rate.scala.html
                   HASH: a25e444d9b0d3954b5f1214b44d1d19e25b1d329
                   MATRIX: 773->1|951->69|978->87|1005->89|1024->100|1063->102|1091->150|1123->156|1360->435|1392->441|1463->503|1503->505|1540->515|1598->557|1638->559|1679->573|2013->886|2055->897|2091->906|2199->984|2232->1027|2264->1029
                   LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|41->11|42->12|42->12|42->12|43->13|43->13|43->13|44->14|49->19|50->20|51->21|52->22|53->23|54->24

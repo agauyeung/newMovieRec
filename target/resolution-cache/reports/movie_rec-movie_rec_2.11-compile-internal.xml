@@ -7,15 +7,15 @@
 		revision="1.0-SNAPSHOT"
 		conf="compile-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, fork-run"
-		date="20151104174146"/>
+		date="20151120020025"/>
 	<dependencies>
 		<module organisation="mysql" name="mysql-connector-java">
-			<revision name="5.1.36" status="release" pubdate="20150619122624" resolver="public" artresolver="public" homepage="http://dev.mysql.com/doc/connector-j/en/" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="84">
+			<revision name="5.1.36" status="release" pubdate="20150619122624" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://dev.mysql.com/doc/connector-j/en/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="84">
 				<license name="The GNU General Public License, Version 2" url="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="1105" time="72" location="/home/agauyeung/.ivy2/cache/mysql/mysql-connector-java/ivy-5.1.36.xml" searched="true" original-local-location="/home/agauyeung/.ivy2/cache/mysql/mysql-connector-java/ivy-5.1.36.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.pom"/>
+				<metadata-artifact status="no" details="" size="2412" time="0" location="/home/agauyeung/.ivy2/cache/mysql/mysql-connector-java/ivy-5.1.36.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.pom"/>
 				<caller organisation="movie_rec" name="movie_rec_2.11" conf="compile-internal, compile, provided, optional" rev="5.1.36" rev-constraint-default="5.1.36" rev-constraint-dynamic="5.1.36" callerrev="1.0-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="mysql-connector-java" type="jar" ext="jar" status="successful" details="" size="972007" time="673" location="/home/agauyeung/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.36.jar">
+					<artifact name="mysql-connector-java" type="jar" ext="jar" status="no" details="" size="972007" time="0" location="/home/agauyeung/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.36.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.jar"/>
 					</artifact>
 				</artifacts>
@@ -133,115 +133,115 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-java-jpa_2.11">
-			<revision name="2.4.3" status="release" pubdate="20150906180535" resolver="public" artresolver="public" homepage="https://playframework.com" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="72">
+			<revision name="2.4.3" status="release" pubdate="20150906180535" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="72">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="successful" details="" size="2564" time="106" location="/home/agauyeung/.ivy2/cache/com.typesafe.play/play-java-jpa_2.11/ivy-2.4.3.xml" searched="true" original-local-location="/home/agauyeung/.ivy2/cache/com.typesafe.play/play-java-jpa_2.11/ivy-2.4.3.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-java-jpa_2.11/2.4.3/play-java-jpa_2.11-2.4.3.pom"/>
+				<metadata-artifact status="no" details="" size="3273" time="0" location="/home/agauyeung/.ivy2/cache/com.typesafe.play/play-java-jpa_2.11/ivy-2.4.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-java-jpa_2.11/2.4.3/play-java-jpa_2.11-2.4.3.pom"/>
 				<caller organisation="movie_rec" name="movie_rec_2.11" conf="compile-internal, compile, provided, optional" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="1.0-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="play-java-jpa_2.11" type="jar" ext="jar" status="successful" details="" size="12825" time="245" location="/home/agauyeung/.ivy2/cache/com.typesafe.play/play-java-jpa_2.11/jars/play-java-jpa_2.11-2.4.3.jar">
+					<artifact name="play-java-jpa_2.11" type="jar" ext="jar" status="no" details="" size="12825" time="0" location="/home/agauyeung/.ivy2/cache/com.typesafe.play/play-java-jpa_2.11/jars/play-java-jpa_2.11-2.4.3.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/play-java-jpa_2.11/2.4.3/play-java-jpa_2.11-2.4.3.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.hibernate" name="hibernate-entitymanager">
-			<revision name="4.3.9.Final" status="release" pubdate="20150415152110" resolver="public" artresolver="public" homepage="http://hibernate.org" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="85">
+			<revision name="4.3.9.Final" status="release" pubdate="20150415152110" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hibernate.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="85">
 				<license name="GNU Lesser General Public License" url="http://www.gnu.org/licenses/lgpl-2.1.html"/>
-				<metadata-artifact status="successful" details="" size="3193" time="73" location="/home/agauyeung/.ivy2/cache/org.hibernate/hibernate-entitymanager/ivy-4.3.9.Final.xml" searched="true" original-local-location="/home/agauyeung/.ivy2/cache/org.hibernate/hibernate-entitymanager/ivy-4.3.9.Final.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/hibernate/hibernate-entitymanager/4.3.9.Final/hibernate-entitymanager-4.3.9.Final.pom"/>
+				<metadata-artifact status="no" details="" size="3737" time="0" location="/home/agauyeung/.ivy2/cache/org.hibernate/hibernate-entitymanager/ivy-4.3.9.Final.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/hibernate/hibernate-entitymanager/4.3.9.Final/hibernate-entitymanager-4.3.9.Final.pom"/>
 				<caller organisation="movie_rec" name="movie_rec_2.11" conf="compile-internal, compile, provided, optional" rev="4.3.9.Final" rev-constraint-default="4.3.9.Final" rev-constraint-dynamic="4.3.9.Final" callerrev="1.0-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="hibernate-entitymanager" type="jar" ext="jar" status="successful" details="" size="647565" time="467" location="/home/agauyeung/.ivy2/cache/org.hibernate/hibernate-entitymanager/jars/hibernate-entitymanager-4.3.9.Final.jar">
+					<artifact name="hibernate-entitymanager" type="jar" ext="jar" status="no" details="" size="647565" time="0" location="/home/agauyeung/.ivy2/cache/org.hibernate/hibernate-entitymanager/jars/hibernate-entitymanager-4.3.9.Final.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/hibernate/hibernate-entitymanager/4.3.9.Final/hibernate-entitymanager-4.3.9.Final.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.hibernate" name="hibernate-core">
-			<revision name="4.3.9.Final" status="release" pubdate="20150415152101" resolver="public" artresolver="public" homepage="http://hibernate.org" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="87">
+			<revision name="4.3.9.Final" status="release" pubdate="20150415152101" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hibernate.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="87">
 				<license name="GNU Lesser General Public License" url="http://www.gnu.org/licenses/lgpl-2.1.html"/>
-				<metadata-artifact status="successful" details="" size="3345" time="249" location="/home/agauyeung/.ivy2/cache/org.hibernate/hibernate-core/ivy-4.3.9.Final.xml" searched="true" original-local-location="/home/agauyeung/.ivy2/cache/org.hibernate/hibernate-core/ivy-4.3.9.Final.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/hibernate/hibernate-core/4.3.9.Final/hibernate-core-4.3.9.Final.pom"/>
+				<metadata-artifact status="no" details="" size="3834" time="0" location="/home/agauyeung/.ivy2/cache/org.hibernate/hibernate-core/ivy-4.3.9.Final.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/hibernate/hibernate-core/4.3.9.Final/hibernate-core-4.3.9.Final.pom"/>
 				<caller organisation="org.hibernate" name="hibernate-entitymanager" conf="default, compile, runtime, master" rev="4.3.9.Final" rev-constraint-default="4.3.9.Final" rev-constraint-dynamic="4.3.9.Final" callerrev="4.3.9.Final"/>
 				<artifacts>
-					<artifact name="hibernate-core" type="jar" ext="jar" status="successful" details="" size="5277940" time="2354" location="/home/agauyeung/.ivy2/cache/org.hibernate/hibernate-core/jars/hibernate-core-4.3.9.Final.jar">
+					<artifact name="hibernate-core" type="jar" ext="jar" status="no" details="" size="5277940" time="0" location="/home/agauyeung/.ivy2/cache/org.hibernate/hibernate-core/jars/hibernate-core-4.3.9.Final.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/hibernate/hibernate-core/4.3.9.Final/hibernate-core-4.3.9.Final.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.jboss" name="jandex">
-			<revision name="1.1.0.Final" status="release" pubdate="20130522125722" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="92">
+			<revision name="1.1.0.Final" status="release" pubdate="20130522125722" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="92">
 				<license name="AL 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
-				<metadata-artifact status="successful" details="" size="2317" time="52" location="/home/agauyeung/.ivy2/cache/org.jboss/jandex/ivy-1.1.0.Final.xml" searched="true" original-local-location="/home/agauyeung/.ivy2/cache/org.jboss/jandex/ivy-1.1.0.Final.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.pom"/>
+				<metadata-artifact status="no" details="" size="6536" time="0" location="/home/agauyeung/.ivy2/cache/org.jboss/jandex/ivy-1.1.0.Final.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.pom"/>
 				<caller organisation="org.hibernate" name="hibernate-core" conf="compile, runtime" rev="1.1.0.Final" rev-constraint-default="1.1.0.Final" rev-constraint-dynamic="1.1.0.Final" callerrev="4.3.9.Final"/>
 				<artifacts>
-					<artifact name="jandex" type="jar" ext="jar" status="successful" details="" size="76551" time="116" location="/home/agauyeung/.ivy2/cache/org.jboss/jandex/jars/jandex-1.1.0.Final.jar">
+					<artifact name="jandex" type="jar" ext="jar" status="no" details="" size="76551" time="0" location="/home/agauyeung/.ivy2/cache/org.jboss/jandex/jars/jandex-1.1.0.Final.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="antlr" name="antlr">
-			<revision name="2.7.7" status="release" pubdate="20070112222839" resolver="public" artresolver="public" homepage="http://www.antlr.org/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="91">
+			<revision name="2.7.7" status="release" pubdate="20070112222839" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.antlr.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="91">
 				<license name="BSD License" url="http://www.antlr.org/license.html"/>
-				<metadata-artifact status="successful" details="" size="632" time="45" location="/home/agauyeung/.ivy2/cache/antlr/antlr/ivy-2.7.7.xml" searched="true" original-local-location="/home/agauyeung/.ivy2/cache/antlr/antlr/ivy-2.7.7.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/antlr/antlr/2.7.7/antlr-2.7.7.pom"/>
+				<metadata-artifact status="no" details="" size="2439" time="0" location="/home/agauyeung/.ivy2/cache/antlr/antlr/ivy-2.7.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/antlr/antlr/2.7.7/antlr-2.7.7.pom"/>
 				<caller organisation="org.hibernate" name="hibernate-core" conf="compile, runtime" rev="2.7.7" rev-constraint-default="2.7.7" rev-constraint-dynamic="2.7.7" callerrev="4.3.9.Final"/>
 				<artifacts>
-					<artifact name="antlr" type="jar" ext="jar" status="successful" details="" size="445288" time="375" location="/home/agauyeung/.ivy2/cache/antlr/antlr/jars/antlr-2.7.7.jar">
+					<artifact name="antlr" type="jar" ext="jar" status="no" details="" size="445288" time="0" location="/home/agauyeung/.ivy2/cache/antlr/antlr/jars/antlr-2.7.7.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.hibernate.common" name="hibernate-commons-annotations">
-			<revision name="4.0.5.Final" status="release" pubdate="20140711152350" resolver="public" artresolver="public" homepage="http://hibernate.org" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="90">
+			<revision name="4.0.5.Final" status="release" pubdate="20140711152350" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hibernate.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="90">
 				<license name="GNU Lesser General Public License" url="http://www.gnu.org/licenses/lgpl-2.1.html"/>
-				<metadata-artifact status="successful" details="" size="2105" time="198" location="/home/agauyeung/.ivy2/cache/org.hibernate.common/hibernate-commons-annotations/ivy-4.0.5.Final.xml" searched="true" original-local-location="/home/agauyeung/.ivy2/cache/org.hibernate.common/hibernate-commons-annotations/ivy-4.0.5.Final.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/hibernate/common/hibernate-commons-annotations/4.0.5.Final/hibernate-commons-annotations-4.0.5.Final.pom"/>
+				<metadata-artifact status="no" details="" size="2801" time="0" location="/home/agauyeung/.ivy2/cache/org.hibernate.common/hibernate-commons-annotations/ivy-4.0.5.Final.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/hibernate/common/hibernate-commons-annotations/4.0.5.Final/hibernate-commons-annotations-4.0.5.Final.pom"/>
 				<caller organisation="org.hibernate" name="hibernate-core" conf="compile, runtime" rev="4.0.5.Final" rev-constraint-default="4.0.5.Final" rev-constraint-dynamic="4.0.5.Final" callerrev="4.3.9.Final"/>
 				<caller organisation="org.hibernate" name="hibernate-entitymanager" conf="default, compile, runtime, master" rev="4.0.5.Final" rev-constraint-default="4.0.5.Final" rev-constraint-dynamic="4.0.5.Final" callerrev="4.3.9.Final"/>
 				<artifacts>
-					<artifact name="hibernate-commons-annotations" type="jar" ext="jar" status="successful" details="" size="75324" time="128" location="/home/agauyeung/.ivy2/cache/org.hibernate.common/hibernate-commons-annotations/jars/hibernate-commons-annotations-4.0.5.Final.jar">
+					<artifact name="hibernate-commons-annotations" type="jar" ext="jar" status="no" details="" size="75324" time="0" location="/home/agauyeung/.ivy2/cache/org.hibernate.common/hibernate-commons-annotations/jars/hibernate-commons-annotations-4.0.5.Final.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/hibernate/common/hibernate-commons-annotations/4.0.5.Final/hibernate-commons-annotations-4.0.5.Final.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.jboss.spec.javax.transaction" name="jboss-transaction-api_1.2_spec">
-			<revision name="1.0.0.Final" status="release" pubdate="20131008124408" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="88">
+			<revision name="1.0.0.Final" status="release" pubdate="20131008124408" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="88">
 				<license name="Common Development and Distribution License" url="http://repository.jboss.org/licenses/cddl.txt"/>
 				<license name="GNU General Public License, Version 2 with the Classpath Exception" url="http://repository.jboss.org/licenses/gpl-2.0-ce.txt"/>
-				<metadata-artifact status="successful" details="" size="4574" time="216" location="/home/agauyeung/.ivy2/cache/org.jboss.spec.javax.transaction/jboss-transaction-api_1.2_spec/ivy-1.0.0.Final.xml" searched="true" original-local-location="/home/agauyeung/.ivy2/cache/org.jboss.spec.javax.transaction/jboss-transaction-api_1.2_spec/ivy-1.0.0.Final.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.pom"/>
+				<metadata-artifact status="no" details="" size="8339" time="0" location="/home/agauyeung/.ivy2/cache/org.jboss.spec.javax.transaction/jboss-transaction-api_1.2_spec/ivy-1.0.0.Final.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.pom"/>
 				<caller organisation="org.hibernate" name="hibernate-core" conf="compile, runtime" rev="1.0.0.Final" rev-constraint-default="1.0.0.Final" rev-constraint-dynamic="1.0.0.Final" callerrev="4.3.9.Final"/>
 				<caller organisation="org.hibernate" name="hibernate-entitymanager" conf="default, compile, runtime, master" rev="1.0.0.Final" rev-constraint-default="1.0.0.Final" rev-constraint-dynamic="1.0.0.Final" callerrev="4.3.9.Final"/>
 				<artifacts>
-					<artifact name="jboss-transaction-api_1.2_spec" type="jar" ext="jar" status="successful" details="" size="27717" time="84" location="/home/agauyeung/.ivy2/cache/org.jboss.spec.javax.transaction/jboss-transaction-api_1.2_spec/jars/jboss-transaction-api_1.2_spec-1.0.0.Final.jar">
+					<artifact name="jboss-transaction-api_1.2_spec" type="jar" ext="jar" status="no" details="" size="27717" time="0" location="/home/agauyeung/.ivy2/cache/org.jboss.spec.javax.transaction/jboss-transaction-api_1.2_spec/jars/jboss-transaction-api_1.2_spec-1.0.0.Final.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.jboss.logging" name="jboss-logging-annotations">
-			<revision name="1.2.0.Beta1" status="release" pubdate="20130618164159" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="86">
-				<metadata-artifact status="successful" details="" size="1917" time="78" location="/home/agauyeung/.ivy2/cache/org.jboss.logging/jboss-logging-annotations/ivy-1.2.0.Beta1.xml" searched="true" original-local-location="/home/agauyeung/.ivy2/cache/org.jboss.logging/jboss-logging-annotations/ivy-1.2.0.Beta1.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.pom"/>
+			<revision name="1.2.0.Beta1" status="release" pubdate="20130618164159" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="86">
+				<metadata-artifact status="no" details="" size="9594" time="0" location="/home/agauyeung/.ivy2/cache/org.jboss.logging/jboss-logging-annotations/ivy-1.2.0.Beta1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.pom"/>
 				<caller organisation="org.hibernate" name="hibernate-core" conf="compile, runtime" rev="1.2.0.Beta1" rev-constraint-default="1.2.0.Beta1" rev-constraint-dynamic="1.2.0.Beta1" callerrev="4.3.9.Final"/>
 				<caller organisation="org.hibernate" name="hibernate-entitymanager" conf="default, compile, runtime, master" rev="1.2.0.Beta1" rev-constraint-default="1.2.0.Beta1" rev-constraint-dynamic="1.2.0.Beta1" callerrev="4.3.9.Final"/>
 				<caller organisation="org.hibernate.common" name="hibernate-commons-annotations" conf="compile, runtime" rev="1.2.0.Beta1" rev-constraint-default="1.2.0.Beta1" rev-constraint-dynamic="1.2.0.Beta1" callerrev="4.0.5.Final"/>
 				<artifacts>
-					<artifact name="jboss-logging-annotations" type="jar" ext="jar" status="successful" details="" size="11558" time="55" location="/home/agauyeung/.ivy2/cache/org.jboss.logging/jboss-logging-annotations/jars/jboss-logging-annotations-1.2.0.Beta1.jar">
+					<artifact name="jboss-logging-annotations" type="jar" ext="jar" status="no" details="" size="11558" time="0" location="/home/agauyeung/.ivy2/cache/org.jboss.logging/jboss-logging-annotations/jars/jboss-logging-annotations-1.2.0.Beta1.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="org.hibernate.javax.persistence" name="hibernate-jpa-2.1-api">
-			<revision name="1.0.0.Final" status="release" pubdate="20130726100144" resolver="public" artresolver="public" homepage="http://hibernate.org" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="73">
+			<revision name="1.0.0.Final" status="release" pubdate="20130726100144" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hibernate.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="73">
 				<license name="Eclipse Public License (EPL), Version 1.0" url="http://www.eclipse.org/legal/epl-v10.html"/>
 				<license name="Eclipse Distribution License (EDL), Version 1.0" url="http://www.eclipse.org/org/documents/edl-v10.php"/>
-				<metadata-artifact status="successful" details="" size="2208" time="85" location="/home/agauyeung/.ivy2/cache/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/ivy-1.0.0.Final.xml" searched="true" original-local-location="/home/agauyeung/.ivy2/cache/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/ivy-1.0.0.Final.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.pom"/>
+				<metadata-artifact status="no" details="" size="2634" time="0" location="/home/agauyeung/.ivy2/cache/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/ivy-1.0.0.Final.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.pom"/>
 				<caller organisation="org.hibernate" name="hibernate-core" conf="compile, runtime" rev="1.0.0.Final" rev-constraint-default="1.0.0.Final" rev-constraint-dynamic="1.0.0.Final" callerrev="4.3.9.Final"/>
 				<caller organisation="com.typesafe.play" name="play-java-jpa_2.11" conf="default, compile, runtime, master" rev="1.0.0.Final" rev-constraint-default="1.0.0.Final" rev-constraint-dynamic="1.0.0.Final" callerrev="2.4.3"/>
 				<caller organisation="org.hibernate" name="hibernate-entitymanager" conf="default, compile, runtime, master" rev="1.0.0.Final" rev-constraint-default="1.0.0.Final" rev-constraint-dynamic="1.0.0.Final" callerrev="4.3.9.Final"/>
 				<artifacts>
-					<artifact name="hibernate-jpa-2.1-api" type="jar" ext="jar" status="successful" details="" size="113371" time="127" location="/home/agauyeung/.ivy2/cache/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/jars/hibernate-jpa-2.1-api-1.0.0.Final.jar">
+					<artifact name="hibernate-jpa-2.1-api" type="jar" ext="jar" status="no" details="" size="113371" time="0" location="/home/agauyeung/.ivy2/cache/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/jars/hibernate-jpa-2.1-api-1.0.0.Final.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
 					</artifact>
 				</artifacts>
@@ -826,12 +826,12 @@
 			</revision>
 		</module>
 		<module organisation="dom4j" name="dom4j">
-			<revision name="1.6.1" status="release" pubdate="20060210043318" resolver="public" artresolver="public" homepage="http://dom4j.org" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="89">
-				<metadata-artifact status="successful" details="" size="6765" time="98" location="/home/agauyeung/.ivy2/cache/dom4j/dom4j/ivy-1.6.1.xml" searched="true" original-local-location="/home/agauyeung/.ivy2/cache/dom4j/dom4j/ivy-1.6.1.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/dom4j/dom4j/1.6.1/dom4j-1.6.1.pom"/>
+			<revision name="1.6.1" status="release" pubdate="20060210043318" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://dom4j.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="89">
+				<metadata-artifact status="no" details="" size="3725" time="0" location="/home/agauyeung/.ivy2/cache/dom4j/dom4j/ivy-1.6.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/dom4j/dom4j/1.6.1/dom4j-1.6.1.pom"/>
 				<caller organisation="org.hibernate" name="hibernate-core" conf="compile, runtime" rev="1.6.1" rev-constraint-default="1.6.1" rev-constraint-dynamic="1.6.1" callerrev="4.3.9.Final"/>
 				<caller organisation="org.hibernate" name="hibernate-entitymanager" conf="default, compile, runtime, master" rev="1.6.1" rev-constraint-default="1.6.1" rev-constraint-dynamic="1.6.1" callerrev="4.3.9.Final"/>
 				<artifacts>
-					<artifact name="dom4j" type="jar" ext="jar" status="successful" details="" size="313898" time="211" location="/home/agauyeung/.ivy2/cache/dom4j/dom4j/jars/dom4j-1.6.1.jar">
+					<artifact name="dom4j" type="jar" ext="jar" status="no" details="" size="313898" time="0" location="/home/agauyeung/.ivy2/cache/dom4j/dom4j/jars/dom4j-1.6.1.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
 					</artifact>
 				</artifacts>

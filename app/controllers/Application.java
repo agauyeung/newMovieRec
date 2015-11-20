@@ -153,7 +153,7 @@ public class Application extends Controller {
         preset.m3 = 0;
         preset.m4 = 0;
         preset.m5 = 0;
-        preset.m6 = 5;
+        preset.m6 = 0;
         preset.m7 = 0;
         preset.m8 = 0;
         preset.m9 = 0;

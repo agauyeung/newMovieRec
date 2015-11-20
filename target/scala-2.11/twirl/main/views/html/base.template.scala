@@ -35,34 +35,53 @@ Seq[Any](format.raw/*1.32*/("""
 
 <html lang="en">
     <head>
-        <title>"""),_display_(/*7.17*/title),format.raw/*7.22*/("""</title>
-        <link rel="stylesheet" media="screen" href=""""),_display_(/*8.54*/routes/*8.60*/.Assets.versioned("stylesheets/main.css")),format.raw/*8.101*/("""">
-        <link rel="shortcut icon" type="image/png" href=""""),_display_(/*9.59*/routes/*9.65*/.Assets.versioned("images/favicon.png")),format.raw/*9.104*/("""">
-        <script src=""""),_display_(/*10.23*/routes/*10.29*/.Assets.versioned("javascripts/hello.js")),format.raw/*10.70*/("""" type="text/javascript"></script>
-        
-        <b>Movie Recommendation System</b>
-        <hr>
-    </head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>"""),_display_(/*11.17*/title),format.raw/*11.22*/("""</title>
+        <link rel="stylesheet" href=""""),_display_(/*12.39*/routes/*12.45*/.Assets.versioned("stylesheets/bootstrap.min.css")),format.raw/*12.95*/("""">
+        <link rel="stylesheet" href=""""),_display_(/*13.39*/routes/*13.45*/.Assets.versioned("stylesheets/font-awesome.min.css")),format.raw/*13.98*/("""">
+        <link rel="stylesheet" href=""""),_display_(/*14.39*/routes/*14.45*/.Assets.versioned("stylesheets/prettyPhoto.css")),format.raw/*14.93*/("""">
+        <link rel="stylesheet" href=""""),_display_(/*15.39*/routes/*15.45*/.Assets.versioned("stylesheets/animate.css")),format.raw/*15.89*/("""">
+        <link rel="stylesheet" href=""""),_display_(/*16.39*/routes/*16.45*/.Assets.versioned("stylesheets/main.css")),format.raw/*16.86*/("""">
+
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->       
+        <link rel="shortcut icon" href="public/images/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href=""""),_display_(/*23.73*/routes/*23.79*/.Assets.versioned("images/ico/apple-touch-icon-144-precomposed.png")),format.raw/*23.147*/("""">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href=""""),_display_(/*24.73*/routes/*24.79*/.Assets.versioned("images/ico/apple-touch-icon-114-precomposed.png")),format.raw/*24.147*/("""">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href=""""),_display_(/*25.71*/routes/*25.77*/.Assets.versioned("images/ico/apple-touch-icon-72-precomposed.png")),format.raw/*25.144*/("""">
+        <link rel="apple-touch-icon-precomposed" href=""""),_display_(/*26.57*/routes/*26.63*/.Assets.versioned("images/ico/apple-touch-icon-57-precomposed.png")),format.raw/*26.130*/("""">
+    </head><!--/head-->
     <body>
-        Current Page:&#09;<i>"""),_display_(/*16.31*/title),format.raw/*16.36*/("""</i>
-        <hr>
-        Menu:&#09;&#09;
-        <a href="recommended">Recommended For You</a>
-        &#09;&#09;|&#09;&#09;
-        <a href="history">Rating History</a>
-        &#09;&#09;|&#09;&#09;
-        <a href="register_user">User Registration</a>
-        &#09;&#09;|&#09;&#09;
-        <a href="rate">Rate 10 Movies</a>
-        &#09;&#09;|&#09;&#09;
-        <a href="view">View Movies</a>
-        &#09;&#09;|&#09;&#09;
-        <a href="users">View Users</a>
-        <hr>
-        
-        """),_display_(/*32.10*/content),format.raw/*32.17*/("""
-        
-    """),format.raw/*34.5*/("""</body>
+        <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="view"><img src=""""),_display_(/*38.68*/routes/*38.74*/.Assets.versioned("images/logo.png")),format.raw/*38.110*/("""" alt="logo"></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="recommended">Recommended for you</a></li>
+                        <li><a href="history">Rating history</a></li>
+                        <li><a href="register_user">User Registeration</a></li>
+                        <li><a href="rate">Rate 10 Movies</a></li> 
+                        <li><a href="view">View Movies</a></li>
+                        <li><a href="users">View Users</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header><!--/header-->
+        """),_display_(/*52.10*/content),format.raw/*52.17*/("""
+    """),format.raw/*53.5*/("""</body>
 </html>
 """))
       }
@@ -84,11 +103,11 @@ Seq[Any](format.raw/*1.32*/("""
 object base extends base_Scope0.base
               /*
                   -- GENERATED --
-                  DATE: Wed Nov 04 17:41:45 PST 2015
-                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/cs490_movie_rec/app/views/base.scala.html
-                  HASH: 02c2ce6cb9df069ab264d555694422be0bb43dbf
-                  MATRIX: 748->1|873->31|901->33|988->94|1013->99|1101->161|1115->167|1177->208|1264->269|1278->275|1338->314|1390->339|1405->345|1467->386|1647->539|1673->544|2196->1040|2224->1047|2265->1061
-                  LINES: 27->1|32->1|34->3|38->7|38->7|39->8|39->8|39->8|40->9|40->9|40->9|41->10|41->10|41->10|47->16|47->16|63->32|63->32|65->34
+                  DATE: Fri Nov 20 03:00:22 PST 2015
+                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/base.scala.html
+                  HASH: 016c38f4e898b48bb32defff5942773b47b8d509
+                  MATRIX: 748->1|873->31|901->33|1184->289|1210->294|1284->341|1299->347|1370->397|1438->438|1453->444|1527->497|1595->538|1610->544|1679->592|1747->633|1762->639|1827->683|1895->724|1910->730|1972->771|2299->1071|2314->1077|2404->1145|2506->1220|2521->1226|2611->1294|2711->1367|2726->1373|2815->1440|2901->1499|2916->1505|3005->1572|3692->2232|3707->2238|3765->2274|4483->2965|4511->2972|4543->2977
+                  LINES: 27->1|32->1|34->3|42->11|42->11|43->12|43->12|43->12|44->13|44->13|44->13|45->14|45->14|45->14|46->15|46->15|46->15|47->16|47->16|47->16|54->23|54->23|54->23|55->24|55->24|55->24|56->25|56->25|56->25|57->26|57->26|57->26|69->38|69->38|69->38|83->52|83->52|84->53
                   -- GENERATED --
               */
           

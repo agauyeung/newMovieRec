@@ -58,8 +58,8 @@ Seq[Any](format.raw/*1.48*/("""
 object results extends results_Scope0.results
               /*
                   -- GENERATED --
-                  DATE: Wed Nov 04 17:41:45 PST 2015
-                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/cs490_movie_rec/app/views/results.scala.html
+                  DATE: Fri Nov 20 02:00:24 PST 2015
+                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/results.scala.html
                   HASH: f64c404ae952e6fe9e1d548abb2b49bf9ca384fc
                   MATRIX: 762->1|903->47|931->50|950->61|989->63|1017->111|1049->154|1080->160|1133->198|1172->200|1208->210|1242->224|1279->235|1318->245|1349->247
                   LINES: 27->1|32->1|34->3|34->3|34->3|34->3|35->4|36->5|36->5|36->5|37->6|37->6|38->7|39->8|40->9

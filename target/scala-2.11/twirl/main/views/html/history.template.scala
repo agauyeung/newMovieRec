@@ -55,8 +55,8 @@ Seq[Any](format.raw/*1.17*/("""
 object history extends history_Scope0.history
               /*
                   -- GENERATED --
-                  DATE: Wed Nov 04 17:41:45 PST 2015
-                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/cs490_movie_rec/app/views/history.scala.html
+                  DATE: Fri Nov 20 02:00:24 PST 2015
+                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/history.scala.html
                   HASH: ac16462e0221a72d186e68495dcd44d5f460c5b3
                   MATRIX: 749->1|859->16|887->19|906->30|945->32|973->80|1006->124|1037->126
                   LINES: 27->1|32->1|34->3|34->3|34->3|34->3|36->5|37->6
