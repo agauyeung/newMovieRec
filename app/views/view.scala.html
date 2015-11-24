@@ -1,13 +1,15 @@
-@(movies: List[Movies])
+@(title: String, movies: List[Movies])
 
-<h1>View All Movies/<h1>
-
-<ul> 
-@for(movie <- movies) {
-  <li>@movie.name
+@base(title) {
+    <h1>All Movies<h1>
+    
     <ul> 
-        @movie.director
+    @for(movie <- movies) {
+      <li>@movie.name
+        <ul> 
+            @movie.director
+        </ul>
+      </li>
+    } 
     </ul>
-  </li>
-} 
-</ul>
+}

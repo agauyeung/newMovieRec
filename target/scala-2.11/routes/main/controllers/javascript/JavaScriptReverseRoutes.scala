@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/conf/routes
-// @DATE:Fri Nov 20 02:57:05 PST 2015
+// @DATE:Mon Nov 23 19:29:55 PST 2015
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -73,22 +73,12 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:35
+    // @LINE:33
     def registered: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.registered",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "registered"})
-        }
-      """
-    )
-  
-    // @LINE:31
-    def results: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.results",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "results"})
         }
       """
     )
@@ -103,7 +93,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:33
+    // @LINE:31
     def random: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.random",
       """

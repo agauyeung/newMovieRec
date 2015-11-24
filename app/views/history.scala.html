@@ -1,6 +1,18 @@
-@(title: String)
+@(title: String, history: List[MovieRatings])
 
 @base(title) {	@*using main template, with page title as arg*@
 
     @* CONTENTS FOR RATING HISTORY PAGE *@
+    @if(history.isEmpty) {
+        <font color="red">
+        <br>You haven't rated any movies yet.
+        </font>
+    }
+    @for(rating <- history) {
+        Movie ID: 
+        @rating.movieID
+        Rating: 
+        @rating.movieRating
+        <br>
+    }
 }

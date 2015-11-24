@@ -7,6 +7,7 @@ import play.mvc.*;
 import play.db.*;
 import play.data.*;
 import models.TenRatings;
+import models.MovieRatings;
 import models.MovieRecommender;
 import models.Movies;
 import models.Users;
@@ -26,6 +27,7 @@ public class Application extends Controller {
     static boolean filled = false;
     final static Form<Users> dbRegForm = Form.form(Users.class);
     //final static Form<Login> loginForm = Form.form(Login.class);
+    static int userID = 1;
 
     List<Integer> randMovieIDs = null;
     
@@ -42,22 +44,23 @@ public class Application extends Controller {
     //CAN CREATE methods to open other pages...
 
     public Result recommended() {
-    	/*
-        //TODO: 
-        if (user has NOT rated 10 movies) {
+        List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
+    	
+        if (storedRatings.size() < 10) {
             return rate();
         } else {
-            //TODO: HashMap<Integer, Integer> ratingsMap = ALL RATINGS FROM USER
-            List<String> recommendations = movRec.getRecommendations(movRec.createNewUserVector(ratingsMap));
-            return ok(results.render("Recommended for You", recommendations));
+            List<String> recommendations = movRec.getRecommendations(movRec.createNewUserVectorUsingList(storedRatings));
+            return ok(recommended.render("Recommended for You", recommendations));
         }
-        */
-        return ok(recommended.render("Recommended For You"));
+        
+        //return ok(recommended.render("Recommended For You"));
     }
     
     public Result history() {
+        List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
+        
         //Pass in a list of strings in format Movie Title: Rating
-        return ok(history.render("Rating History"));
+        return ok(history.render("Rating History", storedRatings));
     }
     
     
@@ -72,13 +75,13 @@ public class Application extends Controller {
     **/
 
     public Result view() {
-        return ok(view.render( 
+        return ok(view.render("View Movies", 
             Movies.find.all()
         ));
     }
     
     public Result users() {
-        return ok(users.render( 
+        return ok(users.render("View Users", 
             Users.find.all()
         ));
     }
@@ -127,12 +130,9 @@ public class Application extends Controller {
     /** DEMO */
     public Result rate() { 	
         //Send Ratings to Database. Ensures form is filled to 0.
-        if (!filled) {
-            filled = true;
-        } else {
-            addRatings();
-        }
-        
+        addRatings();
+
+        //TODO: Make sure we don't get movieIDs the user has already rated.
         randMovieIDs = movRec.getRandMovies();
         List<String> tenMoviesTest = new ArrayList<String>();
         for (int i = 0; i < randMovieIDs.size(); i++) {
@@ -143,7 +143,7 @@ public class Application extends Controller {
         TenRatings preset = presetRatingsForm();
         
         System.out.println("CALLING RATE PAGE");
-        return ok(rate.render("Rate 10 Movies", tenMoviesTest, ratingsForm.fill(preset)));
+        return ok(rate.render("Rate Movies", tenMoviesTest, ratingsForm.fill(preset)));
     }
     
     public TenRatings presetRatingsForm() {
@@ -168,6 +168,9 @@ public class Application extends Controller {
         /** DO NOT USE filledForm.get() because Eclipse Build interferes with it
          *  WILL GET 0 or NULL values.
          */
+        if (formMap.get("m1") == null) {
+            return null;
+        }
         
         //Grab each rating in from the form and add to User Ratings.
         HashMap<Integer, Integer> ratingsMap = new HashMap<Integer, Integer>();
@@ -188,30 +191,25 @@ public class Application extends Controller {
         		//add rating to database
         	}
         }*/
+        //save
+        
         return ratingsMap;
     }
     
+/*  DEPRECATED: FROM DEMO  
     public Result results() {
         HashMap<Integer, Integer> ratingsMap = addRatings();
         
-        //TODO: CHECK to see if user has rated at least 10 movies
-        //      If not, return rate()
-        //      ELSE, continue.
-
-        //TODO: GRAB ALL RATINGS FROM USER TO CREATE A NEW ratingsMap. COMMENT OUT PREVIOUS HASHMAP
-        //TODO: RENAME this method to GET RECOMMENDATIONS
-        
-        
         //Call getRecommendation() to populate recommendations ArrayList
-        List<String> recommendations = movRec.getRecommendations(movRec.createNewUserVector(ratingsMap));
+        List<String> recommendations = movRec.getRecommendations(movRec.createNewUserVectorUsingMap(ratingsMap));
         
         return ok(results.render("Results", recommendations));
     }
-    
+*/    
     /** TESTING */
     public Result random() {
     	List<String> recommendations = movRec.getRecommendations(movRec.genRandUser());
 
-    	return ok(results.render("Random", recommendations));
+    	return ok(recommended.render("Random", recommendations));
     }
 }

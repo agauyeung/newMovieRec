@@ -145,12 +145,25 @@ public class MovieRecommender {
         return movies.get(movieID);
     }
     
-    public SparseMatrix createNewUserVector(HashMap<Integer, Integer> ratingsMap) {
+    public SparseMatrix createNewUserVectorUsingMap(HashMap<Integer, Integer> ratingsMap) {
     	SparseMatrix vector = new SparseMatrix(1, getNumOfMovies());
 		System.out.println("Ratings:");
     	for (int movieID : ratingsMap.keySet()) {
     	    System.out.println("MovieID: " + movieID + ", Rating: " + ratingsMap.get(movieID));
     		vector.set(0, movieID, ratingsMap.get(movieID));
+    	}
+    	return vector;
+    }
+    
+    public SparseMatrix createNewUserVectorUsingList(List<MovieRatings> ratingsList) {
+        SparseMatrix vector = new SparseMatrix(1, getNumOfMovies());
+		System.out.println("Ratings:");
+		int movieID;
+		
+    	for (MovieRatings rating : ratingsList) {
+    	    movieID = rating.movieID;
+    	    System.out.println("MovieID: " + movieID + ", Rating: " + rating.movieRating);
+    		vector.set(0, movieID, rating.movieRating);
     	}
     	return vector;
     }

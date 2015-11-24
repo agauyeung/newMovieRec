@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/conf/routes
-// @DATE:Fri Nov 20 02:57:05 PST 2015
+// @DATE:Mon Nov 23 19:29:55 PST 2015
 
 package router
 
@@ -51,7 +51,6 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users""", """controllers.Application.users()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rate""", """controllers.Application.rate()"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """results""", """controllers.Application.results()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """random""", """controllers.Application.random()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registered""", """controllers.Application.registered()"""),
     Nil
@@ -198,27 +197,10 @@ class Routes(
   )
 
   // @LINE:31
-  private[this] lazy val controllers_Application_results8_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("results")))
-  )
-  private[this] lazy val controllers_Application_results8_invoker = createInvoker(
-    Application_1.results(),
-    HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.Application",
-      "results",
-      Nil,
-      "POST",
-      """ Results""",
-      this.prefix + """results"""
-    )
-  )
-
-  // @LINE:33
-  private[this] lazy val controllers_Application_random9_route = Route("GET",
+  private[this] lazy val controllers_Application_random8_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("random")))
   )
-  private[this] lazy val controllers_Application_random9_invoker = createInvoker(
+  private[this] lazy val controllers_Application_random8_invoker = createInvoker(
     Application_1.random(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -231,11 +213,11 @@ class Routes(
     )
   )
 
-  // @LINE:35
-  private[this] lazy val controllers_Application_registered10_route = Route("POST",
+  // @LINE:33
+  private[this] lazy val controllers_Application_registered9_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("registered")))
   )
-  private[this] lazy val controllers_Application_registered10_invoker = createInvoker(
+  private[this] lazy val controllers_Application_registered9_invoker = createInvoker(
     Application_1.registered(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -300,21 +282,15 @@ class Routes(
       }
   
     // @LINE:31
-    case controllers_Application_results8_route(params) =>
+    case controllers_Application_random8_route(params) =>
       call { 
-        controllers_Application_results8_invoker.call(Application_1.results())
+        controllers_Application_random8_invoker.call(Application_1.random())
       }
   
     // @LINE:33
-    case controllers_Application_random9_route(params) =>
+    case controllers_Application_registered9_route(params) =>
       call { 
-        controllers_Application_random9_invoker.call(Application_1.random())
-      }
-  
-    // @LINE:35
-    case controllers_Application_registered10_route(params) =>
-      call { 
-        controllers_Application_registered10_invoker.call(Application_1.registered())
+        controllers_Application_registered9_invoker.call(Application_1.registered())
       }
   }
 }

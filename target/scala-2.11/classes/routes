@@ -27,8 +27,6 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 # Ratings
 GET     /rate                       controllers.Application.rate()
 
-# Results
-POST    /results                    controllers.Application.results()
 
 GET     /random                    controllers.Application.random()
 
