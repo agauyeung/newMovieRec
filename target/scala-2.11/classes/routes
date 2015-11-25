@@ -35,3 +35,5 @@ POST     /registered                 controllers.Application.registered()
 #Login
 
 GET     /login                  controllers.Application.login()
+
+POST     /authenticate                  controllers.Application.authenticate()

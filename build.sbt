@@ -12,7 +12,8 @@ libraryDependencies ++= Seq(
   cache,
   javaWs,
   "mysql" % "mysql-connector-java" % "5.1.36",
-  "org.hibernate" % "hibernate-entitymanager" % "4.3.9.Final"
+  "org.hibernate" % "hibernate-entitymanager" % "4.3.9.Final",
+  "org.mindrot" % "jbcrypt" % "0.3m"
 )
 
 // Play provides two styles of routers, one expects its actions to be injected, the

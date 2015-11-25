@@ -1,3 +1,8 @@
-[0m[[31merror[0m] [0m/Users/alphaneo1/newMovieRec/app/controllers/Application.java:74:  play.data.Form<models.Login> cannot be converted to play.data.Form<models.Users>[0m
-[0m[[31merror[0m] [0mloginForm[0m
-[0m[[0minfo[0m] [0mSome messages have been simplified; recompile with -Xdiags:verbose to get full output[0m
+[0m[[31merror[0m] [0m/Users/alphaneo1/newMovieRec/app/controllers/Application.java:110: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   variable username[0m
+[0m[[31merror[0m] [0m  location: class controllers.Application[0m
+[0m[[31merror[0m] [0musername[0m
+[0m[[31merror[0m] [0m/Users/alphaneo1/newMovieRec/app/controllers/Application.java:113: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   variable username[0m
+[0m[[31merror[0m] [0m  location: class controllers.Application[0m
+[0m[[31merror[0m] [0musername[0m

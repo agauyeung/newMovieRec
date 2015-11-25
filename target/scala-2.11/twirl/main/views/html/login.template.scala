@@ -34,7 +34,7 @@ Seq[Any](format.raw/*1.41*/("""
 """),_display_(/*4.2*/base(title)/*4.13*/ {_display_(Seq[Any](format.raw/*4.15*/("""	"""),format.raw/*4.63*/("""
 
     """),format.raw/*6.41*/("""
-    """),_display_(/*7.6*/form(action = routes.Application.registered(), 'id -> "loginForm")/*7.72*/ {_display_(Seq[Any](format.raw/*7.74*/("""
+    """),_display_(/*7.6*/form(action = routes.Application.authenticate(), 'id -> "loginForm")/*7.74*/ {_display_(Seq[Any](format.raw/*7.76*/("""
         
         """),_display_(/*9.10*/inputText(field = loginForm("email"), 'placeholder -> "email")),format.raw/*9.72*/("""
         """),_display_(/*10.10*/inputText(field = loginForm("password"), 'placeholder -> "password")),format.raw/*10.78*/("""
@@ -63,10 +63,10 @@ Seq[Any](format.raw/*1.41*/("""
 object login extends login_Scope0.login
               /*
                   -- GENERATED --
-                  DATE: Wed Nov 25 02:26:09 PST 2015
+                  DATE: Wed Nov 25 04:08:51 PST 2015
                   SOURCE: /Users/alphaneo1/newMovieRec/app/views/login.scala.html
-                  HASH: 4808da718421b68ac116f768370a79b77ed12192
-                  MATRIX: 757->1|906->40|933->58|960->60|979->71|1018->73|1046->121|1079->163|1110->169|1184->235|1223->237|1268->256|1350->318|1387->328|1476->396|1512->405|1607->470|1640->473
+                  HASH: 3843d4f41eddf9f13d82b6925ee7eeb39c7f5427
+                  MATRIX: 757->1|906->40|933->58|960->60|979->71|1018->73|1046->121|1079->163|1110->169|1186->237|1225->239|1270->258|1352->320|1389->330|1478->398|1514->407|1609->472|1642->475
                   LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|37->7|37->7|37->7|39->9|39->9|40->10|40->10|41->11|43->13|45->15
                   -- GENERATED --
               */

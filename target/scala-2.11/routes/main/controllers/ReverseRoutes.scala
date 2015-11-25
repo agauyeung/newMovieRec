@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/alphaneo1/newMovieRec/conf/routes
-// @DATE:Wed Nov 25 02:29:04 PST 2015
+// @DATE:Wed Nov 25 04:14:07 PST 2015
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -75,6 +75,12 @@ package controllers {
     def history(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "history")
+    }
+  
+    // @LINE:39
+    def authenticate(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "authenticate")
     }
   
     // @LINE:6

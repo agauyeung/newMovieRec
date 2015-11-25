@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/alphaneo1/newMovieRec/conf/routes
-// @DATE:Wed Nov 25 02:29:04 PST 2015
+// @DATE:Wed Nov 25 04:14:07 PST 2015
 
 package router
 
@@ -54,6 +54,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """random""", """controllers.Application.random()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registered""", """controllers.Application.registered()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.Application.login()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """authenticate""", """controllers.Application.authenticate()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -248,6 +249,23 @@ class Routes(
     )
   )
 
+  // @LINE:39
+  private[this] lazy val controllers_Application_authenticate11_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("authenticate")))
+  )
+  private[this] lazy val controllers_Application_authenticate11_invoker = createInvoker(
+    Application_1.authenticate(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Application",
+      "authenticate",
+      Nil,
+      "POST",
+      """""",
+      this.prefix + """authenticate"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -315,6 +333,12 @@ class Routes(
     case controllers_Application_login10_route(params) =>
       call { 
         controllers_Application_login10_invoker.call(Application_1.login())
+      }
+  
+    // @LINE:39
+    case controllers_Application_authenticate11_route(params) =>
+      call { 
+        controllers_Application_authenticate11_invoker.call(Application_1.authenticate())
       }
   }
 }
