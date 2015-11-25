@@ -57,8 +57,8 @@ Seq[Any](format.raw/*1.35*/("""
 object authenticated extends authenticated_Scope0.authenticated
               /*
                   -- GENERATED --
-                  DATE: Fri Nov 20 02:00:24 PST 2015
-                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/authenticated.scala.html
+                  DATE: Tue Nov 24 19:30:22 PST 2015
+                  SOURCE: /Users/alphaneo1/newMovieRec/app/views/authenticated.scala.html
                   HASH: e47220cb2b3c8cc490d4860455fb86d8bb6670ff
                   MATRIX: 768->1|896->34|924->37|943->48|982->50|1010->98|1042->104|1078->114|1106->122|1166->153
                   LINES: 27->1|32->1|34->3|34->3|34->3|34->3|36->5|36->5|36->5|39->8

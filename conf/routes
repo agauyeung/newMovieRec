@@ -34,4 +34,4 @@ POST     /registered                 controllers.Application.registered()
 
 #Login
 
-# GET     /login                  controllers.Application.login()
+GET     /login                  controllers.Application.login()

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/conf/routes
-// @DATE:Mon Nov 23 19:29:55 PST 2015
+// @SOURCE:/Users/alphaneo1/newMovieRec/conf/routes
+// @DATE:Wed Nov 25 02:29:04 PST 2015
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -129,6 +129,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "view"})
+        }
+      """
+    )
+  
+    // @LINE:37
+    def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.login",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "login"})
         }
       """
     )

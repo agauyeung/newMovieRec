@@ -11,6 +11,7 @@ import models.MovieRatings;
 import models.MovieRecommender;
 import models.Movies;
 import models.Users;
+import models.Login;
 import views.html.*;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class Application extends Controller {
     final static Form<TenRatings> ratingsForm = Form.form(TenRatings.class);
     static boolean filled = false;
     final static Form<Users> dbRegForm = Form.form(Users.class);
-    //final static Form<Login> loginForm = Form.form(Login.class);
+    final static Form<Login> loginForm = Form.form(Login.class);
     static int userID = 1;
 
     List<Integer> randMovieIDs = null;
@@ -68,11 +69,11 @@ public class Application extends Controller {
         return ok(register_user.render("User Registration", dbRegForm));
     }
     
-    /**
+    
     public Result login() {
-        return ok(login.render("User Login", login));
+        return ok(login.render("User Login", loginForm));
     }
-    **/
+    
 
     public Result view() {
         return ok(view.render("View Movies", 

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/conf/routes
-// @DATE:Mon Nov 23 19:29:55 PST 2015
+// @SOURCE:/Users/alphaneo1/newMovieRec/conf/routes
+// @DATE:Wed Nov 25 02:29:04 PST 2015
 
 package router
 
@@ -53,6 +53,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rate""", """controllers.Application.rate()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """random""", """controllers.Application.random()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registered""", """controllers.Application.registered()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.Application.login()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -230,6 +231,23 @@ class Routes(
     )
   )
 
+  // @LINE:37
+  private[this] lazy val controllers_Application_login10_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
+  )
+  private[this] lazy val controllers_Application_login10_invoker = createInvoker(
+    Application_1.login(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Application",
+      "login",
+      Nil,
+      "GET",
+      """""",
+      this.prefix + """login"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -291,6 +309,12 @@ class Routes(
     case controllers_Application_registered9_route(params) =>
       call { 
         controllers_Application_registered9_invoker.call(Application_1.registered())
+      }
+  
+    // @LINE:37
+    case controllers_Application_login10_route(params) =>
+      call { 
+        controllers_Application_login10_invoker.call(Application_1.login())
       }
   }
 }
