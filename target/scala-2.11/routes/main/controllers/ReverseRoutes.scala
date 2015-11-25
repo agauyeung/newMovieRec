@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/alphaneo1/newMovieRec/conf/routes
-// @DATE:Wed Nov 25 04:14:07 PST 2015
+// @DATE:Wed Nov 25 04:55:53 PST 2015
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }

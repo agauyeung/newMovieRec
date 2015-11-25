@@ -1,8 +1,0 @@
-[0m[[31merror[0m] [0m/Users/alphaneo1/newMovieRec/app/controllers/Application.java:110: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   variable username[0m
-[0m[[31merror[0m] [0m  location: class controllers.Application[0m
-[0m[[31merror[0m] [0musername[0m
-[0m[[31merror[0m] [0m/Users/alphaneo1/newMovieRec/app/controllers/Application.java:113: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   variable username[0m
-[0m[[31merror[0m] [0m  location: class controllers.Application[0m
-[0m[[31merror[0m] [0musername[0m

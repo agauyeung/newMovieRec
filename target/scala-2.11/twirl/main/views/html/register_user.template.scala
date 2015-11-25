@@ -64,7 +64,7 @@ Seq[Any](format.raw/*1.39*/("""
 object register_user extends register_user_Scope0.register_user
               /*
                   -- GENERATED --
-                  DATE: Tue Nov 24 19:30:22 PST 2015
+                  DATE: Wed Nov 25 04:55:53 PST 2015
                   SOURCE: /Users/alphaneo1/newMovieRec/app/views/register_user.scala.html
                   HASH: a20e696ca3b444276cfb1ce8f485c01f0d1ef333
                   MATRIX: 773->1|920->38|947->56|974->58|993->69|1032->71|1060->119|1093->161|1124->167|1196->231|1235->233|1280->252|1360->312|1397->322|1484->388|1521->398|1608->464|1644->473|1751->550|1784->553

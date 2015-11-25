@@ -72,7 +72,7 @@ Seq[Any](format.raw/*1.70*/("""
 object rate extends rate_Scope0.rate
               /*
                   -- GENERATED --
-                  DATE: Tue Nov 24 19:30:22 PST 2015
+                  DATE: Wed Nov 25 04:55:53 PST 2015
                   SOURCE: /Users/alphaneo1/newMovieRec/app/views/rate.scala.html
                   HASH: a25e444d9b0d3954b5f1214b44d1d19e25b1d329
                   MATRIX: 773->1|951->69|978->87|1005->89|1024->100|1063->102|1091->150|1123->156|1360->435|1392->441|1463->503|1503->505|1540->515|1598->557|1638->559|1679->573|2013->886|2055->897|2091->906|2199->984|2232->1027|2264->1029

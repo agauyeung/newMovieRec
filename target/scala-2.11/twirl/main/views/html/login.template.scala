@@ -63,7 +63,7 @@ Seq[Any](format.raw/*1.41*/("""
 object login extends login_Scope0.login
               /*
                   -- GENERATED --
-                  DATE: Wed Nov 25 04:08:51 PST 2015
+                  DATE: Wed Nov 25 04:55:53 PST 2015
                   SOURCE: /Users/alphaneo1/newMovieRec/app/views/login.scala.html
                   HASH: 3843d4f41eddf9f13d82b6925ee7eeb39c7f5427
                   MATRIX: 757->1|906->40|933->58|960->60|979->71|1018->73|1046->121|1079->163|1110->169|1186->237|1225->239|1270->258|1352->320|1389->330|1478->398|1514->407|1609->472|1642->475

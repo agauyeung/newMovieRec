@@ -2,3 +2,8 @@ eclipse with-source=true
 eclipsify
 eclipse
 help
+play clean-all
+clean
+clean all
+clean-all
+clean
