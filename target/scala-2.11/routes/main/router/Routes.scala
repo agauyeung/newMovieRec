@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/conf/routes
-// @DATE:Mon Nov 23 19:29:55 PST 2015
+// @DATE:Tue Nov 24 23:03:12 PST 2015
 
 package router
 
@@ -17,7 +17,7 @@ import _root_.play.libs.F
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:6
-  Application_1: controllers.Application,
+  RecApplication_1: controllers.RecApplication,
   // @LINE:24
   Assets_0: controllers.Assets,
   val prefix: String
@@ -26,16 +26,16 @@ class Routes(
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:6
-    Application_1: controllers.Application,
+    RecApplication_1: controllers.RecApplication,
     // @LINE:24
     Assets_0: controllers.Assets
-  ) = this(errorHandler, Application_1, Assets_0, "/")
+  ) = this(errorHandler, RecApplication_1, Assets_0, "/")
 
   import ReverseRouteContext.empty
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, Application_1, Assets_0, prefix)
+    new Routes(errorHandler, RecApplication_1, Assets_0, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -43,16 +43,17 @@ class Routes(
   }
 
   def documentation = List(
-    ("""GET""", this.prefix, """controllers.Application.index()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """recommended""", """controllers.Application.recommended()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """history""", """controllers.Application.history()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """register_user""", """controllers.Application.register_user()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """view""", """controllers.Application.view()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users""", """controllers.Application.users()"""),
+    ("""GET""", this.prefix, """controllers.RecApplication.index()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """recommended""", """controllers.RecApplication.recommended()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """history""", """controllers.RecApplication.history()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """register_user""", """controllers.RecApplication.register_user()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """view""", """controllers.RecApplication.view()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users""", """controllers.RecApplication.users()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rate""", """controllers.Application.rate()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """random""", """controllers.Application.random()"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registered""", """controllers.Application.registered()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rate""", """controllers.RecApplication.rate()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """maintenance""", """controllers.RecApplication.maintenance()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """random""", """controllers.RecApplication.random()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registered""", """controllers.RecApplication.registered()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -61,14 +62,14 @@ class Routes(
 
 
   // @LINE:6
-  private[this] lazy val controllers_Application_index0_route = Route("GET",
+  private[this] lazy val controllers_RecApplication_index0_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix)))
   )
-  private[this] lazy val controllers_Application_index0_invoker = createInvoker(
-    Application_1.index(),
+  private[this] lazy val controllers_RecApplication_index0_invoker = createInvoker(
+    RecApplication_1.index(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Application",
+      "controllers.RecApplication",
       "index",
       Nil,
       "GET",
@@ -78,14 +79,14 @@ class Routes(
   )
 
   // @LINE:9
-  private[this] lazy val controllers_Application_recommended1_route = Route("GET",
+  private[this] lazy val controllers_RecApplication_recommended1_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("recommended")))
   )
-  private[this] lazy val controllers_Application_recommended1_invoker = createInvoker(
-    Application_1.recommended(),
+  private[this] lazy val controllers_RecApplication_recommended1_invoker = createInvoker(
+    RecApplication_1.recommended(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Application",
+      "controllers.RecApplication",
       "recommended",
       Nil,
       "GET",
@@ -95,14 +96,14 @@ class Routes(
   )
 
   // @LINE:12
-  private[this] lazy val controllers_Application_history2_route = Route("GET",
+  private[this] lazy val controllers_RecApplication_history2_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("history")))
   )
-  private[this] lazy val controllers_Application_history2_invoker = createInvoker(
-    Application_1.history(),
+  private[this] lazy val controllers_RecApplication_history2_invoker = createInvoker(
+    RecApplication_1.history(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Application",
+      "controllers.RecApplication",
       "history",
       Nil,
       "GET",
@@ -112,14 +113,14 @@ class Routes(
   )
 
   // @LINE:15
-  private[this] lazy val controllers_Application_register_user3_route = Route("GET",
+  private[this] lazy val controllers_RecApplication_register_user3_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("register_user")))
   )
-  private[this] lazy val controllers_Application_register_user3_invoker = createInvoker(
-    Application_1.register_user(),
+  private[this] lazy val controllers_RecApplication_register_user3_invoker = createInvoker(
+    RecApplication_1.register_user(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Application",
+      "controllers.RecApplication",
       "register_user",
       Nil,
       "GET",
@@ -129,14 +130,14 @@ class Routes(
   )
 
   // @LINE:18
-  private[this] lazy val controllers_Application_view4_route = Route("GET",
+  private[this] lazy val controllers_RecApplication_view4_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("view")))
   )
-  private[this] lazy val controllers_Application_view4_invoker = createInvoker(
-    Application_1.view(),
+  private[this] lazy val controllers_RecApplication_view4_invoker = createInvoker(
+    RecApplication_1.view(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Application",
+      "controllers.RecApplication",
       "view",
       Nil,
       "GET",
@@ -146,14 +147,14 @@ class Routes(
   )
 
   // @LINE:21
-  private[this] lazy val controllers_Application_users5_route = Route("GET",
+  private[this] lazy val controllers_RecApplication_users5_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users")))
   )
-  private[this] lazy val controllers_Application_users5_invoker = createInvoker(
-    Application_1.users(),
+  private[this] lazy val controllers_RecApplication_users5_invoker = createInvoker(
+    RecApplication_1.users(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Application",
+      "controllers.RecApplication",
       "users",
       Nil,
       "GET",
@@ -180,14 +181,14 @@ class Routes(
   )
 
   // @LINE:28
-  private[this] lazy val controllers_Application_rate7_route = Route("GET",
+  private[this] lazy val controllers_RecApplication_rate7_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("rate")))
   )
-  private[this] lazy val controllers_Application_rate7_invoker = createInvoker(
-    Application_1.rate(),
+  private[this] lazy val controllers_RecApplication_rate7_invoker = createInvoker(
+    RecApplication_1.rate(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Application",
+      "controllers.RecApplication",
       "rate",
       Nil,
       "GET",
@@ -196,15 +197,32 @@ class Routes(
     )
   )
 
-  // @LINE:31
-  private[this] lazy val controllers_Application_random8_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("random")))
+  // @LINE:30
+  private[this] lazy val controllers_RecApplication_maintenance8_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("maintenance")))
   )
-  private[this] lazy val controllers_Application_random8_invoker = createInvoker(
-    Application_1.random(),
+  private[this] lazy val controllers_RecApplication_maintenance8_invoker = createInvoker(
+    RecApplication_1.maintenance(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Application",
+      "controllers.RecApplication",
+      "maintenance",
+      Nil,
+      "GET",
+      """""",
+      this.prefix + """maintenance"""
+    )
+  )
+
+  // @LINE:33
+  private[this] lazy val controllers_RecApplication_random9_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("random")))
+  )
+  private[this] lazy val controllers_RecApplication_random9_invoker = createInvoker(
+    RecApplication_1.random(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.RecApplication",
       "random",
       Nil,
       "GET",
@@ -213,15 +231,15 @@ class Routes(
     )
   )
 
-  // @LINE:33
-  private[this] lazy val controllers_Application_registered9_route = Route("POST",
+  // @LINE:35
+  private[this] lazy val controllers_RecApplication_registered10_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("registered")))
   )
-  private[this] lazy val controllers_Application_registered9_invoker = createInvoker(
-    Application_1.registered(),
+  private[this] lazy val controllers_RecApplication_registered10_invoker = createInvoker(
+    RecApplication_1.registered(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Application",
+      "controllers.RecApplication",
       "registered",
       Nil,
       "POST",
@@ -234,39 +252,39 @@ class Routes(
   def routes: PartialFunction[RequestHeader, Handler] = {
   
     // @LINE:6
-    case controllers_Application_index0_route(params) =>
+    case controllers_RecApplication_index0_route(params) =>
       call { 
-        controllers_Application_index0_invoker.call(Application_1.index())
+        controllers_RecApplication_index0_invoker.call(RecApplication_1.index())
       }
   
     // @LINE:9
-    case controllers_Application_recommended1_route(params) =>
+    case controllers_RecApplication_recommended1_route(params) =>
       call { 
-        controllers_Application_recommended1_invoker.call(Application_1.recommended())
+        controllers_RecApplication_recommended1_invoker.call(RecApplication_1.recommended())
       }
   
     // @LINE:12
-    case controllers_Application_history2_route(params) =>
+    case controllers_RecApplication_history2_route(params) =>
       call { 
-        controllers_Application_history2_invoker.call(Application_1.history())
+        controllers_RecApplication_history2_invoker.call(RecApplication_1.history())
       }
   
     // @LINE:15
-    case controllers_Application_register_user3_route(params) =>
+    case controllers_RecApplication_register_user3_route(params) =>
       call { 
-        controllers_Application_register_user3_invoker.call(Application_1.register_user())
+        controllers_RecApplication_register_user3_invoker.call(RecApplication_1.register_user())
       }
   
     // @LINE:18
-    case controllers_Application_view4_route(params) =>
+    case controllers_RecApplication_view4_route(params) =>
       call { 
-        controllers_Application_view4_invoker.call(Application_1.view())
+        controllers_RecApplication_view4_invoker.call(RecApplication_1.view())
       }
   
     // @LINE:21
-    case controllers_Application_users5_route(params) =>
+    case controllers_RecApplication_users5_route(params) =>
       call { 
-        controllers_Application_users5_invoker.call(Application_1.users())
+        controllers_RecApplication_users5_invoker.call(RecApplication_1.users())
       }
   
     // @LINE:24
@@ -276,21 +294,27 @@ class Routes(
       }
   
     // @LINE:28
-    case controllers_Application_rate7_route(params) =>
+    case controllers_RecApplication_rate7_route(params) =>
       call { 
-        controllers_Application_rate7_invoker.call(Application_1.rate())
+        controllers_RecApplication_rate7_invoker.call(RecApplication_1.rate())
       }
   
-    // @LINE:31
-    case controllers_Application_random8_route(params) =>
+    // @LINE:30
+    case controllers_RecApplication_maintenance8_route(params) =>
       call { 
-        controllers_Application_random8_invoker.call(Application_1.random())
+        controllers_RecApplication_maintenance8_invoker.call(RecApplication_1.maintenance())
       }
   
     // @LINE:33
-    case controllers_Application_registered9_route(params) =>
+    case controllers_RecApplication_random9_route(params) =>
       call { 
-        controllers_Application_registered9_invoker.call(Application_1.registered())
+        controllers_RecApplication_random9_invoker.call(RecApplication_1.random())
+      }
+  
+    // @LINE:35
+    case controllers_RecApplication_registered10_route(params) =>
+      call { 
+        controllers_RecApplication_registered10_invoker.call(RecApplication_1.registered())
       }
   }
 }

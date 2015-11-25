@@ -4,7 +4,7 @@
 		module="movie_rec_2.11"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20151120020025"
+		publication="20151124222830"
 	>
 		<description>
 		movie_rec

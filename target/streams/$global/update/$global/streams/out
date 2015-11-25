@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for movie_rec#movie_rec_2.11;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies movie_rec#movie_rec_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.6 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.6 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@578e0d23[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@52439d6a[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.6[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.11.6 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m	[2.11.6] org.scala-lang#scala-library;2.11.6[0m
@@ -9306,7 +9306,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#control_2.11;0.13.8-M3!control_2.11.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.11;2.3.8!akka-actor_2.11.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.akka#akka-testkit_2.11;2.3.8!akka-testkit_2.11.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 38725ms :: artifacts dl 1061ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 49604ms :: artifacts dl 1726ms[0m
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT compile produced in /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT runtime produced in /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT test produced in /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-test.xml[0m
@@ -9321,5 +9321,5 @@
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT pom produced in /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT scala-tool produced in /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-scala-tool.xml[0m
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT fork-run produced in /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-fork-run.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (38725ms resolve - 1061ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (49604ms resolve - 1726ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

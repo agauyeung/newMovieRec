@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/conf/routes
-// @DATE:Mon Nov 23 19:29:55 PST 2015
+// @DATE:Tue Nov 24 23:03:12 PST 2015
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -29,7 +29,7 @@ package controllers {
   }
 
   // @LINE:6
-  class ReverseApplication(_prefix: => String) {
+  class ReverseRecApplication(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
@@ -53,7 +53,13 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "recommended")
     }
   
-    // @LINE:33
+    // @LINE:30
+    def maintenance(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "maintenance")
+    }
+  
+    // @LINE:35
     def registered(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "registered")
@@ -65,7 +71,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "users")
     }
   
-    // @LINE:31
+    // @LINE:33
     def random(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "random")

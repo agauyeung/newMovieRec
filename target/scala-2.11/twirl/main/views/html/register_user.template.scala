@@ -34,7 +34,7 @@ Seq[Any](format.raw/*1.39*/("""
 """),_display_(/*4.2*/base(title)/*4.13*/ {_display_(Seq[Any](format.raw/*4.15*/("""	"""),format.raw/*4.63*/("""
 
     """),format.raw/*6.41*/("""
-    """),_display_(/*7.6*/form(action = routes.Application.registered(), 'id -> "regForm")/*7.70*/ {_display_(Seq[Any](format.raw/*7.72*/("""
+    """),_display_(/*7.6*/form(action = routes.RecApplication.registered(), 'id -> "regForm")/*7.73*/ {_display_(Seq[Any](format.raw/*7.75*/("""
         
         """),_display_(/*9.10*/inputText(field = regForm("email"), 'placeholder -> "email")),format.raw/*9.70*/("""
         """),_display_(/*10.10*/inputText(field = regForm("username"), 'placeholder -> "username")),format.raw/*10.76*/("""
@@ -64,10 +64,10 @@ Seq[Any](format.raw/*1.39*/("""
 object register_user extends register_user_Scope0.register_user
               /*
                   -- GENERATED --
-                  DATE: Fri Nov 20 02:00:24 PST 2015
+                  DATE: Tue Nov 24 22:28:29 PST 2015
                   SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/register_user.scala.html
-                  HASH: a20e696ca3b444276cfb1ce8f485c01f0d1ef333
-                  MATRIX: 773->1|920->38|947->56|974->58|993->69|1032->71|1060->119|1093->161|1124->167|1196->231|1235->233|1280->252|1360->312|1397->322|1484->388|1521->398|1608->464|1644->473|1751->550|1784->553
+                  HASH: 6b54c2bf6cf5f033b6df937c5dffd30abbefef99
+                  MATRIX: 773->1|920->38|947->56|974->58|993->69|1032->71|1060->119|1093->161|1124->167|1199->234|1238->236|1283->255|1363->315|1400->325|1487->391|1524->401|1611->467|1647->476|1754->553|1787->556
                   LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|37->7|37->7|37->7|39->9|39->9|40->10|40->10|41->11|41->11|42->12|44->14|46->16
                   -- GENERATED --
               */

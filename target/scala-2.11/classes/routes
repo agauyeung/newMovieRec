@@ -3,35 +3,37 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                           controllers.RecApplication.index()
 
 # Recommended For You page
-GET     /recommended                controllers.Application.recommended()
+GET     /recommended                controllers.RecApplication.recommended()
 
 # Rating History page
-GET     /history                    controllers.Application.history()
+GET     /history                    controllers.RecApplication.history()
 
 # User_DB Registration page
-GET     /register_user                    controllers.Application.register_user()
+GET     /register_user                    controllers.RecApplication.register_user()
 
 
-GET		/view				controllers.Application.view()
+GET		/view				controllers.RecApplication.view()
 
 # View users in the database
-GET		/users				controllers.Application.users()	
+GET		/users				controllers.RecApplication.users()	
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 
 # Ratings
-GET     /rate                       controllers.Application.rate()
+GET     /rate                       controllers.RecApplication.rate()
+
+GET     /maintenance                    controllers.RecApplication.maintenance()
 
 
-GET     /random                    controllers.Application.random()
+GET     /random                    controllers.RecApplication.random()
 
-POST     /registered                 controllers.Application.registered()
+POST     /registered                 controllers.RecApplication.registered()
 
 #Login
 
-# GET     /login                  controllers.Application.login()
+# GET     /login                  controllers.RecApplication.login()

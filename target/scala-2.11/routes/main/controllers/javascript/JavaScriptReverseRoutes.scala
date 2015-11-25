@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/conf/routes
-// @DATE:Mon Nov 23 19:29:55 PST 2015
+// @DATE:Tue Nov 24 23:03:12 PST 2015
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -36,7 +36,7 @@ package controllers.javascript {
   }
 
   // @LINE:6
-  class ReverseApplication(_prefix: => String) {
+  class ReverseRecApplication(_prefix: => String) {
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
@@ -45,7 +45,7 @@ package controllers.javascript {
   
     // @LINE:15
     def register_user: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.register_user",
+      "controllers.RecApplication.register_user",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "register_user"})
@@ -55,7 +55,7 @@ package controllers.javascript {
   
     // @LINE:28
     def rate: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.rate",
+      "controllers.RecApplication.rate",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "rate"})
@@ -65,7 +65,7 @@ package controllers.javascript {
   
     // @LINE:9
     def recommended: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.recommended",
+      "controllers.RecApplication.recommended",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "recommended"})
@@ -73,9 +73,19 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:33
+    // @LINE:30
+    def maintenance: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecApplication.maintenance",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "maintenance"})
+        }
+      """
+    )
+  
+    // @LINE:35
     def registered: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.registered",
+      "controllers.RecApplication.registered",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "registered"})
@@ -85,7 +95,7 @@ package controllers.javascript {
   
     // @LINE:21
     def users: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.users",
+      "controllers.RecApplication.users",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users"})
@@ -93,9 +103,9 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:31
+    // @LINE:33
     def random: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.random",
+      "controllers.RecApplication.random",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "random"})
@@ -105,7 +115,7 @@ package controllers.javascript {
   
     // @LINE:12
     def history: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.history",
+      "controllers.RecApplication.history",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "history"})
@@ -115,7 +125,7 @@ package controllers.javascript {
   
     // @LINE:6
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.index",
+      "controllers.RecApplication.index",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
@@ -125,7 +135,7 @@ package controllers.javascript {
   
     // @LINE:18
     def view: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.view",
+      "controllers.RecApplication.view",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "view"})

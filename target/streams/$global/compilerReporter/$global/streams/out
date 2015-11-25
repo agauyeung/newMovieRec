@@ -1,5 +1,2 @@
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/Application.java:78: method render in class views.html.view cannot be applied to given types;[0m
-[0m[[31merror[0m] [0m  required: java.util.List<models.Movies>[0m
-[0m[[31merror[0m] [0m  found: java.lang.String,java.util.List<models.Movies>[0m
-[0m[[31merror[0m] [0m  reason: actual and formal argument lists differ in length[0m
-[0m[[31merror[0m] [0mview.render[0m
+[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/Global.java:37: ')' expected[0m
+[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/Global.java:37: ';' expected[0m

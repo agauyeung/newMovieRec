@@ -38,8 +38,8 @@ Seq[Any](format.raw/*1.70*/("""
         <br>Ignore this message if you have already rated at least 10 movies.<br><br>
     </font>
 
-    """),format.raw/*11.75*/("""
-    """),_display_(/*12.6*/form(action = routes.Application.rate(), 'id -> "ratingsForm")/*12.68*/ {_display_(Seq[Any](format.raw/*12.70*/("""
+    """),format.raw/*11.78*/("""
+    """),_display_(/*12.6*/form(action = routes.RecApplication.rate(), 'id -> "ratingsForm")/*12.71*/ {_display_(Seq[Any](format.raw/*12.73*/("""
         """),_display_(/*13.10*/for((movie, index) <- movies.zipWithIndex) yield /*13.52*/ {_display_(Seq[Any](format.raw/*13.54*/("""
             """),_display_(/*14.14*/inputRadioGroup(
                 ratingsForm("m" + (index+1)),  
@@ -72,10 +72,10 @@ Seq[Any](format.raw/*1.70*/("""
 object rate extends rate_Scope0.rate
               /*
                   -- GENERATED --
-                  DATE: Mon Nov 23 19:34:32 PST 2015
+                  DATE: Tue Nov 24 22:28:29 PST 2015
                   SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/rate.scala.html
-                  HASH: a25e444d9b0d3954b5f1214b44d1d19e25b1d329
-                  MATRIX: 773->1|951->69|978->87|1005->89|1024->100|1063->102|1091->150|1123->156|1360->435|1392->441|1463->503|1503->505|1540->515|1598->557|1638->559|1679->573|2013->886|2055->897|2091->906|2199->984|2232->1027|2264->1029
+                  HASH: 9b7cf14502e1da56ad2cb1872e74e48dd4a8bd0a
+                  MATRIX: 773->1|951->69|978->87|1005->89|1024->100|1063->102|1091->150|1123->156|1360->438|1392->444|1466->509|1506->511|1543->521|1601->563|1641->565|1682->579|2016->892|2058->903|2094->912|2202->990|2235->1033|2267->1035
                   LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|41->11|42->12|42->12|42->12|43->13|43->13|43->13|44->14|49->19|50->20|51->21|52->22|53->23|54->24
                   -- GENERATED --
               */
