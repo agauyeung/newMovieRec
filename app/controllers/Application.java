@@ -106,8 +106,14 @@ public class Application extends Controller {
         Users user = null;
         try {
             user = Users.authenticate(email, password);
+            session("email", email);
+            System.out.println(user.userID);
         } catch (AppException e) {
             return ok(authenticated.render("Logged in", email));
+        }
+        
+        if (user == null) {
+            return ok(invalid.render("Invalid Login", email));
         }
 
         return ok(authenticated.render("Logged in", email));
