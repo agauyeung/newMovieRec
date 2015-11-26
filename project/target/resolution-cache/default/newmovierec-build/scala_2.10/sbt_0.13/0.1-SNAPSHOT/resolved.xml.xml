@@ -4,7 +4,7 @@
 		module="newmovierec-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20151125190800"
+		publication="20151126001903"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

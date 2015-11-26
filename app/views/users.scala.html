@@ -5,12 +5,15 @@
     
     <ul> 
     @for(users <- users) {
+    <div>
       <p>@users.userID</->
+      <p>@users.username</->
       <li>@users.email
         <ul>
             @users.password
         </ul>
       </li>
+      </->
     }
     </ul>
 }

@@ -11,7 +11,12 @@ import models.MovieRatings;
 import models.MovieRecommender;
 import models.Movies;
 import models.Users;
+import models.Login;
+import models.Hash;
+import models.AppException;
 import views.html.*;
+
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +31,7 @@ public class RecApplication extends Controller {
     final static Form<TenRatings> ratingsForm = Form.form(TenRatings.class);
     static boolean filled = false;
     final static Form<Users> dbRegForm = Form.form(Users.class);
-    //final static Form<Login> loginForm = Form.form(Login.class);
+    final static Form<Login> loginForm = Form.form(Login.class);
     static int userID = 1;
 
     List<Integer> randMovieIDs = null;
@@ -68,11 +73,9 @@ public class RecApplication extends Controller {
         return ok(register_user.render("User Registration", dbRegForm));
     }
     
-    /**
     public Result login() {
-        return ok(login.render("User Login", login));
+        return ok(login.render("User Login", loginForm));
     }
-    **/
 
     public Result view() {
         return ok(view.render("View Movies", 
@@ -86,20 +89,37 @@ public class RecApplication extends Controller {
         ));
     }
     
-    /**
-    public static Result authenticate() {
-        Form<Login> loginForm = form(Login.class).bindFromRequest();
-        if (loginForm.hasErrors()) {
-            return badRequest(login.render(loginForm));
-        } else {
-            session().clear();
-            session("email", loginForm.get().email);
-            return redirect(
-                routes.Application.index()
-            );
+    public Result authenticate() {
+        Form<Login> filledForm = loginForm.bindFromRequest();
+        Map<String, String> userMap = filledForm.data();
+        
+        /** DO NOT USE filledForm.get() because Eclipse Build interferes with it
+         *  WILL GET 0 or NULL values.
+         */
+        
+        //Grab each rating in from the form and add to User Ratings.
+        String email = userMap.get("email");
+        String password = userMap.get("password");
+        
+        Users user = null;
+        try {
+            user = Users.authenticate(email, password);
+            //session("email", email);
+            if (user != null) {
+                System.out.println(user.email);
+            } else {
+                System.out.println("Error");
+            }
+        } catch (AppException e) {
+            return ok(invalid.render("Invalid Password", email));
         }
+        
+        if (user == null) {
+            return ok(invalid.render("Invalid Login", email));
+        }
+
+        return ok(authenticated.render("Logged in", email));
     }
-    **/
     
     
     public Result registered() {
@@ -111,7 +131,7 @@ public class RecApplication extends Controller {
          */
         
         //Grab each rating in from the form and add to User Ratings.
-        String email = formMap.get("username");
+        String email = formMap.get("email");
         String username = formMap.get("username");
         String password = formMap.get("password");
         
@@ -121,7 +141,7 @@ public class RecApplication extends Controller {
         Users newUser = new Users();
         newUser.email = email;
         newUser.username = username;
-        newUser.password = password;
+        newUser.password = BCrypt.hashpw(password, BCrypt.gensalt());
         newUser.save();
 
         return ok(registered.render("Registration Confirmation", username));

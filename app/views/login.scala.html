@@ -4,7 +4,7 @@
 @base(title) {	@*using main template, with page title as arg*@
 
     @* CONTENTS FOR REGISTRATION PAGE *@
-    @form(action = routes.Application.authenticate(), 'id -> "loginForm") {
+    @form(action = routes.RecApplication.authenticate(), 'id -> "loginForm") {
         
         @inputText(field = loginForm("email"), 'placeholder -> "email")
         @inputText(field = loginForm("password"), 'placeholder -> "password")

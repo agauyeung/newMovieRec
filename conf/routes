@@ -35,7 +35,7 @@ GET     /random                    controllers.RecApplication.random()
 POST     /registered                 controllers.RecApplication.registered()
 
 #Login
-GET     /login                  controllers.Application.login()
+GET     /login                  controllers.RecApplication.login()
 
-POST     /authenticate                  controllers.Application.authenticate()
+POST     /authenticate                  controllers.RecApplication.authenticate()
 
