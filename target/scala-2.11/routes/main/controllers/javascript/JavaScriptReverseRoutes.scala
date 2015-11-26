@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/alphaneo1/new/newMovieRec/conf/routes
-// @DATE:Thu Nov 26 03:26:57 PST 2015
+// @DATE:Thu Nov 26 05:13:29 PST 2015
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -42,16 +42,6 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
-  
-    // @LINE:15
-    def register_user: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.RecApplication.register_user",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "register_user"})
-        }
-      """
-    )
   
     // @LINE:28
     def rate: JavaScriptReverseRoute = JavaScriptReverseRoute(
@@ -103,12 +93,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:33
-    def random: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.RecApplication.random",
+    // @LINE:40
+    def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecApplication.logout",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "random"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "logout"})
+        }
+      """
+    )
+  
+    // @LINE:15
+    def register: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecApplication.register",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "register"})
         }
       """
     )
@@ -123,7 +123,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:40
+    // @LINE:42
     def authenticate: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecApplication.authenticate",
       """

@@ -1,7 +1,7 @@
 @(title: String, regForm: Form[Users])
 @import helper._
 
-@base(title) {	@*using main template, with page title as arg*@
+@base(title, "") {	@*using main template, with page title as arg*@
 
     @* CONTENTS FOR REGISTRATION PAGE *@
     @form(action = routes.RecApplication.registered(), 'id -> "regForm") {

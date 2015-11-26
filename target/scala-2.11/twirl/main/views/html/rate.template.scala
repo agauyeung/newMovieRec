@@ -21,17 +21,17 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class rate extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template3[String,List[String],Form[TenRatings],play.twirl.api.HtmlFormat.Appendable] {
+class rate extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template4[String,String,List[String],Form[TenRatings],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(title: String, movies: List[String], ratingsForm: Form[TenRatings]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(title: String, email: String, movies: List[String], ratingsForm: Form[TenRatings]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 import helper._
 
-Seq[Any](format.raw/*1.70*/("""
+Seq[Any](format.raw/*1.85*/("""
 """),format.raw/*3.1*/("""
-"""),_display_(/*4.2*/base(title)/*4.13*/ {_display_(Seq[Any](format.raw/*4.15*/("""	"""),format.raw/*4.63*/("""
+"""),_display_(/*4.2*/base(title, email)/*4.20*/ {_display_(Seq[Any](format.raw/*4.22*/("""	"""),format.raw/*4.70*/("""
 
     """),format.raw/*6.5*/("""<font color="red">
         <br>Note that you must rate at least 10 movies before getting recommendations.
@@ -57,9 +57,9 @@ Seq[Any](format.raw/*1.70*/("""
     }
   }
 
-  def render(title:String,movies:List[String],ratingsForm:Form[TenRatings]): play.twirl.api.HtmlFormat.Appendable = apply(title,movies,ratingsForm)
+  def render(title:String,email:String,movies:List[String],ratingsForm:Form[TenRatings]): play.twirl.api.HtmlFormat.Appendable = apply(title,email,movies,ratingsForm)
 
-  def f:((String,List[String],Form[TenRatings]) => play.twirl.api.HtmlFormat.Appendable) = (title,movies,ratingsForm) => apply(title,movies,ratingsForm)
+  def f:((String,String,List[String],Form[TenRatings]) => play.twirl.api.HtmlFormat.Appendable) = (title,email,movies,ratingsForm) => apply(title,email,movies,ratingsForm)
 
   def ref: this.type = this
 
@@ -72,10 +72,10 @@ Seq[Any](format.raw/*1.70*/("""
 object rate extends rate_Scope0.rate
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 03:26:57 PST 2015
+                  DATE: Thu Nov 26 04:42:27 PST 2015
                   SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/rate.scala.html
-                  HASH: 9b7cf14502e1da56ad2cb1872e74e48dd4a8bd0a
-                  MATRIX: 773->1|951->69|978->87|1005->89|1024->100|1063->102|1091->150|1123->156|1360->438|1392->444|1466->509|1506->511|1543->521|1601->563|1641->565|1682->579|2016->892|2058->903|2094->912|2202->990|2235->1033|2267->1035
+                  HASH: c13b4690aa7b39e4d8d656c3de163c5951cb63fa
+                  MATRIX: 780->1|973->84|1000->102|1027->104|1053->122|1092->124|1120->172|1152->178|1389->460|1421->466|1495->531|1535->533|1572->543|1630->585|1670->587|1711->601|2045->914|2087->925|2123->934|2231->1012|2264->1055|2296->1057
                   LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|41->11|42->12|42->12|42->12|43->13|43->13|43->13|44->14|49->19|50->20|51->21|52->22|53->23|54->24
                   -- GENERATED --
               */

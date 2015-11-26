@@ -1,10 +1,16 @@
-@(title: String, recommendations: List[String])
+@(title: String, recommendations: List[String] , username : String)
 
-@base(title) {	@*using main template, with page title as arg*@
+@base(title, username) {	@*using main template, with page title as arg*@
     @* For loop through list and print. *@
+    <font color="blue">
+        <br>Welcome @username!
+        <br>
+        <br>
+    </font>
     @recommendations = recommendations.reverse
     @for(recommendation <- recommendations) {
         @recommendation  
+        <br>
         <br>
     }
 }

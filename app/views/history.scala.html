@@ -1,6 +1,6 @@
-@(title: String, history: List[MovieRatings])
+@(title: String, email: String, history: List[MovieRatings])
 
-@base(title) {	@*using main template, with page title as arg*@
+@base(title, email) {	@*using main template, with page title as arg*@
 
     @* CONTENTS FOR RATING HISTORY PAGE *@
     @if(history.isEmpty) {

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/alphaneo1/new/newMovieRec/conf/routes
-// @DATE:Thu Nov 26 03:26:57 PST 2015
+// @DATE:Thu Nov 26 05:13:29 PST 2015
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -35,12 +35,6 @@ package controllers {
     }
 
   
-    // @LINE:15
-    def register_user(): Call = {
-      import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "register_user")
-    }
-  
     // @LINE:28
     def rate(): Call = {
       import ReverseRouteContext.empty
@@ -71,10 +65,16 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "users")
     }
   
-    // @LINE:33
-    def random(): Call = {
+    // @LINE:40
+    def logout(): Call = {
       import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "random")
+      Call("GET", _prefix + { _defaultPrefix } + "logout")
+    }
+  
+    // @LINE:15
+    def register(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "register")
     }
   
     // @LINE:12
@@ -83,7 +83,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "history")
     }
   
-    // @LINE:40
+    // @LINE:42
     def authenticate(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "authenticate")

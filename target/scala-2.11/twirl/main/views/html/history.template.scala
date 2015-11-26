@@ -21,17 +21,17 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class history extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template2[String,List[MovieRatings],play.twirl.api.HtmlFormat.Appendable] {
+class history extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template3[String,String,List[MovieRatings],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(title: String, history: List[MovieRatings]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(title: String, email: String, history: List[MovieRatings]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.46*/("""
+Seq[Any](format.raw/*1.61*/("""
 
-"""),_display_(/*3.2*/base(title)/*3.13*/ {_display_(Seq[Any](format.raw/*3.15*/("""	"""),format.raw/*3.63*/("""
+"""),_display_(/*3.2*/base(title, email)/*3.20*/ {_display_(Seq[Any](format.raw/*3.22*/("""	"""),format.raw/*3.70*/("""
 
     """),format.raw/*5.43*/("""
     """),_display_(/*6.6*/if(history.isEmpty)/*6.25*/ {_display_(Seq[Any](format.raw/*6.27*/("""
@@ -52,9 +52,9 @@ Seq[Any](format.raw/*1.46*/("""
     }
   }
 
-  def render(title:String,history:List[MovieRatings]): play.twirl.api.HtmlFormat.Appendable = apply(title,history)
+  def render(title:String,email:String,history:List[MovieRatings]): play.twirl.api.HtmlFormat.Appendable = apply(title,email,history)
 
-  def f:((String,List[MovieRatings]) => play.twirl.api.HtmlFormat.Appendable) = (title,history) => apply(title,history)
+  def f:((String,String,List[MovieRatings]) => play.twirl.api.HtmlFormat.Appendable) = (title,email,history) => apply(title,email,history)
 
   def ref: this.type = this
 
@@ -67,10 +67,10 @@ Seq[Any](format.raw/*1.46*/("""
 object history extends history_Scope0.history
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 03:26:57 PST 2015
+                  DATE: Thu Nov 26 04:48:34 PST 2015
                   SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/history.scala.html
-                  HASH: a708640865d645805b490aa0bdc341ccf097b431
-                  MATRIX: 768->1|907->45|935->48|954->59|993->61|1021->109|1054->153|1085->159|1112->178|1151->180|1186->189|1302->275|1334->281|1372->303|1412->305|1448->314|1495->334|1510->340|1539->348|1575->357|1620->375|1635->381|1668->393|1704->402|1744->412|1776->414
+                  HASH: dcf68662a5b09f6bb7c485917efa352391485936
+                  MATRIX: 775->1|929->60|957->63|983->81|1022->83|1050->131|1083->175|1114->181|1141->200|1180->202|1215->211|1331->297|1363->303|1401->325|1441->327|1477->336|1524->356|1539->362|1568->370|1604->379|1649->397|1664->403|1697->415|1733->424|1773->434|1805->436
                   LINES: 27->1|32->1|34->3|34->3|34->3|34->3|36->5|37->6|37->6|37->6|38->7|41->10|42->11|42->11|42->11|43->12|44->13|44->13|44->13|45->14|46->15|46->15|46->15|47->16|48->17|49->18
                   -- GENERATED --
               */

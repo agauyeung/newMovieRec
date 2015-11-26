@@ -31,7 +31,7 @@ class view extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format
 
 Seq[Any](format.raw/*1.39*/("""
 
-"""),_display_(/*3.2*/base(title)/*3.13*/ {_display_(Seq[Any](format.raw/*3.15*/("""
+"""),_display_(/*3.2*/base(title, "")/*3.17*/ {_display_(Seq[Any](format.raw/*3.19*/("""
     """),format.raw/*4.5*/("""<h1>All Movies<h1>
     
     <ul> 
@@ -63,10 +63,10 @@ Seq[Any](format.raw/*1.39*/("""
 object view extends view_Scope0.view
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 03:26:58 PST 2015
+                  DATE: Thu Nov 26 04:54:59 PST 2015
                   SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/view.scala.html
-                  HASH: af9365455a0672f5059789ca2c0bd1cc4db158be
-                  MATRIX: 756->1|888->38|916->41|935->52|974->54|1005->59|1069->98|1104->118|1143->120|1176->127|1207->132|1220->137|1245->142|1280->151|1326->170|1340->175|1370->184|1406->193|1459->216|1492->222
+                  HASH: 8a422168ba3905279fcaa8f04c2f924736f45f21
+                  MATRIX: 756->1|888->38|916->41|939->56|978->58|1009->63|1073->102|1108->122|1147->124|1180->131|1211->136|1224->141|1249->146|1284->155|1330->174|1344->179|1374->188|1410->197|1463->220|1496->226
                   LINES: 27->1|32->1|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|39->8|39->8|39->8|40->9|41->10|41->10|41->10|42->11|44->13|45->14
                   -- GENERATED --
               */

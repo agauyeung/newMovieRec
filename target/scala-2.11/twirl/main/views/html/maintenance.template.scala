@@ -29,7 +29,7 @@ class maintenance extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable
       {
 
 
-Seq[Any](_display_(/*1.2*/base("Site Under Maintenance")/*1.32*/ {_display_(Seq[Any](format.raw/*1.34*/("""	"""),format.raw/*1.82*/("""
+Seq[Any](_display_(/*1.2*/base("Site Under Maintenance", "User")/*1.40*/ {_display_(Seq[Any](format.raw/*1.42*/("""	"""),format.raw/*1.90*/("""
 
     """),format.raw/*3.5*/("""<font color="red">
     <br>The site is currently under mainenance. Please try again later.
@@ -56,10 +56,10 @@ Seq[Any](_display_(/*1.2*/base("Site Under Maintenance")/*1.32*/ {_display_(Seq[
 object maintenance extends maintenance_Scope0.maintenance
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 03:26:57 PST 2015
+                  DATE: Thu Nov 26 04:52:33 PST 2015
                   SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/maintenance.scala.html
-                  HASH: 4e4a6eec7317257e02068e7c65667259b183cad8
-                  MATRIX: 839->1|877->31|916->33|944->81|976->87|1110->192
+                  HASH: 67f5f74ddea21bcf677ef47bc8932270f85db8ad
+                  MATRIX: 839->1|885->39|924->41|952->89|984->95|1118->200
                   LINES: 32->1|32->1|32->1|32->1|34->3|38->7
                   -- GENERATED --
               */

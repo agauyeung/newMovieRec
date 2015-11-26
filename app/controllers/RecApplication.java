@@ -50,20 +50,20 @@ public class RecApplication extends Controller {
         } else {
             return login();
         }
-        
     }
     
     //CAN CREATE methods to open other pages...
 
     public Result recommended() {
         String userID = session("userID");
+        String username = session("connected");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
     	
         if (storedRatings.size() < 10) {
             return rate();
         } else {
             List<String> recommendations = movRec.getRecommendations(movRec.createNewUserVectorUsingList(storedRatings));
-            return ok(recommended.render("Recommended for You", recommendations));
+            return ok(recommended.render("Recommended for You", recommendations, username));
         }
         
         //return ok(recommended.render("Recommended For You"));
@@ -71,19 +71,27 @@ public class RecApplication extends Controller {
     
     public Result history() {
         String userID = session("userID");
+        String email = session("connected");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
         
         //Pass in a list of strings in format Movie Title: Rating
-        return ok(history.render("Rating History", storedRatings));
+        return ok(history.render("Rating History", email , storedRatings));
     }
     
     
-    public Result register_user() {
-        return ok(register_user.render("User Registration", dbRegForm));
+    public Result register() {
+        return ok(register.render("User Registration", dbRegForm));
     }
     
     public Result login() {
         return ok(login.render("User Login", loginForm));
+    }
+    
+    public Result logout() {
+        String email = session("connected");
+        System.out.println(email);
+        session().clear();
+        return ok(loggedout.render("You are now logged out! " + email, ""));
     }
 
     public Result view() {
@@ -126,7 +134,7 @@ public class RecApplication extends Controller {
         }
         
         if (user == null) {
-            return ok(invalid.render("Invalid Login", email));
+            return ok(invalid.render("Invalid Login", ""));
         }
 
         return ok(authenticated.render("Logged in", email));
@@ -172,9 +180,10 @@ public class RecApplication extends Controller {
         
         //Preset Radio Buttons to 0
         TenRatings preset = presetRatingsForm();
+        String email = session("connected");
         
         System.out.println("CALLING RATE PAGE");
-        return ok(rate.render("Rate Movies", tenMoviesTest, ratingsForm.fill(preset)));
+        return ok(rate.render("Rate Movies", email , tenMoviesTest, ratingsForm.fill(preset)));
     }
     
     public TenRatings presetRatingsForm() {
@@ -240,18 +249,21 @@ public class RecApplication extends Controller {
     }
     
     public Result results() {
+        String email = session("connected");
         HashMap<Integer, Integer> ratingsMap = addRatings();
         
         //Call getRecommendation() to populate recommendations ArrayList
         List<String> recommendations = movRec.getRecommendations(movRec.createNewUserVectorUsingMap(ratingsMap));
         
-        return ok(results.render("Results", recommendations));
+        return ok(results.render("Results", email, recommendations));
     }
     
     /** TESTING */
+    /**
     public Result random() {
     	List<String> recommendations = movRec.getRecommendations(movRec.genRandUser());
 
     	return ok(recommended.render("Random", recommendations));
     }
+    **/
 }

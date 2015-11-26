@@ -21,17 +21,17 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class results extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template2[String,List[String],play.twirl.api.HtmlFormat.Appendable] {
+class results extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template3[String,String,List[String],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(title: String, recommendations: List[String]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(title: String, email: String, recommendations: List[String]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.48*/("""
+Seq[Any](format.raw/*1.63*/("""
 
-"""),_display_(/*3.2*/base(title)/*3.13*/ {_display_(Seq[Any](format.raw/*3.15*/("""	"""),format.raw/*3.63*/("""
+"""),_display_(/*3.2*/base(title, email)/*3.20*/ {_display_(Seq[Any](format.raw/*3.22*/("""	"""),format.raw/*3.70*/("""
     """),format.raw/*4.43*/("""
     """),_display_(/*5.6*/recommendations),format.raw/*5.21*/(""" """),format.raw/*5.22*/("""= recommendations.reverse
     """),_display_(/*6.6*/for(recommendation <- recommendations) yield /*6.44*/ {_display_(Seq[Any](format.raw/*6.46*/("""
@@ -44,9 +44,9 @@ Seq[Any](format.raw/*1.48*/("""
     }
   }
 
-  def render(title:String,recommendations:List[String]): play.twirl.api.HtmlFormat.Appendable = apply(title,recommendations)
+  def render(title:String,email:String,recommendations:List[String]): play.twirl.api.HtmlFormat.Appendable = apply(title,email,recommendations)
 
-  def f:((String,List[String]) => play.twirl.api.HtmlFormat.Appendable) = (title,recommendations) => apply(title,recommendations)
+  def f:((String,String,List[String]) => play.twirl.api.HtmlFormat.Appendable) = (title,email,recommendations) => apply(title,email,recommendations)
 
   def ref: this.type = this
 
@@ -59,10 +59,10 @@ Seq[Any](format.raw/*1.48*/("""
 object results extends results_Scope0.results
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 03:26:58 PST 2015
+                  DATE: Thu Nov 26 04:49:38 PST 2015
                   SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/results.scala.html
-                  HASH: 52f5e77f6c0d1342370face461c4987cd34047b0
-                  MATRIX: 762->1|903->47|931->50|950->61|989->63|1017->111|1049->154|1080->160|1115->175|1143->176|1199->207|1252->245|1291->247|1327->257|1361->271|1398->282|1437->292|1469->294
+                  HASH: 033d70b63504338f92f5a518a4dd301dd8ad2ac9
+                  MATRIX: 769->1|925->62|953->65|979->83|1018->85|1046->133|1078->176|1109->182|1144->197|1172->198|1228->229|1281->267|1320->269|1356->279|1390->293|1427->304|1466->314|1498->316
                   LINES: 27->1|32->1|34->3|34->3|34->3|34->3|35->4|36->5|36->5|36->5|37->6|37->6|37->6|38->7|38->7|39->8|40->9|41->10
                   -- GENERATED --
               */

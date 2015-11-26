@@ -12,7 +12,7 @@ GET     /recommended                controllers.RecApplication.recommended()
 GET     /history                    controllers.RecApplication.history()
 
 # User_DB Registration page
-GET     /register_user                    controllers.RecApplication.register_user()
+GET     /register                    controllers.RecApplication.register()
 
 
 GET		/view				controllers.RecApplication.view()
@@ -30,12 +30,14 @@ GET     /rate                       controllers.RecApplication.rate()
 GET     /maintenance                    controllers.RecApplication.maintenance()
 
 
-GET     /random                    controllers.RecApplication.random()
+#GET     /random                    controllers.RecApplication.random()
 
 POST     /registered                 controllers.RecApplication.registered()
 
 #Login
 GET     /login                  controllers.RecApplication.login()
+
+GET     /logout                  controllers.RecApplication.logout()
 
 POST     /authenticate                  controllers.RecApplication.authenticate()
 

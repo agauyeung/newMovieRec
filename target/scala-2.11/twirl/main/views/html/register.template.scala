@@ -5,7 +5,7 @@ import play.twirl.api._
 import play.twirl.api.TemplateMagic._
 
 
-     object register_user_Scope0 {
+     object register_Scope0 {
 import models._
 import controllers._
 import play.api.i18n._
@@ -21,7 +21,7 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class register_user extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template2[String,Form[Users],play.twirl.api.HtmlFormat.Appendable] {
+class register extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template2[String,Form[Users],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
   def apply/*1.2*/(title: String, regForm: Form[Users]):play.twirl.api.HtmlFormat.Appendable = {
@@ -31,7 +31,7 @@ import helper._
 
 Seq[Any](format.raw/*1.39*/("""
 """),format.raw/*3.1*/("""
-"""),_display_(/*4.2*/base(title)/*4.13*/ {_display_(Seq[Any](format.raw/*4.15*/("""	"""),format.raw/*4.63*/("""
+"""),_display_(/*4.2*/base(title, "")/*4.17*/ {_display_(Seq[Any](format.raw/*4.19*/("""	"""),format.raw/*4.67*/("""
 
     """),format.raw/*6.41*/("""
     """),_display_(/*7.6*/form(action = routes.RecApplication.registered(), 'id -> "regForm")/*7.73*/ {_display_(Seq[Any](format.raw/*7.75*/("""
@@ -61,13 +61,13 @@ Seq[Any](format.raw/*1.39*/("""
 }
 
 /**/
-object register_user extends register_user_Scope0.register_user
+object register extends register_Scope0.register
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 03:26:58 PST 2015
-                  SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/register_user.scala.html
-                  HASH: 6b54c2bf6cf5f033b6df937c5dffd30abbefef99
-                  MATRIX: 773->1|920->38|947->56|974->58|993->69|1032->71|1060->119|1093->161|1124->167|1199->234|1238->236|1283->255|1363->315|1400->325|1487->391|1524->401|1611->467|1647->476|1754->553|1787->556
+                  DATE: Thu Nov 26 05:13:28 PST 2015
+                  SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/register.scala.html
+                  HASH: 3612d7c79048262d5a5c0f218be40b4a97765c57
+                  MATRIX: 763->1|910->38|937->56|964->58|987->73|1026->75|1054->123|1087->165|1118->171|1193->238|1232->240|1277->259|1357->319|1394->329|1481->395|1518->405|1605->471|1641->480|1748->557|1781->560
                   LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|37->7|37->7|37->7|39->9|39->9|40->10|40->10|41->11|41->11|42->12|44->14|46->16
                   -- GENERATED --
               */

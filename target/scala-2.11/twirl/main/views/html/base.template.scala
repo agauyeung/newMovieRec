@@ -21,15 +21,15 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class base extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template2[String,Html,play.twirl.api.HtmlFormat.Appendable] {
+class base extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template3[String,String,Html,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(title: String)(content: Html):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(title: String, email : String)(content: Html):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.32*/("""
+Seq[Any](format.raw/*1.48*/("""
 
 """),format.raw/*3.1*/("""<!DOCTYPE html>
 
@@ -70,28 +70,32 @@ Seq[Any](format.raw/*1.32*/("""
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="recommended">Recommended For You</a></li>
-                        <li><a href="rate">Rate Movies</a></li> 
-                        <li><a href="history">Rating History</a></li>
-                        <li><a href="register_user">User Registration</a></li>
                         <li><a href="view">View Movies</a></li>
                         <li><a href="users">View Users</a></li>
-                        <li><a href="login">Login</a></li>
-                    </ul>
+                        """),_display_(/*44.26*/if(email != "")/*44.41*/{_display_(Seq[Any](format.raw/*44.42*/("""
+                          """),format.raw/*45.27*/("""<li><a href="recommended">Recommended For You</a></li>
+                          <li><a href="rate">Rate Movies</a></li>
+                          <li><a href="history">Rating History</a></li>
+                          <li><a href="logout">Logout</a></li>
+                        """)))}/*49.27*/else/*49.31*/{_display_(Seq[Any](format.raw/*49.32*/("""
+                          """),format.raw/*50.27*/("""<li><a href="login">Login</a></li>
+                          <li><a href="register">Register</a></li>
+                        """)))}),format.raw/*52.26*/("""
+                    """),format.raw/*53.21*/("""</ul>
                 </div>
             </div>
         </header><!--/header-->
-        """),_display_(/*53.10*/content),format.raw/*53.17*/("""
-    """),format.raw/*54.5*/("""</body>
+        """),_display_(/*57.10*/content),format.raw/*57.17*/("""
+    """),format.raw/*58.5*/("""</body>
 </html>
 """))
       }
     }
   }
 
-  def render(title:String,content:Html): play.twirl.api.HtmlFormat.Appendable = apply(title)(content)
+  def render(title:String,email:String,content:Html): play.twirl.api.HtmlFormat.Appendable = apply(title,email)(content)
 
-  def f:((String) => (Html) => play.twirl.api.HtmlFormat.Appendable) = (title) => (content) => apply(title)(content)
+  def f:((String,String) => (Html) => play.twirl.api.HtmlFormat.Appendable) = (title,email) => (content) => apply(title,email)(content)
 
   def ref: this.type = this
 
@@ -104,11 +108,11 @@ Seq[Any](format.raw/*1.32*/("""
 object base extends base_Scope0.base
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 03:26:57 PST 2015
+                  DATE: Thu Nov 26 05:31:03 PST 2015
                   SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/base.scala.html
-                  HASH: 8103f809a9ac852c1196f0e5584c38aeec98d411
-                  MATRIX: 748->1|873->31|901->33|1184->289|1210->294|1284->341|1299->347|1370->397|1438->438|1453->444|1527->497|1595->538|1610->544|1679->592|1747->633|1762->639|1827->683|1895->724|1910->730|1972->771|2299->1071|2314->1077|2404->1145|2506->1220|2521->1226|2611->1294|2711->1367|2726->1373|2815->1440|2901->1499|2916->1505|3005->1572|3692->2232|3707->2238|3765->2274|4538->3020|4566->3027|4598->3032
-                  LINES: 27->1|32->1|34->3|42->11|42->11|43->12|43->12|43->12|44->13|44->13|44->13|45->14|45->14|45->14|46->15|46->15|46->15|47->16|47->16|47->16|54->23|54->23|54->23|55->24|55->24|55->24|56->25|56->25|56->25|57->26|57->26|57->26|69->38|69->38|69->38|84->53|84->53|85->54
+                  HASH: adedff60b32a3594602b6fbeb025fe290f24390c
+                  MATRIX: 755->1|896->47|924->49|1207->305|1233->310|1307->357|1322->363|1393->413|1461->454|1476->460|1550->513|1618->554|1633->560|1702->608|1770->649|1785->655|1850->699|1918->740|1933->746|1995->787|2322->1087|2337->1093|2427->1161|2529->1236|2544->1242|2634->1310|2734->1383|2749->1389|2838->1456|2924->1515|2939->1521|3028->1588|3715->2248|3730->2254|3788->2290|4125->2600|4149->2615|4188->2616|4243->2643|4543->2925|4556->2929|4595->2930|4650->2957|4808->3084|4857->3105|4973->3194|5001->3201|5033->3206
+                  LINES: 27->1|32->1|34->3|42->11|42->11|43->12|43->12|43->12|44->13|44->13|44->13|45->14|45->14|45->14|46->15|46->15|46->15|47->16|47->16|47->16|54->23|54->23|54->23|55->24|55->24|55->24|56->25|56->25|56->25|57->26|57->26|57->26|69->38|69->38|69->38|75->44|75->44|75->44|76->45|80->49|80->49|80->49|81->50|83->52|84->53|88->57|88->57|89->58
                   -- GENERATED --
               */
           

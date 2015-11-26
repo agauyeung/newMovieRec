@@ -31,7 +31,7 @@ class invalid extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,For
 
 Seq[Any](format.raw/*1.32*/("""
 
-"""),_display_(/*3.2*/base(title)/*3.13*/ {_display_(Seq[Any](format.raw/*3.15*/("""	"""),format.raw/*3.63*/("""
+"""),_display_(/*3.2*/base(title, email)/*3.20*/ {_display_(Seq[Any](format.raw/*3.22*/("""	"""),format.raw/*3.70*/("""
 
     """),format.raw/*5.5*/("""Hello, """),_display_(/*5.13*/email),format.raw/*5.18*/("""!<br>
     You have entered an invalid password!
@@ -56,10 +56,10 @@ Seq[Any](format.raw/*1.32*/("""
 object invalid extends invalid_Scope0.invalid
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 03:26:57 PST 2015
+                  DATE: Thu Nov 26 04:50:57 PST 2015
                   SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/invalid.scala.html
-                  HASH: 693fbc90beb9c9bd0461fa179718cd0d58d4d02c
-                  MATRIX: 756->1|881->31|909->34|928->45|967->47|995->95|1027->101|1061->109|1086->114
+                  HASH: 95d9fd4328021bf81a5abc1e1a3b75c58cb70c6d
+                  MATRIX: 756->1|881->31|909->34|935->52|974->54|1002->102|1034->108|1068->116|1093->121
                   LINES: 27->1|32->1|34->3|34->3|34->3|34->3|36->5|36->5|36->5
                   -- GENERATED --
               */

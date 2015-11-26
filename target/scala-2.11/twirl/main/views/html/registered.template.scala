@@ -31,7 +31,7 @@ class registered extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,
 
 Seq[Any](format.raw/*1.32*/("""
 
-"""),_display_(/*3.2*/base(title)/*3.13*/ {_display_(Seq[Any](format.raw/*3.15*/("""	"""),format.raw/*3.63*/("""
+"""),_display_(/*3.2*/base(title, email)/*3.20*/ {_display_(Seq[Any](format.raw/*3.22*/("""	"""),format.raw/*3.70*/("""
 
     """),format.raw/*5.5*/("""Welcome, """),_display_(/*5.15*/email),format.raw/*5.20*/("""!<br>
     You are now a member of our movie recommendation application. Enjoy!
@@ -57,10 +57,10 @@ Seq[Any](format.raw/*1.32*/("""
 object registered extends registered_Scope0.registered
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 03:26:58 PST 2015
+                  DATE: Thu Nov 26 04:48:34 PST 2015
                   SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/registered.scala.html
-                  HASH: 15a40c3619f493b354a2857a47780022da746144
-                  MATRIX: 762->1|887->31|915->34|934->45|973->47|1001->95|1033->101|1069->111|1094->116|1204->197
+                  HASH: 63f920bb38148de0e8edd6abb31e80b42c374b28
+                  MATRIX: 762->1|887->31|915->34|941->52|980->54|1008->102|1040->108|1076->118|1101->123|1211->204
                   LINES: 27->1|32->1|34->3|34->3|34->3|34->3|36->5|36->5|36->5|39->8
                   -- GENERATED --
               */

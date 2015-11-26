@@ -1,7 +1,7 @@
-@(title: String, movies: List[String], ratingsForm: Form[TenRatings])
+@(title: String, email: String, movies: List[String], ratingsForm: Form[TenRatings])
 @import helper._
 
-@base(title) {	@*using main template, with page title as arg*@
+@base(title, email) {	@*using main template, with page title as arg*@
 
     <font color="red">
         <br>Note that you must rate at least 10 movies before getting recommendations.

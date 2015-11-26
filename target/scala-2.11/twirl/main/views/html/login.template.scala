@@ -31,7 +31,7 @@ import helper._
 
 Seq[Any](format.raw/*1.41*/("""
 """),format.raw/*3.1*/("""
-"""),_display_(/*4.2*/base(title)/*4.13*/ {_display_(Seq[Any](format.raw/*4.15*/("""	"""),format.raw/*4.63*/("""
+"""),_display_(/*4.2*/base(title, "")/*4.17*/ {_display_(Seq[Any](format.raw/*4.19*/("""	"""),format.raw/*4.67*/("""
 
     """),format.raw/*6.41*/("""
     """),_display_(/*7.6*/form(action = routes.RecApplication.authenticate(), 'id -> "loginForm")/*7.77*/ {_display_(Seq[Any](format.raw/*7.79*/("""
@@ -63,10 +63,10 @@ Seq[Any](format.raw/*1.41*/("""
 object login extends login_Scope0.login
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 03:26:57 PST 2015
+                  DATE: Thu Nov 26 04:51:57 PST 2015
                   SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/login.scala.html
-                  HASH: f568815a2bf8251bfa743f7e8aba274279a921bc
-                  MATRIX: 757->1|906->40|933->58|960->60|979->71|1018->73|1046->121|1079->163|1110->169|1189->240|1228->242|1273->261|1355->323|1392->333|1481->401|1517->410|1612->475|1645->478
+                  HASH: 95af96adee01185b2131fd848d02993ad1c6826b
+                  MATRIX: 757->1|906->40|933->58|960->60|983->75|1022->77|1050->125|1083->167|1114->173|1193->244|1232->246|1277->265|1359->327|1396->337|1485->405|1521->414|1616->479|1649->482
                   LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|37->7|37->7|37->7|39->9|39->9|40->10|40->10|41->11|43->13|45->15
                   -- GENERATED --
               */

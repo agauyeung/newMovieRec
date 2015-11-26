@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/alphaneo1/new/newMovieRec/conf/routes
-// @DATE:Thu Nov 26 03:26:57 PST 2015
+// @DATE:Thu Nov 26 05:13:29 PST 2015
 
 package router
 
@@ -46,15 +46,15 @@ class Routes(
     ("""GET""", this.prefix, """controllers.RecApplication.index()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """recommended""", """controllers.RecApplication.recommended()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """history""", """controllers.RecApplication.history()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """register_user""", """controllers.RecApplication.register_user()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """register""", """controllers.RecApplication.register()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """view""", """controllers.RecApplication.view()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users""", """controllers.RecApplication.users()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """rate""", """controllers.RecApplication.rate()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """maintenance""", """controllers.RecApplication.maintenance()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """random""", """controllers.RecApplication.random()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registered""", """controllers.RecApplication.registered()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.RecApplication.login()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.RecApplication.logout()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """authenticate""", """controllers.RecApplication.authenticate()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -115,19 +115,19 @@ class Routes(
   )
 
   // @LINE:15
-  private[this] lazy val controllers_RecApplication_register_user3_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("register_user")))
+  private[this] lazy val controllers_RecApplication_register3_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("register")))
   )
-  private[this] lazy val controllers_RecApplication_register_user3_invoker = createInvoker(
-    RecApplication_1.register_user(),
+  private[this] lazy val controllers_RecApplication_register3_invoker = createInvoker(
+    RecApplication_1.register(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.RecApplication",
-      "register_user",
+      "register",
       Nil,
       "GET",
       """ User_DB Registration page""",
-      this.prefix + """register_user"""
+      this.prefix + """register"""
     )
   )
 
@@ -216,28 +216,11 @@ class Routes(
     )
   )
 
-  // @LINE:33
-  private[this] lazy val controllers_RecApplication_random9_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("random")))
-  )
-  private[this] lazy val controllers_RecApplication_random9_invoker = createInvoker(
-    RecApplication_1.random(),
-    HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.RecApplication",
-      "random",
-      Nil,
-      "GET",
-      """""",
-      this.prefix + """random"""
-    )
-  )
-
   // @LINE:35
-  private[this] lazy val controllers_RecApplication_registered10_route = Route("POST",
+  private[this] lazy val controllers_RecApplication_registered9_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("registered")))
   )
-  private[this] lazy val controllers_RecApplication_registered10_invoker = createInvoker(
+  private[this] lazy val controllers_RecApplication_registered9_invoker = createInvoker(
     RecApplication_1.registered(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -251,10 +234,10 @@ class Routes(
   )
 
   // @LINE:38
-  private[this] lazy val controllers_RecApplication_login11_route = Route("GET",
+  private[this] lazy val controllers_RecApplication_login10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
   )
-  private[this] lazy val controllers_RecApplication_login11_invoker = createInvoker(
+  private[this] lazy val controllers_RecApplication_login10_invoker = createInvoker(
     RecApplication_1.login(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -268,6 +251,23 @@ class Routes(
   )
 
   // @LINE:40
+  private[this] lazy val controllers_RecApplication_logout11_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("logout")))
+  )
+  private[this] lazy val controllers_RecApplication_logout11_invoker = createInvoker(
+    RecApplication_1.logout(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.RecApplication",
+      "logout",
+      Nil,
+      "GET",
+      """""",
+      this.prefix + """logout"""
+    )
+  )
+
+  // @LINE:42
   private[this] lazy val controllers_RecApplication_authenticate12_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("authenticate")))
   )
@@ -306,9 +306,9 @@ class Routes(
       }
   
     // @LINE:15
-    case controllers_RecApplication_register_user3_route(params) =>
+    case controllers_RecApplication_register3_route(params) =>
       call { 
-        controllers_RecApplication_register_user3_invoker.call(RecApplication_1.register_user())
+        controllers_RecApplication_register3_invoker.call(RecApplication_1.register())
       }
   
     // @LINE:18
@@ -341,25 +341,25 @@ class Routes(
         controllers_RecApplication_maintenance8_invoker.call(RecApplication_1.maintenance())
       }
   
-    // @LINE:33
-    case controllers_RecApplication_random9_route(params) =>
-      call { 
-        controllers_RecApplication_random9_invoker.call(RecApplication_1.random())
-      }
-  
     // @LINE:35
-    case controllers_RecApplication_registered10_route(params) =>
+    case controllers_RecApplication_registered9_route(params) =>
       call { 
-        controllers_RecApplication_registered10_invoker.call(RecApplication_1.registered())
+        controllers_RecApplication_registered9_invoker.call(RecApplication_1.registered())
       }
   
     // @LINE:38
-    case controllers_RecApplication_login11_route(params) =>
+    case controllers_RecApplication_login10_route(params) =>
       call { 
-        controllers_RecApplication_login11_invoker.call(RecApplication_1.login())
+        controllers_RecApplication_login10_invoker.call(RecApplication_1.login())
       }
   
     // @LINE:40
+    case controllers_RecApplication_logout11_route(params) =>
+      call { 
+        controllers_RecApplication_logout11_invoker.call(RecApplication_1.logout())
+      }
+  
+    // @LINE:42
     case controllers_RecApplication_authenticate12_route(params) =>
       call { 
         controllers_RecApplication_authenticate12_invoker.call(RecApplication_1.authenticate())
