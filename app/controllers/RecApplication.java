@@ -43,7 +43,14 @@ public class RecApplication extends Controller {
     //database stuff
 
     public Result index() {
-        return recommended();
+        String user = session("connected");
+        
+        if (user != null) {
+            return recommended();
+        } else {
+            return login();
+        }
+        
     }
     
     //CAN CREATE methods to open other pages...
@@ -104,7 +111,7 @@ public class RecApplication extends Controller {
         Users user = null;
         try {
             user = Users.authenticate(email, password);
-            //session("email", email);
+            session("connected", email);
             if (user != null) {
                 System.out.println(user.email);
             } else {
