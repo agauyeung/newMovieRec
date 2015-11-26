@@ -56,6 +56,7 @@ public class RecApplication extends Controller {
     //CAN CREATE methods to open other pages...
 
     public Result recommended() {
+        String userID = session("userID");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
     	
         if (storedRatings.size() < 10) {
@@ -69,6 +70,7 @@ public class RecApplication extends Controller {
     }
     
     public Result history() {
+        String userID = session("userID");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
         
         //Pass in a list of strings in format Movie Title: Rating
@@ -158,9 +160,6 @@ public class RecApplication extends Controller {
 
     /** DEMO */
     public Result rate() {
-        String userID = session("userID");
-        
-        System.out.println(userID);
         //Send Ratings to Database. Ensures form is filled to 0.
         addRatings();
 
@@ -204,6 +203,8 @@ public class RecApplication extends Controller {
             return null;
         }
         
+        System.out.println(randMovieIDs.get(0));
+        
         //Grab each rating in from the form and add to User Ratings.
         HashMap<Integer, Integer> ratingsMap = new HashMap<Integer, Integer>();
         ratingsMap.put(randMovieIDs.get(0), Integer.parseInt(formMap.get("m1")));
@@ -218,12 +219,17 @@ public class RecApplication extends Controller {
         ratingsMap.put(randMovieIDs.get(9), Integer.parseInt(formMap.get("m10")));
 
         //TODO: ADD RATINGS TO DATABASE!!!
-        /*for (int i = 0; i < ratingsMap.size(); i ++) {
-        	if (ratingsMap.get(i) != 0) {
-        		//add rating to database
-        	}
-        }*/
-        //save
+        
+        String userID = session("userID");
+        System.out.println(userID);
+        
+        for (Map.Entry<Integer, Integer> e: ratingsMap.entrySet()) {
+        	    MovieRatings movieRating = new MovieRatings();
+        	    movieRating.userID = Integer.parseInt(userID);
+        	    movieRating.movieID = e.getKey();
+        	    movieRating.movieRating = e.getValue();
+        	    movieRating.save();
+        }
         
         return ratingsMap;
     }
@@ -233,7 +239,6 @@ public class RecApplication extends Controller {
         return ok(maintenance.render());
     }
     
-/*  DEPRECATED: FROM DEMO  
     public Result results() {
         HashMap<Integer, Integer> ratingsMap = addRatings();
         
@@ -242,7 +247,7 @@ public class RecApplication extends Controller {
         
         return ok(results.render("Results", recommendations));
     }
-*/    
+    
     /** TESTING */
     public Result random() {
     	List<String> recommendations = movRec.getRecommendations(movRec.genRandUser());
