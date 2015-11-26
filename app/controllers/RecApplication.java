@@ -112,6 +112,8 @@ public class RecApplication extends Controller {
         try {
             user = Users.authenticate(email, password);
             session("connected", email);
+            session("userID", user.userID.toString());
+            
             if (user != null) {
                 System.out.println(user.email);
             } else {
@@ -155,7 +157,10 @@ public class RecApplication extends Controller {
     }
 
     /** DEMO */
-    public Result rate() { 	
+    public Result rate() {
+        String userID = session("userID");
+        
+        System.out.println(userID);
         //Send Ratings to Database. Ensures form is filled to 0.
         addRatings();
 
