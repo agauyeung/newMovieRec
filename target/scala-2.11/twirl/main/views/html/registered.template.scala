@@ -57,7 +57,7 @@ Seq[Any](format.raw/*1.35*/("""
 object registered extends registered_Scope0.registered
               /*
                   -- GENERATED --
-                  DATE: Wed Nov 25 04:55:53 PST 2015
+                  DATE: Wed Nov 25 19:08:31 PST 2015
                   SOURCE: /Users/alphaneo1/newMovieRec/app/views/registered.scala.html
                   HASH: c7e9fc740d56cc1cb729e7f2e6731a02b4393098
                   MATRIX: 762->1|890->34|918->37|937->48|976->50|1004->98|1036->104|1072->114|1100->122|1210->203

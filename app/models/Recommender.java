@@ -487,6 +487,13 @@ public class Recommender {
 		return numerator/denominator;
 	}
 	
+	public static void rebuildUserMap(List<MovieRatings> ratingsList, int totalMovies) {
+	    userMap = new UserMap(totalMovies);
+	    for (MovieRatings rating : ratingsList) {
+	        userMap.addRating(rating.userID, rating.movieID, rating.movieRating);
+	    }
+	}
+	
 	/**
 	 * Generates matrix as a SparseMatrix using user ratings.
 	 * Rows represent users (userID while columns represent movies (movieID).

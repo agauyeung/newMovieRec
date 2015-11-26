@@ -25,7 +25,6 @@ public class UserMap {
 	 */
 	public UserMap(int totalMovies) {
 		usermap = new HashMap<Integer, int[]>();
-		usermap.put(0, null);
 		this.totalMovies = totalMovies;
 	}
 	
@@ -71,9 +70,7 @@ public class UserMap {
 		
 		if (!contains(userID)) {
 			ratings = new int[totalMovies];
-			ratings[0] = -1;
 			usermap.put(userID, ratings);
-			
 		}
 	}
 	
@@ -84,7 +81,7 @@ public class UserMap {
 	 * @return true if User ID in user map and false if not
 	 */
     public boolean contains(int userID) {
-    	if (userID != 0 && usermap.containsKey(userID)){
+    	if (usermap.containsKey(userID)){
     		return true;
     	} else {
     		return false;

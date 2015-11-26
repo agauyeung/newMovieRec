@@ -8,8 +8,8 @@
         <br>Ignore this message if you have already rated at least 10 movies.<br><br>
     </font>
 
-    @*@form(action = routes.Application.results(), 'id -> "ratingsForm")*@
-    @form(action = routes.Application.rate(), 'id -> "ratingsForm") {
+    @*@form(action = routes.RecApplication.results(), 'id -> "ratingsForm")*@
+    @form(action = routes.RecApplication.rate(), 'id -> "ratingsForm") {
         @for((movie, index) <- movies.zipWithIndex) {
             @inputRadioGroup(
                 ratingsForm("m" + (index+1)),  

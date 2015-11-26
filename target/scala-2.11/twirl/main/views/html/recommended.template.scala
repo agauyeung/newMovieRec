@@ -59,7 +59,7 @@ Seq[Any](format.raw/*1.48*/("""
 object recommended extends recommended_Scope0.recommended
               /*
                   -- GENERATED --
-                  DATE: Wed Nov 25 04:55:53 PST 2015
+                  DATE: Wed Nov 25 19:08:31 PST 2015
                   SOURCE: /Users/alphaneo1/newMovieRec/app/views/recommended.scala.html
                   HASH: 52f5e77f6c0d1342370face461c4987cd34047b0
                   MATRIX: 770->1|911->47|939->50|958->61|997->63|1025->111|1057->154|1088->160|1123->175|1151->176|1207->207|1260->245|1299->247|1335->257|1369->271|1406->282|1445->292|1477->294
