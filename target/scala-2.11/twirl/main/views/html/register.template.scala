@@ -64,8 +64,8 @@ Seq[Any](format.raw/*1.39*/("""
 object register extends register_Scope0.register
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 05:13:28 PST 2015
-                  SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/register.scala.html
+                  DATE: Fri Nov 27 01:44:52 PST 2015
+                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/register.scala.html
                   HASH: 3612d7c79048262d5a5c0f218be40b4a97765c57
                   MATRIX: 763->1|910->38|937->56|964->58|987->73|1026->75|1054->123|1087->165|1118->171|1193->238|1232->240|1277->259|1357->319|1394->329|1481->395|1518->405|1605->471|1641->480|1748->557|1781->560
                   LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|37->7|37->7|37->7|39->9|39->9|40->10|40->10|41->11|41->11|42->12|44->14|46->16

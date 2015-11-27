@@ -56,8 +56,8 @@ Seq[Any](format.raw/*1.32*/("""
 object invalid extends invalid_Scope0.invalid
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 04:50:57 PST 2015
-                  SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/invalid.scala.html
+                  DATE: Fri Nov 27 01:44:52 PST 2015
+                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/invalid.scala.html
                   HASH: 95d9fd4328021bf81a5abc1e1a3b75c58cb70c6d
                   MATRIX: 756->1|881->31|909->34|935->52|974->54|1002->102|1034->108|1068->116|1093->121
                   LINES: 27->1|32->1|34->3|34->3|34->3|34->3|36->5|36->5|36->5

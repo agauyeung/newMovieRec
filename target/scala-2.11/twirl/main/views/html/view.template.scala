@@ -63,8 +63,8 @@ Seq[Any](format.raw/*1.39*/("""
 object view extends view_Scope0.view
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 26 04:54:59 PST 2015
-                  SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/view.scala.html
+                  DATE: Fri Nov 27 01:44:52 PST 2015
+                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/view.scala.html
                   HASH: 8a422168ba3905279fcaa8f04c2f924736f45f21
                   MATRIX: 756->1|888->38|916->41|939->56|978->58|1009->63|1073->102|1108->122|1147->124|1180->131|1211->136|1224->141|1249->146|1284->155|1330->174|1344->179|1374->188|1410->197|1463->220|1496->226
                   LINES: 27->1|32->1|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|39->8|39->8|39->8|40->9|41->10|41->10|41->10|42->11|44->13|45->14

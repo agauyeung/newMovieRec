@@ -32,11 +32,9 @@ public class RecApplication extends Controller {
     static boolean filled = false;
     final static Form<Users> dbRegForm = Form.form(Users.class);
     final static Form<Login> loginForm = Form.form(Login.class);
-    static int userID = 1;
 
     List<Integer> randMovieIDs = null;
     
-    //TODO: TIMER here to wrap construction of movRec object after SVD calc
     //MovieRecommender movRec = new MovieRecommender("movies_1M.txt", "V_1M_short.txt");
     public static MovieRecommender movRec = new MovieRecommender(Movies.find.all(), "V_100K_short.txt");
 
@@ -216,28 +214,31 @@ public class RecApplication extends Controller {
         
         //Grab each rating in from the form and add to User Ratings.
         HashMap<Integer, Integer> ratingsMap = new HashMap<Integer, Integer>();
-        ratingsMap.put(randMovieIDs.get(0), Integer.parseInt(formMap.get("m1")));
-        ratingsMap.put(randMovieIDs.get(1), Integer.parseInt(formMap.get("m2")));
-        ratingsMap.put(randMovieIDs.get(2), Integer.parseInt(formMap.get("m3")));
-        ratingsMap.put(randMovieIDs.get(3), Integer.parseInt(formMap.get("m4")));
-        ratingsMap.put(randMovieIDs.get(4), Integer.parseInt(formMap.get("m5")));
-        ratingsMap.put(randMovieIDs.get(5), Integer.parseInt(formMap.get("m6")));
-        ratingsMap.put(randMovieIDs.get(6), Integer.parseInt(formMap.get("m7")));
-        ratingsMap.put(randMovieIDs.get(7), Integer.parseInt(formMap.get("m8")));
-        ratingsMap.put(randMovieIDs.get(8), Integer.parseInt(formMap.get("m9")));
-        ratingsMap.put(randMovieIDs.get(9), Integer.parseInt(formMap.get("m10")));
-
-        //TODO: ADD RATINGS TO DATABASE!!!
+        //add 1 to movieID because database cannot take an entry with ID 0
+        ratingsMap.put(randMovieIDs.get(0) + 1, Integer.parseInt(formMap.get("m1")));
+        ratingsMap.put(randMovieIDs.get(1) + 1, Integer.parseInt(formMap.get("m2")));
+        ratingsMap.put(randMovieIDs.get(2) + 1, Integer.parseInt(formMap.get("m3")));
+        ratingsMap.put(randMovieIDs.get(3) + 1, Integer.parseInt(formMap.get("m4")));
+        ratingsMap.put(randMovieIDs.get(4) + 1, Integer.parseInt(formMap.get("m5")));
+        ratingsMap.put(randMovieIDs.get(5) + 1, Integer.parseInt(formMap.get("m6")));
+        ratingsMap.put(randMovieIDs.get(6) + 1, Integer.parseInt(formMap.get("m7")));
+        ratingsMap.put(randMovieIDs.get(7) + 1, Integer.parseInt(formMap.get("m8")));
+        ratingsMap.put(randMovieIDs.get(8) + 1, Integer.parseInt(formMap.get("m9")));
+        ratingsMap.put(randMovieIDs.get(9) + 1, Integer.parseInt(formMap.get("m10")));
+        
+        //ADD RATINGS TO DATABASE
         
         String userID = session("userID");
         System.out.println(userID);
         
         for (Map.Entry<Integer, Integer> e: ratingsMap.entrySet()) {
+            if (e.getValue() != 0) {
         	    MovieRatings movieRating = new MovieRatings();
         	    movieRating.userID = Integer.parseInt(userID);
         	    movieRating.movieID = e.getKey();
         	    movieRating.movieRating = e.getValue();
         	    movieRating.save();
+            }
         }
         
         return ratingsMap;
@@ -248,7 +249,8 @@ public class RecApplication extends Controller {
         return ok(maintenance.render());
     }
     
-    public Result results() {
+    //DEPRECATED - FOR USE IN MIDTERM DEMO
+    /*public Result results() {
         String email = session("connected");
         HashMap<Integer, Integer> ratingsMap = addRatings();
         
@@ -256,7 +258,7 @@ public class RecApplication extends Controller {
         List<String> recommendations = movRec.getRecommendations(movRec.createNewUserVectorUsingMap(ratingsMap));
         
         return ok(results.render("Results", email, recommendations));
-    }
+    }*/
     
     /** TESTING */
     /**

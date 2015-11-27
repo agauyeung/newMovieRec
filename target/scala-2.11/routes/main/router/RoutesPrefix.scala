@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/alphaneo1/new/newMovieRec/conf/routes
-// @DATE:Thu Nov 26 05:13:29 PST 2015
+// @SOURCE:/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/conf/routes
+// @DATE:Fri Nov 27 01:44:52 PST 2015
 
 
 package router {
