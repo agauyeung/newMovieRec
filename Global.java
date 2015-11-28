@@ -67,11 +67,11 @@ public class Global extends GlobalSettings {
                     
                     try {
                         //Rename old V to keep it incase we need to roll back
-                        Files.move(Paths.get("V_100K_short.txt"), Paths.get("V_100K_short_OLD.txt"), REPLACE_EXISTING);
+                        Files.move(Paths.get("V_1M_short.txt"), Paths.get("V_1M_short_OLD.txt"), REPLACE_EXISTING);
                         List<Movies> movies = Movies.find.all();
                         Recommender.rebuildUserMap(MovieRatings.find.all(), movies.size());
-                        Recommender.findSVDMatrices();
-                        RecApplication.movRec = new MovieRecommender(movies, "V_100K_short.txt");
+                        Recommender.findSVDMatrices(movies.size());
+                        RecApplication.movRec = new MovieRecommender(movies, "V_1M_short.txt");
                     } catch (IOException e) {
                         System.out.println("IO Exception while attempting to rename V file");
                     }

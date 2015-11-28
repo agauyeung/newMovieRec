@@ -1,20 +1,2 @@
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:217:  java.lang.String and int[0m
-[0m[[31merror[0m] [0mformMap.get("m1") != 0[0m
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:220:  java.lang.String and int[0m
-[0m[[31merror[0m] [0mformMap.get("m2") != 0[0m
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:223:  java.lang.String and int[0m
-[0m[[31merror[0m] [0mformMap.get("m3") != 0[0m
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:226:  java.lang.String and int[0m
-[0m[[31merror[0m] [0mformMap.get("m4") != 0[0m
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:229:  java.lang.String and int[0m
-[0m[[31merror[0m] [0mformMap.get("m5") != 0[0m
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:232:  java.lang.String and int[0m
-[0m[[31merror[0m] [0mformMap.get("m6") != 0[0m
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:235:  java.lang.String and int[0m
-[0m[[31merror[0m] [0mformMap.get("m7") != 0[0m
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:238:  java.lang.String and int[0m
-[0m[[31merror[0m] [0mformMap.get("m8") != 0[0m
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:241:  java.lang.String and int[0m
-[0m[[31merror[0m] [0mformMap.get("m9") != 0[0m
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:244:  java.lang.String and int[0m
-[0m[[31merror[0m] [0mformMap.get("m10") != 0[0m
+[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:192: variable email is already defined in method rate()[0m
+[0m[[31merror[0m] [0mString email = session("connected");[0m

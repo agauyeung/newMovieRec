@@ -72,7 +72,7 @@ Seq[Any](format.raw/*1.85*/("""
 object rate extends rate_Scope0.rate
               /*
                   -- GENERATED --
-                  DATE: Fri Nov 27 01:44:52 PST 2015
+                  DATE: Fri Nov 27 22:37:55 PST 2015
                   SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/rate.scala.html
                   HASH: c13b4690aa7b39e4d8d656c3de163c5951cb63fa
                   MATRIX: 780->1|973->84|1000->102|1027->104|1053->122|1092->124|1120->172|1152->178|1389->460|1421->466|1495->531|1535->533|1572->543|1630->585|1670->587|1711->601|2045->914|2087->925|2123->934|2231->1012|2264->1055|2296->1057

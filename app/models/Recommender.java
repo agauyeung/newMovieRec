@@ -209,12 +209,12 @@ public class Recommender {
 	 * @return true if movies ArrayList has been populated and false if it has not
 	 * @throws IOException
 	 */
-	public static boolean readRatingsOneM(Path path) throws IOException {
+	public static boolean readRatingsOneM(Path path, int totalMovies) throws IOException {
 		int userID;
 		int movieID;
 		int rating;
 		
-		userMap = new UserMap(movies.size());
+		userMap = new UserMap(totalMovies);
 		
 		if (movies == null) {
 			return false;
@@ -488,9 +488,19 @@ public class Recommender {
 	}
 	
 	public static void rebuildUserMap(List<MovieRatings> ratingsList, int totalMovies) {
-	    userMap = new UserMap(totalMovies);
+	    //userMap = new UserMap(totalMovies);
+	    
+	    //add all users and ratings from text file
+	    try {
+	        readRatingsOneM(Paths.get("ratings_1M.txt"), totalMovies);
+	    } catch (IOException e) {
+	        System.out.println("Ratings file incorrect");
+	        System.exit(1);
+	    }
+	    int totalBaseUsers = userMap.size();
+	    //add all users from database
 	    for (MovieRatings rating : ratingsList) {
-	        userMap.addRating(rating.userID, rating.movieID, rating.movieRating);
+	        userMap.addRating(rating.userID + (totalBaseUsers - 1), rating.movieID - 1, rating.movieRating);
 	    }
 	}
 	
@@ -500,10 +510,10 @@ public class Recommender {
 	 *
 	 * @return SparseMatrix matrix
 	 */
-	public static SparseMatrix generateMatrix() {
+	public static SparseMatrix generateMatrix(int totalMovies) {
 		int[] ratings;
 		//matrix = new SparseMatrix(userMap.size()-1, movies.size()-1);
-		matrix = new SparseMatrix(userMap.size(), movies.size());
+		matrix = new SparseMatrix(userMap.size(), totalMovies);
 
 		for (int i = 0; i < userMap.size(); i ++) {
 			ratings = userMap.getRatings(i);
@@ -529,11 +539,11 @@ public class Recommender {
 	 * @throws FileNotFoundException 
 	 * @throws UnsupportedEncodingException 
 	 */
-	public static void findSVDMatrices() throws UnsupportedEncodingException, FileNotFoundException, IOException {
+	public static void findSVDMatrices(int totalMovies) throws UnsupportedEncodingException, FileNotFoundException, IOException {
 		int i, j;
 		
 		System.out.println("\nGenerating matrix...");
-		generateMatrix();
+		generateMatrix(totalMovies);
 			
 		System.out.println("Matrix generated...");
 			
@@ -573,7 +583,7 @@ public class Recommender {
 		
 		System.out.println("Calculating V...");
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-		       new FileOutputStream("V_1M.txt"), "utf-8"))) {
+		       new FileOutputStream("V_1M_short.txt"), "utf-8"))) {
 			Matrix V = SVD.getV();
 			for (i = 0; i < V.rowSize(); i ++) {
 				for (j = 0; j < columnsRetained/*V.columnSize()*/; j ++) {
@@ -697,10 +707,10 @@ public class Recommender {
 
 			System.out.println("Reading and importing movie ratings from \"" + args[1] + "\"");
 			//readRatingsTenK(Paths.get("ratings.txt"));
-			readRatingsOneM(Paths.get("ratings1M.txt"));
+			//readRatingsOneM(Paths.get("ratings1M.txt"));
 
 			/* Find SVD Matrices */
-            findSVDMatrices();
+            //findSVDMatrices();
 			
 			System.out.println("100K Dataset: Retain " + findRetain(Paths.get("S_100K.txt")) + " eigenvalues out of rank " + 943);
 			System.out.println("1M Dataset: Retain " + findRetain(Paths.get("S_1M.txt")) + " eigenvalues out of rank " + 3883);

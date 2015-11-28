@@ -36,11 +36,18 @@ public class RecApplication extends Controller {
     List<Integer> randMovieIDs = null;
     
     //MovieRecommender movRec = new MovieRecommender("movies_1M.txt", "V_1M_short.txt");
-    public static MovieRecommender movRec = new MovieRecommender(Movies.find.all(), "V_100K_short.txt");
+    public static MovieRecommender movRec = new MovieRecommender(Movies.find.all(), "V_1M_short.txt");
 
     //database stuff
 
     public Result index() {
+        /*List<Users> uDB = Users.find.all();
+
+        System.out.println("Deleting...");
+        for (Users u : uDB) {
+            u.delete();
+        }
+        System.out.println("Deleted");*/
         String user = session("connected");
         
         if (user != null) {
@@ -170,7 +177,10 @@ public class RecApplication extends Controller {
         addRatings();
 
         //TODO: Make sure we don't get movieIDs the user has already rated.
-        randMovieIDs = movRec.getRandMovies();
+        String userID = session("userID");
+        List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
+        
+        randMovieIDs = movRec.getRandMovies(storedRatings);
         List<String> tenMoviesTest = new ArrayList<String>();
         for (int i = 0; i < randMovieIDs.size(); i++) {
             tenMoviesTest.add(MovieRecommender.getMovieTitle(randMovieIDs.get(i)));

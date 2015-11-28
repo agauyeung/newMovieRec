@@ -10,7 +10,7 @@
     }
     @for(rating <- history) {
         Movie ID: 
-        @rating.movieID
+        @(rating.movieID - 1)
         Rating: 
         @rating.movieRating
         <br>

@@ -63,7 +63,7 @@ Seq[Any](format.raw/*1.41*/("""
 object login extends login_Scope0.login
               /*
                   -- GENERATED --
-                  DATE: Fri Nov 27 01:44:52 PST 2015
+                  DATE: Fri Nov 27 22:37:55 PST 2015
                   SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/login.scala.html
                   HASH: 95af96adee01185b2131fd848d02993ad1c6826b
                   MATRIX: 757->1|906->40|933->58|960->60|983->75|1022->77|1050->125|1083->167|1114->173|1193->244|1232->246|1277->265|1359->327|1396->337|1485->405|1521->414|1616->479|1649->482

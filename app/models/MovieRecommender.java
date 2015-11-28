@@ -23,6 +23,7 @@ import java.util.TreeMap;
 import org.apache.mahout.math.Matrix;
 import org.apache.mahout.math.SparseMatrix;
 
+import models.MovieRatings;
 
 public class MovieRecommender {
 	
@@ -122,8 +123,13 @@ public class MovieRecommender {
 		}
 	}
 	
-    public ArrayList<Integer> getRandMovies(){
+    public ArrayList<Integer> getRandMovies(List<MovieRatings> prevRatings){
 		System.out.println("GETTING RANDOM MOVIES");
+
+        ArrayList<Integer> prev = new ArrayList<Integer>();
+        for (MovieRatings mr : prevRatings) {
+            prev.add(mr.movieRating);
+        }
 
         ArrayList<Integer> ranmov = new ArrayList<Integer>();
         Random rand = new Random();
@@ -132,7 +138,7 @@ public class MovieRecommender {
         while(ranmov.size() < 10) {
             num = rand.nextInt(movies.size());
             //TODO: Add a check to see if movie ID has been rated by user.
-            if(!ranmov.contains(num)) {
+            if(!ranmov.contains(num) && !prev.contains(num)) {
                 ranmov.add(num);
             }
         }
@@ -161,7 +167,7 @@ public class MovieRecommender {
 		int movieID;
 		
     	for (MovieRatings rating : ratingsList) {
-    	    movieID = rating.movieID;
+    	    movieID = rating.movieID - 1;
     	    System.out.println("MovieID: " + movieID + ", Rating: " + rating.movieRating);
     		vector.set(0, movieID, rating.movieRating);
     	}
@@ -196,6 +202,9 @@ public class MovieRecommender {
     	
         System.out.println("Recommending Movies...");
         List<String> recMovies = new ArrayList<String>();
+        for (int i = 0; i < MAXNUMOFRECS; i++) {
+            recMovies.add(null);
+        }
         int movieID;
         
         LinkedList<Integer> topRecs = new LinkedList<Integer>();
@@ -256,10 +265,12 @@ public class MovieRecommender {
         
         System.out.println("Recommendations:");
         ListIterator<Integer> listIterator = topRecs.listIterator();
+        int index = topRecs.size() - 1;
     	while (listIterator.hasNext()) {
-    		movieID = listIterator.next() + 1;
+    		movieID = listIterator.next();
     		System.out.println("Movie " + getMovieTitle(movieID));
-    		recMovies.add(getMovieTitle(movieID));
+    		recMovies.set(index, getMovieTitle(movieID));
+    		index --;
     	}
         
         System.out.println("DONE RECOMMENDING");
