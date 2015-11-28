@@ -167,6 +167,9 @@ public class RecApplication extends Controller {
         newUser.username = username;
         newUser.password = BCrypt.hashpw(password, BCrypt.gensalt());
         newUser.save();
+        
+        session("connected", email);
+        session("userID", user.userID.toString());
 
         return ok(registered.render("Registration Confirmation", username));
     }
