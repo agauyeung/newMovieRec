@@ -56,7 +56,7 @@ Seq[Any](format.raw/*1.32*/("""
 object loggedout extends loggedout_Scope0.loggedout
               /*
                   -- GENERATED --
-                  DATE: Fri Nov 27 22:37:55 PST 2015
+                  DATE: Sat Nov 28 01:01:00 PST 2015
                   SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/loggedout.scala.html
                   HASH: 7b3b95072e65e74a7cddb6e58c84a026728befd4
                   MATRIX: 760->1|885->31|913->34|939->52|978->54|1006->102|1038->108|1072->116|1097->121

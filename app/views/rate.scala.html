@@ -1,13 +1,15 @@
-@(title: String, email: String, movies: List[String], ratingsForm: Form[TenRatings])
+@(title: String, email: String, movies: List[String], ratingsForm: Form[TenRatings], redirect: Int)
 @import helper._
 
 @base(title, email) {	@*using main template, with page title as arg*@
 
-    <font color="red">
-        <br>Note that you must rate at least 10 movies before getting recommendations.
-        <br>Ignore this message if you have already rated at least 10 movies.<br><br>
-    </font>
-
+    @if(redirect == 1){
+        <font color="red">
+            <br>Note that you must rate at least 10 movies before getting recommendations.
+            <br>When you have done so, please navigate to "Recommended For You".<br><br>
+        </font>
+    }
+    
     @*@form(action = routes.RecApplication.results(), 'id -> "ratingsForm")*@
     @form(action = routes.RecApplication.rate(), 'id -> "ratingsForm") {
         @for((movie, index) <- movies.zipWithIndex) {

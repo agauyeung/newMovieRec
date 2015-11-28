@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/conf/routes
-// @DATE:Fri Nov 27 22:37:56 PST 2015
+// @DATE:Sat Nov 28 01:01:02 PST 2015
 
 package controllers;
 

@@ -34,6 +34,7 @@ public class RecApplication extends Controller {
     final static Form<Login> loginForm = Form.form(Login.class);
 
     List<Integer> randMovieIDs = null;
+    boolean redirectFromRecommended = false;
     
     //MovieRecommender movRec = new MovieRecommender("movies_1M.txt", "V_1M_short.txt");
     public static MovieRecommender movRec = new MovieRecommender(Movies.find.all(), "V_1M_short.txt");
@@ -65,10 +66,11 @@ public class RecApplication extends Controller {
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
     	
         if (storedRatings.size() < 10) {
+            redirectFromRecommended = true;
             return rate();
         } else {
             List<String> recommendations = movRec.getRecommendations(movRec.createNewUserVectorUsingList(storedRatings));
-            return ok(recommended.render("Recommended for You", recommendations, username));
+            return ok(recommended.render("Recommended For You", recommendations, username));
         }
         
         //return ok(recommended.render("Recommended For You"));
@@ -194,7 +196,12 @@ public class RecApplication extends Controller {
         String email = session("connected");
         
         System.out.println("CALLING RATE PAGE");
-        return ok(rate.render("Rate Movies", email , tenMoviesTest, ratingsForm.fill(preset)));
+        if (redirectFromRecommended) {
+            redirectFromRecommended = false;
+            return ok(rate.render("Rate Movies", email , tenMoviesTest, ratingsForm.fill(preset), 1));
+        } else {
+            return ok(rate.render("Rate Movies", email , tenMoviesTest, ratingsForm.fill(preset), 0));
+        }
     }
     
     public TenRatings presetRatingsForm() {

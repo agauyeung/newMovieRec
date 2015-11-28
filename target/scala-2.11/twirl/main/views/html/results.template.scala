@@ -59,7 +59,7 @@ Seq[Any](format.raw/*1.63*/("""
 object results extends results_Scope0.results
               /*
                   -- GENERATED --
-                  DATE: Fri Nov 27 22:37:54 PST 2015
+                  DATE: Sat Nov 28 01:01:00 PST 2015
                   SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/results.scala.html
                   HASH: 033d70b63504338f92f5a518a4dd301dd8ad2ac9
                   MATRIX: 769->1|925->62|953->65|979->83|1018->85|1046->133|1078->176|1109->182|1144->197|1172->198|1228->229|1281->267|1320->269|1356->279|1390->293|1427->304|1466->314|1498->316

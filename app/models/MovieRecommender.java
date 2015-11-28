@@ -210,9 +210,10 @@ public class MovieRecommender {
         LinkedList<Integer> topRecs = new LinkedList<Integer>();
         
         for (int j = 0; j < recommendations.columnSize(); j++) {
-//        	if (recommendations.get(0, j) <= 3) {
-//        		continue;
-//        	}
+            //Don't recommend movies the user has already seen
+        	if (user.get(0, j) != 0) {
+        		continue;
+        	}
 
         	//go through all ratings
         	//if max, put in linked list

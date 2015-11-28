@@ -1,2 +1,0 @@
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:192: variable email is already defined in method rate()[0m
-[0m[[31merror[0m] [0mString email = session("connected");[0m

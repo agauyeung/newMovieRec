@@ -67,7 +67,7 @@ Seq[Any](format.raw/*1.61*/("""
 object history extends history_Scope0.history
               /*
                   -- GENERATED --
-                  DATE: Fri Nov 27 23:09:27 PST 2015
+                  DATE: Sat Nov 28 01:01:00 PST 2015
                   SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/history.scala.html
                   HASH: 9a98cd64cd364f85a1d9135ef177ef13dd7ad3b1
                   MATRIX: 775->1|929->60|957->63|983->81|1022->83|1050->131|1083->175|1114->181|1141->200|1180->202|1215->211|1331->297|1363->303|1401->325|1441->327|1477->336|1524->356|1565->376|1601->385|1646->403|1661->409|1694->421|1730->430|1770->440|1802->442
