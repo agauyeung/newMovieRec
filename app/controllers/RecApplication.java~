@@ -159,7 +159,7 @@ public class RecApplication extends Controller {
         String username = formMap.get("username");
         String password = formMap.get("password");
         
-        //PLACE THEM INTO DATABASE!
+        //TODO: PLACE THEM INTO DATABASE!
         //TODO: BACKEND; CHECK USERNAME/PASSWORD for validity.
         
         Users newUser = new Users();
@@ -176,7 +176,7 @@ public class RecApplication extends Controller {
         //Send Ratings to Database. Ensures form is filled to 0.
         addRatings();
 
-        //Make sure we don't get movieIDs the user has already rated.
+        //TODO: Make sure we don't get movieIDs the user has already rated.
         String userID = session("userID");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
         
