@@ -169,7 +169,7 @@ public class RecApplication extends Controller {
         newUser.save();
         
         session("connected", email);
-        session("userID", user.userID.toString());
+        session("userID", newUser.userID.toString());
 
         return ok(registered.render("Registration Confirmation", username));
     }
