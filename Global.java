@@ -69,7 +69,7 @@ public class Global extends GlobalSettings {
                         //Rename old V to keep it incase we need to roll back
                         Files.move(Paths.get("V_1M_short.txt"), Paths.get("V_1M_short_OLD.txt"), REPLACE_EXISTING);
                         List<Movies> movies = Movies.find.all();
-                        Recommender.rebuildUserMap(MovieRatings.find.all(), movies.size());
+                        Recommender.rebuildUserMap(MovieRatings.find.where().orderBy("userID asc").findList(), movies);
                         Recommender.findSVDMatrices(movies.size());
                         RecApplication.movRec = new MovieRecommender(movies, "V_1M_short.txt");
                     } catch (IOException e) {

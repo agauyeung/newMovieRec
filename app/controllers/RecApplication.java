@@ -11,9 +11,11 @@ import models.MovieRatings;
 import models.MovieRecommender;
 import models.Movies;
 import models.Users;
+import models.Recommender;
 import models.Login;
 import models.Hash;
 import models.AppException;
+import models.UserMap;
 import views.html.*;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -42,6 +44,8 @@ public class RecApplication extends Controller {
     //database stuff
 
     public Result index() {
+        //Recommender.rebuildUserMap(MovieRatings.find.where().orderBy("userID asc").findList(), Movies.find.all());
+
         /*List<Users> uDB = Users.find.all();
 
         System.out.println("Deleting...");

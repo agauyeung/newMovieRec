@@ -209,19 +209,18 @@ public class Recommender {
 	 * @return true if movies ArrayList has been populated and false if it has not
 	 * @throws IOException
 	 */
-	public static boolean readRatingsOneM(Path path, int totalMovies) throws IOException {
+	public static boolean readRatingsOneM(Path path, List<Movies> movies) throws IOException {
 		int userID;
 		int movieID;
 		int rating;
 		
-		userMap = new UserMap(totalMovies);
+		userMap = new UserMap(movies.size());
 		
 		if (movies == null) {
 			return false;
 		} else {
 			List<String> line;
 			String text;
-			
 			//Go through movie ratings file and populate usermap
 			try (
 					BufferedReader reader = Files.newBufferedReader(path, Charset.forName("UTF8"))
@@ -229,7 +228,8 @@ public class Recommender {
 				while ((text = reader.readLine()) != null){
 					line = parseTextOneM(text);
 					userID = Integer.parseInt(line.get(0)) - 1;     //all user IDs -1 to allow for userID 0
-					movieID = fixedMovieIDMap.get(Integer.parseInt(line.get(1)));    //all movie IDs -1 to allow for movieID 0
+					//movieID = fixedMovieIDMap.get(Integer.parseInt(line.get(1)));    //all movie IDs -1 to allow for movieID 0
+					movieID = Integer.parseInt(line.get(1)) - 1;    //all movie IDs -1 to allow for movieID 0
 					rating = Integer.parseInt(line.get(2));
 					userMap.addRating(userID, movieID, rating);
 				}
@@ -487,20 +487,27 @@ public class Recommender {
 		return numerator/denominator;
 	}
 	
-	public static void rebuildUserMap(List<MovieRatings> ratingsList, int totalMovies) {
+	public static void rebuildUserMap(List<MovieRatings> ratingsList, List<Movies> movies) {
 	    //userMap = new UserMap(totalMovies);
 	    
 	    //add all users and ratings from text file
 	    try {
-	        readRatingsOneM(Paths.get("ratings_1M.txt"), totalMovies);
+	        readRatingsOneM(Paths.get("ratings_1M.txt"), movies);
 	    } catch (IOException e) {
 	        System.out.println("Ratings file incorrect");
 	        System.exit(1);
 	    }
-	    int totalBaseUsers = userMap.size();
+	    int currentIndex = userMap.size();
+	    System.out.println("OG SIZE: " + currentIndex);
+	    int currentUser = ratingsList.get(0).userID;
 	    //add all users from database
 	    for (MovieRatings rating : ratingsList) {
-	        userMap.addRating(rating.userID + (totalBaseUsers - 1), rating.movieID - 1, rating.movieRating);
+	        if (rating.userID != currentUser) {
+	            currentUser = rating.userID;
+	            currentIndex ++;
+	        }
+	        userMap.addRating(currentIndex, rating.movieID - 1, rating.movieRating);
+	        System.out.println(currentIndex + " " + (rating.movieID - 1) + " " + rating.movieRating);
 	    }
 	}
 	
