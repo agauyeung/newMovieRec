@@ -2,7 +2,6 @@ package controllers;
 
 
 import play.data.Form;
-import play.*;
 import play.mvc.*;
 import play.db.*;
 import play.data.*;
@@ -106,13 +105,18 @@ public class RecApplication extends Controller {
     }
 
     public Result view() {
-        return ok(view.render("View Movies", 
+        String userID = session("userID");
+        String email = session("connected");
+        
+        return ok(view.render("View Movies", email,
             Movies.find.all()
         ));
     }
     
     public Result users() {
-        return ok(users.render("View Users", 
+        String email = session("connected");
+        
+        return ok(users.render("View Users", email,
             Users.find.all()
         ));
     }

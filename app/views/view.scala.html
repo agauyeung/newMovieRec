@@ -1,9 +1,9 @@
-@(title: String, movies: List[Movies])
+@(title: String, email: String, movies: List[Movies])
 
-@base(title, "") {
+@base(title, email) {
     <h1>All Movies<h1>
     
-    <ul> 
+    <ul>
     @for(movie <- movies) {
       <li>@movie.name
         <ul> 
