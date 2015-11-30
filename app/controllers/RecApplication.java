@@ -108,6 +108,11 @@ public class RecApplication extends Controller {
         String userID = session("userID");
         String email = session("connected");
         
+        System.out.println(email);
+        if (email == null){
+            email = "";
+        }
+        
         return ok(view.render("View Movies", email,
             Movies.find.all()
         ));
@@ -115,6 +120,11 @@ public class RecApplication extends Controller {
     
     public Result users() {
         String email = session("connected");
+        
+        System.out.println(email);
+        if (email == null){
+            email = "";
+        }
         
         return ok(users.render("View Users", email,
             Users.find.all()
@@ -200,7 +210,7 @@ public class RecApplication extends Controller {
                 System.out.println("Error");
             }
         } catch (Exception e) {
-            return ok(invalid.render("Email is already registered.", email));
+            return ok(invalid.render("Email is already registered: " + email , ""));
         }
         
         //session("connected", email);
