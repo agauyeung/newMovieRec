@@ -10,6 +10,7 @@ import models.MovieRatings;
 import models.MovieRecommender;
 import models.Movies;
 import models.Users;
+import models.Links;
 import models.Recommender;
 import models.Login;
 import models.Hash;
@@ -103,7 +104,8 @@ public class RecApplication extends Controller {
         session().clear();
         return ok(loggedout.render("You are now logged out! " + email, ""));
     }
-
+    
+    /**
     public Result view() {
         String userID = session("userID");
         String email = session("connected");
@@ -115,6 +117,25 @@ public class RecApplication extends Controller {
         
         return ok(view.render("View Movies", email,
             Movies.find.all()
+        ));
+    }
+    **/
+    
+    public Result view() {
+        String userID = session("userID");
+        String email = session("connected");
+        
+        System.out.println(email);
+        if (email == null){
+            email = "";
+        }
+        
+        int id = 1;
+
+        
+        
+        return ok(view.render("View Movies", email,
+            Movies.find.where().eq("id", id).findList(), Links.find.where().eq("id", id).findList()
         ));
     }
     

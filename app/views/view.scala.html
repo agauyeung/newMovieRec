@@ -1,15 +1,36 @@
-@(title: String, email: String, movies: List[Movies])
+@(title: String, email: String, movies: List[Movies], links : List[Links])
 
 @base(title, email) {
+    <script src="@routes.Assets.versioned("javascripts/themoviedb.js")"></script>
+    
     <h1>All Movies<h1>
     
     <ul>
     @for(movie <- movies) {
       <li>@movie.name
         <ul> 
-            @movie.director
+            @movie.description
         </ul>
       </li>
+    }
+    @for(link <- links) {
+      <li>
+        <ul> 
+            @link.tmdbID
+        </ul>
+        
+        <script>
+            var imageList = JSON.parse(theMovieDb.movies.getImages({"id": @link.tmdbID }, successCB, errorCB));
+            
+            function successCB(data) {
+                console.log("Success callback: " + data);
+            };
+        
+            function errorCB(data) {
+                console.log("Error callback: " + data);
+            };
+         </script>
+     </li>
     } 
     </ul>
 }
