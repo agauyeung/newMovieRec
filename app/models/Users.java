@@ -17,6 +17,7 @@ public class Users extends Model {
     public Integer userID;
 
     @Constraints.Required
+    @Column(unique = true)
     public String email;
 
     @Constraints.Required

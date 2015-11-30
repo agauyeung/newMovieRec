@@ -28,6 +28,7 @@ create table users (
   username                  varchar(255),
   password                  varchar(255),
   create_time               datetime(6),
+  constraint uq_users_email unique (email),
   constraint pk_users primary key (user_id))
 ;
 

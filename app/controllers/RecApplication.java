@@ -169,19 +169,48 @@ public class RecApplication extends Controller {
         String username = formMap.get("username");
         String password = formMap.get("password");
         
+        if (isBlank(email)) {
+            System.out.println("Email is required");
+        }
+
+        if (isBlank(username)) {
+            System.out.println("Username is required");
+        }
+
+        if (isBlank(password)) {
+            System.out.println( "Password is required");
+        }
+        
         //PLACE THEM INTO DATABASE!
         //TODO: BACKEND; CHECK USERNAME/PASSWORD for validity.
         
-        Users newUser = new Users();
-        newUser.email = email;
-        newUser.username = username;
-        newUser.password = BCrypt.hashpw(password, BCrypt.gensalt());
-        newUser.save();
+        try {
+            Users newUser = new Users();
+            newUser.email = email;
+            newUser.username = username;
+            newUser.password = BCrypt.hashpw(password, BCrypt.gensalt());
+            newUser.save();
+            
+            session("connected", email);
+            session("userID", newUser.userID.toString());
+            
+            if (newUser != null) {
+                System.out.println(newUser.email);
+            } else {
+                System.out.println("Error");
+            }
+        } catch (Exception e) {
+            return ok(invalid.render("Email is already registered.", email));
+        }
         
-        session("connected", email);
-        session("userID", newUser.userID.toString());
+        //session("connected", email);
+        //session("userID", newUser.userID.toString());
 
         return ok(registered.render("Registration Confirmation", username));
+    }
+    
+    private boolean isBlank(String input) {
+        return input == null || input.isEmpty() || input.trim().isEmpty();
     }
 
     /** DEMO */
