@@ -1,4 +1,4 @@
-@(title: String, email: String, movies: List[Movies], links : List[Links])
+@(title: String, email: String, movies: List[Movies])
 
 @base(title, email) {
     <script src="@routes.Assets.versioned("javascripts/themoviedb.js")"></script>
@@ -9,42 +9,38 @@
     @for(movie <- movies) {
       <li>@movie.name
         <ul> 
-            @movie.description
+            @movie.genres
         </ul>
+        <ul> 
+            @movie.imdbid
+        </ul>
+        <ul> 
+            @movie.tmdbid
+        </ul>
+        <div>
+            <img id="poster" src="">
+                
+            </img>
+            
+            <script>
+                movie = theMovieDb.movies.getById({"id": @movie.tmdbid }, successCB, errorCB);
+                
+                function successCB(data) {
+                    image_size = "w500";
+                    var movie = JSON.parse(data);
+                    document.getElementById("poster").setAttribute("src", 
+                    theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
+                    
+                    console.log(theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
+                    console.log(movie.poster_path);
+                };
+    
+                function errorCB(data) {
+                    console.log("Error callback: " + data);
+                };
+             </script>
+         </div>
       </li>
     }
-    @for(link <- links) {
-      <li>
-        <ul> 
-            @link.tmdbID
-        </ul>
-        <img id="poster" src="">
-            
-        </img>
-        
-        <script>
-            //var movie = theMovieDb.movies.getById({"id": @link.tmdbID }, successCB, errorCB);
-            //data = JSON.parse(movie);
-            
-            movie = theMovieDb.movies.getById({"id": @link.tmdbID }, successCB, errorCB);
-            
-            function successCB(data) {
-                image_size = "w500";
-                var movie = JSON.parse(data);
-                document.getElementById("poster").setAttribute("src", 
-                theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
-                
-                console.log(theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
-                console.log(movie.poster_path);
-            };
-            
-            
-
-            function errorCB(data) {
-                console.log("Error callback: " + data);
-            };
-         </script>
-     </li>
-    } 
     </ul>
 }

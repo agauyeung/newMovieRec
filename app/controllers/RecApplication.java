@@ -74,7 +74,20 @@ public class RecApplication extends Controller {
             return rate();
         } else {
             List<String> recommendations = movRec.getRecommendations(movRec.createNewUserVectorUsingList(storedRatings));
-            return ok(recommended.render("Recommended For You", recommendations, username));
+            List<Movies> movieList = new ArrayList<Movies>();
+            
+            for (String s : recommendations) {
+                System.out.println(Integer.parseInt(s));
+                Movies tmpMovie = Movies.find.byId(Integer.parseInt(s));
+                if (tmpMovie != null) {
+                    movieList.add(tmpMovie);
+                    System.out.println(tmpMovie.name);
+                }
+            }
+            
+            System.out.println(movieList.size());
+            
+            return ok(recommended.render("Recommended For You", movieList , username));
         }
         
         //return ok(recommended.render("Recommended For You"));
@@ -130,12 +143,11 @@ public class RecApplication extends Controller {
             email = "";
         }
         
-        int id = 1;
+        int id = 4954;
 
-        
-        
         return ok(view.render("View Movies", email,
-            Movies.find.where().eq("id", id).findList(), Links.find.where().eq("id", id).findList()
+            Movies.find.where().eq("id", id).findList()
+            //Movies.find.all(), Links.find.all()
         ));
     }
     

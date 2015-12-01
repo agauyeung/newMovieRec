@@ -24,6 +24,7 @@ import org.apache.mahout.math.Matrix;
 import org.apache.mahout.math.SparseMatrix;
 
 import models.MovieRatings;
+import models.Movies;
 
 public class MovieRecommender {
 	
@@ -202,8 +203,11 @@ public class MovieRecommender {
     	
         System.out.println("Recommending Movies...");
         List<String> recMovies = new ArrayList<String>();
+        //List<Movies> moviesList = new ArrayList<Movies>();
+        
         for (int i = 0; i < MAXNUMOFRECS; i++) {
             recMovies.add(null);
+            //moviesList.add(null);
         }
         int movieID;
         
@@ -269,11 +273,18 @@ public class MovieRecommender {
         int index = topRecs.size() - 1;
     	while (listIterator.hasNext()) {
     		movieID = listIterator.next();
+    		
+    		//Movies tmpMovie = new Movies();
+    		//tmpMovie = Movies.find.byId(movieID);
+    		
     		System.out.println("Movie " + getMovieTitle(movieID));
-    		recMovies.set(index, getMovieTitle(movieID));
+    		System.out.println("Movie " + movieID);
+    		recMovies.set(index, Integer.toString(movieID));
+    		//moviesList.set(index, tmpMovie);
     		index --;
     	}
         
+        //System.out.println(moviesList.size());
         System.out.println("DONE RECOMMENDING");
         return recMovies;
     }

@@ -16,13 +16,11 @@ public class Movies extends Model {
     @Constraints.Required
     public String name;
 
-    public String picture;
+    public String genres;
 
-    public String description;
+    public String imdbid;
 
-    public String director;
-
-    public String year;
+    public String tmdbid;
 
     public static Finder<Integer, Movies> find = new Finder<Integer,Movies>(Movies.class);
 }

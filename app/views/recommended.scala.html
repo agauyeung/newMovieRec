@@ -1,10 +1,42 @@
-@(title: String, recommendations: List[String] , username : String)
+@(title: String, recommendations: List[Movies] , username : String)
 
 @base(title, username) {	@*using main template, with page title as arg*@
+    <script src="@routes.Assets.versioned("javascripts/themoviedb.js")"></script>
+    
     @* For loop through list and print. *@
     
-    @for(recommendation <- recommendations) {
-        @recommendation  
+    @for(movie <- recommendations) {
+        <li>@movie.id
+            <ul>
+                @movie.name
+            </ul>
+            <ul>
+                @movie.tmdbid
+            </ul>
+            <div>
+            <img id="poster@movie.id" src="">
+                
+            </img>
+            
+            <script>
+                movie = theMovieDb.movies.getById({"id": @movie.tmdbid }, successCB, errorCB);
+                
+                function successCB(data) {
+                    image_size = "w500";
+                    var movie = JSON.parse(data);
+                    document.getElementById("poster" + @movie.id).setAttribute("src", 
+                    theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
+                    
+                    console.log(theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
+                    console.log(movie.poster_path);
+                };
+    
+                function errorCB(data) {
+                    console.log("Error callback: " + data);
+                };
+             </script>
+         </div>
+        </li>
         <br>
         <br>
     }

@@ -1,0 +1,4 @@
+[0m[[31merror[0m] [0m/Users/alphaneo1/new/newMovieRec/app/controllers/RecApplication.java:88: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   variable movielist[0m
+[0m[[31merror[0m] [0m  location: class controllers.RecApplication[0m
+[0m[[31merror[0m] [0mmovielist[0m

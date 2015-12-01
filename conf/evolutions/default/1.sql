@@ -23,10 +23,9 @@ create table movie_ratings (
 create table movies (
   id                        integer auto_increment not null,
   name                      varchar(255),
-  picture                   varchar(255),
-  description               varchar(255),
-  director                  varchar(255),
-  year                      varchar(255),
+  genres                    varchar(255),
+  imdbid                    varchar(255),
+  tmdbid                    varchar(255),
   constraint pk_movies primary key (id))
 ;
 
