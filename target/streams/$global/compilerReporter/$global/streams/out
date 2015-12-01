@@ -1,7 +1,0 @@
-[0m[[31merror[0m] [0m/Users/alphaneo1/new/newMovieRec/app/views/view.scala.html:13: not found: value link[0m
-[0m[[31merror[0m] [0m            @link.tmdbID[0m
-[0m[[31merror[0m] [0m             ^[0m
-[0m[[31merror[0m] [0m/Users/alphaneo1/new/newMovieRec/app/views/view.scala.html:20: value tmdbID is not a member of java.util.List[models.Links][0m
-[0m[[31merror[0m] [0m            @links.tmdbID[0m
-[0m[[31merror[0m] [0m                   ^[0m
-[0m[[31merror[0m] [0mtwo errors found[0m

@@ -167,10 +167,9 @@ public class RecApplication extends Controller {
         Users user = null;
         try {
             user = Users.authenticate(email, password);
-            session("connected", email);
-            session("userID", user.userID.toString());
-            
             if (user != null) {
+                session("connected", email);
+                session("userID", user.userID.toString());
                 System.out.println(user.email);
             } else {
                 System.out.println("Error");
