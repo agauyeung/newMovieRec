@@ -1,0 +1,4 @@
+[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:320: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   variable movieList[0m
+[0m[[31merror[0m] [0m  location: class controllers.RecApplication[0m
+[0m[[31merror[0m] [0mmovieList[0m

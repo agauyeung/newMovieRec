@@ -2,7 +2,6 @@ package controllers;
 
 
 import play.data.Form;
-import play.*;
 import play.mvc.*;
 import play.db.*;
 import play.data.*;
@@ -11,9 +10,12 @@ import models.MovieRatings;
 import models.MovieRecommender;
 import models.Movies;
 import models.Users;
+import models.Links;
+import models.Recommender;
 import models.Login;
 import models.Hash;
 import models.AppException;
+import models.UserMap;
 import views.html.*;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -34,6 +36,7 @@ public class RecApplication extends Controller {
     final static Form<Login> loginForm = Form.form(Login.class);
 
     List<Integer> randMovieIDs = null;
+    boolean redirectFromRecommended = false;
     
     //MovieRecommender movRec = new MovieRecommender("movies_1M.txt", "V_1M_short.txt");
     public static MovieRecommender movRec = new MovieRecommender(Movies.find.all(), "V_1M_short.txt");
@@ -41,6 +44,7 @@ public class RecApplication extends Controller {
     //database stuff
 
     public Result index() {
+        //Recommender.rebuildUserMap(MovieRatings.find.where().orderBy("userID asc").findList(), Movies.find.all());
         /*List<Users> uDB = Users.find.all();
 
         System.out.println("Deleting...");
@@ -65,10 +69,50 @@ public class RecApplication extends Controller {
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
     	
         if (storedRatings.size() < 10) {
+            redirectFromRecommended = true;
             return rate();
         } else {
             List<String> recommendations = movRec.getRecommendations(movRec.createNewUserVectorUsingList(storedRatings));
-            return ok(recommended.render("Recommended for You", recommendations, username));
+            List<Movies> movieList = new ArrayList<Movies>();
+            
+            for (String s : recommendations) {
+                Integer i = Integer.parseInt(s);
+                System.out.println(i);
+                Movies tmpMovie = Movies.find.byId(i);
+                if (tmpMovie != null) {
+                    movieList.add(tmpMovie);
+                    System.out.println(tmpMovie.name);
+                } else {
+                    System.out.println("Looping because null entry");
+                    int original = i;
+                    boolean done = false;
+                    while (i <= movRec.getNumOfMovies()) {
+                        i ++;
+                        tmpMovie = Movies.find.byId(i);
+                        if (tmpMovie != null) {
+                            movieList.add(tmpMovie);
+                            done = true;
+                            break;
+                        }
+                    }
+                    if (!done) {
+                        i = 0;
+                        while (i < original) {
+                            i ++;
+                            tmpMovie = Movies.find.byId(i);
+                            if (tmpMovie != null) {
+                                movieList.add(tmpMovie);
+                                break;
+                            }
+                        }
+                    }
+                    //What if user has rated this before?
+                }
+            }
+            
+            System.out.println(movieList.size());
+            
+            return ok(recommended.render("Recommended For You", movieList , username));
         }
         
         //return ok(recommended.render("Recommended For You"));
@@ -98,15 +142,49 @@ public class RecApplication extends Controller {
         session().clear();
         return ok(loggedout.render("You are now logged out! " + email, ""));
     }
-
+    
+    /**
     public Result view() {
-        return ok(view.render("View Movies", 
+        String userID = session("userID");
+        String email = session("connected");
+        
+        System.out.println(email);
+        if (email == null){
+            email = "";
+        }
+        
+        return ok(view.render("View Movies", email,
             Movies.find.all()
+        ));
+    }
+    **/
+    
+    public Result view() {
+        String userID = session("userID");
+        String email = session("connected");
+        
+        System.out.println(email);
+        if (email == null){
+            email = "";
+        }
+        
+        int id = 4954;
+
+        return ok(view.render("View Movies", email,
+            Movies.find.where().eq("id", id).findList()
+            //Movies.find.all(), Links.find.all()
         ));
     }
     
     public Result users() {
-        return ok(users.render("View Users", 
+        String email = session("connected");
+        
+        System.out.println(email);
+        if (email == null){
+            email = "";
+        }
+        
+        return ok(users.render("View Users", email,
             Users.find.all()
         ));
     }
@@ -126,10 +204,9 @@ public class RecApplication extends Controller {
         Users user = null;
         try {
             user = Users.authenticate(email, password);
-            session("connected", email);
-            session("userID", user.userID.toString());
-            
             if (user != null) {
+                session("connected", email);
+                session("userID", user.userID.toString());
                 System.out.println(user.email);
             } else {
                 System.out.println("Error");
@@ -159,16 +236,48 @@ public class RecApplication extends Controller {
         String username = formMap.get("username");
         String password = formMap.get("password");
         
-        //TODO: PLACE THEM INTO DATABASE!
+        if (isBlank(email)) {
+            System.out.println("Email is required");
+        }
+
+        if (isBlank(username)) {
+            System.out.println("Username is required");
+        }
+
+        if (isBlank(password)) {
+            System.out.println( "Password is required");
+        }
+        
+        //PLACE THEM INTO DATABASE!
         //TODO: BACKEND; CHECK USERNAME/PASSWORD for validity.
         
-        Users newUser = new Users();
-        newUser.email = email;
-        newUser.username = username;
-        newUser.password = BCrypt.hashpw(password, BCrypt.gensalt());
-        newUser.save();
+        try {
+            Users newUser = new Users();
+            newUser.email = email;
+            newUser.username = username;
+            newUser.password = BCrypt.hashpw(password, BCrypt.gensalt());
+            newUser.save();
+            
+            session("connected", email);
+            session("userID", newUser.userID.toString());
+            
+            if (newUser != null) {
+                System.out.println(newUser.email);
+            } else {
+                System.out.println("Error");
+            }
+        } catch (Exception e) {
+            return ok(invalid.render("Email is already registered: " + email , ""));
+        }
+        
+        //session("connected", email);
+        //session("userID", newUser.userID.toString());
 
         return ok(registered.render("Registration Confirmation", username));
+    }
+    
+    private boolean isBlank(String input) {
+        return input == null || input.isEmpty() || input.trim().isEmpty();
     }
 
     /** DEMO */
@@ -176,14 +285,48 @@ public class RecApplication extends Controller {
         //Send Ratings to Database. Ensures form is filled to 0.
         addRatings();
 
-        //TODO: Make sure we don't get movieIDs the user has already rated.
+        //Make sure we don't get movieIDs the user has already rated.
         String userID = session("userID");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
         
         randMovieIDs = movRec.getRandMovies(storedRatings);
-        List<String> tenMoviesTest = new ArrayList<String>();
+        //List<String> tenMoviesTest = new ArrayList<String>();
+        List<Movies> tenMoviesTest = new ArrayList<Movies>();
+        System.out.println(randMovieIDs.size());
         for (int i = 0; i < randMovieIDs.size(); i++) {
-            tenMoviesTest.add(MovieRecommender.getMovieTitle(randMovieIDs.get(i)));
+            //tenMoviesTest.add(MovieRecommender.getMovieTitle(randMovieIDs.get(i)));
+            Movies tmpMovie = Movies.find.byId(randMovieIDs.get(i));
+            if (tmpMovie != null) {
+                tenMoviesTest.add(tmpMovie);
+                System.out.println(tmpMovie.name);
+            } else {
+                System.out.println("Looping because null entry");
+                int original = i;
+                int j = i;
+                boolean done = false;
+                while (i <= movRec.getNumOfMovies()) {
+                    j ++;
+                    tmpMovie = Movies.find.byId(j);
+                    if (tmpMovie != null) {
+                        tenMoviesTest.add(tmpMovie);
+                        done = true;
+                        System.out.println("DONE: " + tmpMovie.name);
+                        break;
+                    }
+                }
+                if (!done) {
+                    j = 0;
+                    while (j < original) {
+                        j ++;
+                        tmpMovie = Movies.find.byId(j);
+                        if (tmpMovie != null) {
+                            tenMoviesTest.add(tmpMovie);
+                            System.out.println("DONE: " + tmpMovie.name);
+                            break;
+                        }
+                    }
+                }
+            }
         }
         
         //Preset Radio Buttons to 0
@@ -191,7 +334,12 @@ public class RecApplication extends Controller {
         String email = session("connected");
         
         System.out.println("CALLING RATE PAGE");
-        return ok(rate.render("Rate Movies", email , tenMoviesTest, ratingsForm.fill(preset)));
+        if (redirectFromRecommended) {
+            redirectFromRecommended = false;
+            return ok(rate.render("Rate Movies", email , tenMoviesTest, ratingsForm.fill(preset), 1));
+        } else {
+            return ok(rate.render("Rate Movies", email , tenMoviesTest, ratingsForm.fill(preset), 0));
+        }
     }
     
     public TenRatings presetRatingsForm() {
@@ -225,16 +373,26 @@ public class RecApplication extends Controller {
         //Grab each rating in from the form and add to User Ratings.
         HashMap<Integer, Integer> ratingsMap = new HashMap<Integer, Integer>();
         //add 1 to movieID because database cannot take an entry with ID 0
-        ratingsMap.put(randMovieIDs.get(0) + 1, Integer.parseInt(formMap.get("m1")));
-        ratingsMap.put(randMovieIDs.get(1) + 1, Integer.parseInt(formMap.get("m2")));
-        ratingsMap.put(randMovieIDs.get(2) + 1, Integer.parseInt(formMap.get("m3")));
-        ratingsMap.put(randMovieIDs.get(3) + 1, Integer.parseInt(formMap.get("m4")));
-        ratingsMap.put(randMovieIDs.get(4) + 1, Integer.parseInt(formMap.get("m5")));
-        ratingsMap.put(randMovieIDs.get(5) + 1, Integer.parseInt(formMap.get("m6")));
-        ratingsMap.put(randMovieIDs.get(6) + 1, Integer.parseInt(formMap.get("m7")));
-        ratingsMap.put(randMovieIDs.get(7) + 1, Integer.parseInt(formMap.get("m8")));
-        ratingsMap.put(randMovieIDs.get(8) + 1, Integer.parseInt(formMap.get("m9")));
-        ratingsMap.put(randMovieIDs.get(9) + 1, Integer.parseInt(formMap.get("m10")));
+        if (formMap.get("m1") != null)
+            ratingsMap.put(randMovieIDs.get(0) + 1, Integer.parseInt(formMap.get("m1")));
+        if (formMap.get("m2") != null)
+            ratingsMap.put(randMovieIDs.get(1) + 1, Integer.parseInt(formMap.get("m2")));
+        if (formMap.get("m3") != null)
+            ratingsMap.put(randMovieIDs.get(2) + 1, Integer.parseInt(formMap.get("m3")));
+        if (formMap.get("m4") != null)
+            ratingsMap.put(randMovieIDs.get(3) + 1, Integer.parseInt(formMap.get("m4")));
+        if (formMap.get("m5") != null)
+            ratingsMap.put(randMovieIDs.get(4) + 1, Integer.parseInt(formMap.get("m5")));
+        if (formMap.get("m6") != null)
+            ratingsMap.put(randMovieIDs.get(5) + 1, Integer.parseInt(formMap.get("m6")));
+        if (formMap.get("m7") != null)
+            ratingsMap.put(randMovieIDs.get(6) + 1, Integer.parseInt(formMap.get("m7")));
+        if (formMap.get("m8") != null)
+            ratingsMap.put(randMovieIDs.get(7) + 1, Integer.parseInt(formMap.get("m8")));
+        if (formMap.get("m9") != null)
+            ratingsMap.put(randMovieIDs.get(8) + 1, Integer.parseInt(formMap.get("m9")));
+        if (formMap.get("m10") != null)
+            ratingsMap.put(randMovieIDs.get(9) + 1, Integer.parseInt(formMap.get("m10")));
         
         //ADD RATINGS TO DATABASE
         

@@ -45,7 +45,6 @@ public class RecApplication extends Controller {
 
     public Result index() {
         //Recommender.rebuildUserMap(MovieRatings.find.where().orderBy("userID asc").findList(), Movies.find.all());
-
         /*List<Users> uDB = Users.find.all();
 
         System.out.println("Deleting...");
@@ -77,8 +76,9 @@ public class RecApplication extends Controller {
             List<Movies> movieList = new ArrayList<Movies>();
             
             for (String s : recommendations) {
-                System.out.println(Integer.parseInt(s));
-                Movies tmpMovie = Movies.find.byId(Integer.parseInt(s));
+                Integer i = Integer.parseInt(s);
+                System.out.println(i);
+                Movies tmpMovie = Movies.find.byId(i);
                 if (tmpMovie != null) {
                     movieList.add(tmpMovie);
                     System.out.println(tmpMovie.name);
@@ -265,9 +265,43 @@ public class RecApplication extends Controller {
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
         
         randMovieIDs = movRec.getRandMovies(storedRatings);
-        List<String> tenMoviesTest = new ArrayList<String>();
+        //List<String> tenMoviesTest = new ArrayList<String>();
+        List<Movies> tenMoviesTest = new ArrayList<Movies>();
+        System.out.println(randMovieIDs.size());
         for (int i = 0; i < randMovieIDs.size(); i++) {
-            tenMoviesTest.add(MovieRecommender.getMovieTitle(randMovieIDs.get(i)));
+            //tenMoviesTest.add(MovieRecommender.getMovieTitle(randMovieIDs.get(i)));
+            Movies tmpMovie = Movies.find.byId(randMovieIDs.get(i));
+            if (tmpMovie != null) {
+                tenMoviesTest.add(tmpMovie);
+                System.out.println(tmpMovie.name);
+            } else {
+                System.out.println("Looping because null entry");
+                int original = i;
+                int j = i;
+                boolean done = false;
+                while (i <= movRec.getNumOfMovies()) {
+                    j ++;
+                    tmpMovie = Movies.find.byId(j);
+                    if (tmpMovie != null) {
+                        tenMoviesTest.add(tmpMovie);
+                        done = true;
+                        System.out.println("DONE: " + tmpMovie.name);
+                        break;
+                    }
+                }
+                if (!done) {
+                    j = 0;
+                    while (j < original) {
+                        j ++;
+                        tmpMovie = Movies.find.byId(j);
+                        if (tmpMovie != null) {
+                            tenMoviesTest.add(tmpMovie);
+                            System.out.println("DONE: " + tmpMovie.name);
+                            break;
+                        }
+                    }
+                }
+            }
         }
         
         //Preset Radio Buttons to 0
@@ -314,16 +348,26 @@ public class RecApplication extends Controller {
         //Grab each rating in from the form and add to User Ratings.
         HashMap<Integer, Integer> ratingsMap = new HashMap<Integer, Integer>();
         //add 1 to movieID because database cannot take an entry with ID 0
-        ratingsMap.put(randMovieIDs.get(0) + 1, Integer.parseInt(formMap.get("m1")));
-        ratingsMap.put(randMovieIDs.get(1) + 1, Integer.parseInt(formMap.get("m2")));
-        ratingsMap.put(randMovieIDs.get(2) + 1, Integer.parseInt(formMap.get("m3")));
-        ratingsMap.put(randMovieIDs.get(3) + 1, Integer.parseInt(formMap.get("m4")));
-        ratingsMap.put(randMovieIDs.get(4) + 1, Integer.parseInt(formMap.get("m5")));
-        ratingsMap.put(randMovieIDs.get(5) + 1, Integer.parseInt(formMap.get("m6")));
-        ratingsMap.put(randMovieIDs.get(6) + 1, Integer.parseInt(formMap.get("m7")));
-        ratingsMap.put(randMovieIDs.get(7) + 1, Integer.parseInt(formMap.get("m8")));
-        ratingsMap.put(randMovieIDs.get(8) + 1, Integer.parseInt(formMap.get("m9")));
-        ratingsMap.put(randMovieIDs.get(9) + 1, Integer.parseInt(formMap.get("m10")));
+        if (formMap.get("m1") != null)
+            ratingsMap.put(randMovieIDs.get(0) + 1, Integer.parseInt(formMap.get("m1")));
+        if (formMap.get("m2") != null)
+            ratingsMap.put(randMovieIDs.get(1) + 1, Integer.parseInt(formMap.get("m2")));
+        if (formMap.get("m3") != null)
+            ratingsMap.put(randMovieIDs.get(2) + 1, Integer.parseInt(formMap.get("m3")));
+        if (formMap.get("m4") != null)
+            ratingsMap.put(randMovieIDs.get(3) + 1, Integer.parseInt(formMap.get("m4")));
+        if (formMap.get("m5") != null)
+            ratingsMap.put(randMovieIDs.get(4) + 1, Integer.parseInt(formMap.get("m5")));
+        if (formMap.get("m6") != null)
+            ratingsMap.put(randMovieIDs.get(5) + 1, Integer.parseInt(formMap.get("m6")));
+        if (formMap.get("m7") != null)
+            ratingsMap.put(randMovieIDs.get(6) + 1, Integer.parseInt(formMap.get("m7")));
+        if (formMap.get("m8") != null)
+            ratingsMap.put(randMovieIDs.get(7) + 1, Integer.parseInt(formMap.get("m8")));
+        if (formMap.get("m9") != null)
+            ratingsMap.put(randMovieIDs.get(8) + 1, Integer.parseInt(formMap.get("m9")));
+        if (formMap.get("m10") != null)
+            ratingsMap.put(randMovieIDs.get(9) + 1, Integer.parseInt(formMap.get("m10")));
         
         //ADD RATINGS TO DATABASE
         
