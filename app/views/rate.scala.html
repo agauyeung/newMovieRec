@@ -13,35 +13,42 @@
     
     @*@form(action = routes.RecApplication.results(), 'id -> "ratingsForm")*@
     @form(action = routes.RecApplication.rate(), 'id -> "ratingsForm") {
-        @for((movie, index) <- movies.zipWithIndex) {
-            <img id="poster@movie.id" src=""></img>
-            
-            <script>
-                movie = theMovieDb.movies.getById({"id": @movie.tmdbid }, successCB, errorCB);
-                
-                function successCB(data) {
-                    image_size = "w150";
-                    var movie = JSON.parse(data);
-                    document.getElementById("poster" + @movie.id).setAttribute("src", 
-                    theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
-                    
-                    console.log(theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
-                    console.log(movie.poster_path);
-                };
     
-                function errorCB(data) {
-                    console.log("Error callback: " + data);
-                };
-            </script>
+    <div class="container">
+        <div class="row">
+            @for((movie, index) <- movies.zipWithIndex) {
+                <div class="col-xs-4">
+                    <img id="poster@movie.id" src="" class = "thumbnail"></img>
+                    
+                    <script>
+                        movie = theMovieDb.movies.getById({"id": @movie.tmdbid }, successCB, errorCB);
+                        
+                        function successCB(data) {
+                            image_size = "w150";
+                            var movie = JSON.parse(data);
+                            document.getElementById("poster" + @movie.id).setAttribute("src", 
+                            theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
+                            
+                            console.log(theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
+                            console.log(movie.poster_path);
+                        };
             
-            @inputRadioGroup(
-                ratingsForm("m" + (index+1)),  
-                options = Seq("0" -> "0", "1" -> "1", "2" -> "2", "3" -> "3", "4" -> "4", "5" -> "5"),
-                '_label -> movie.name,
-                '_error -> ratingsForm("m" + (index+1)).error.map(_.withMessage("Select Rating"))
-            ) 
-        }
-        <input type="submit" class="tenratings" value="Submit Ratings and Load More Movies">         
+                        function errorCB(data) {
+                            console.log("Error callback: " + data);
+                        };
+                    </script>
+                    
+                    @inputRadioGroup(
+                        ratingsForm("m" + (index+1)),  
+                        options = Seq("0" -> "0", "1" -> "1", "2" -> "2", "3" -> "3", "4" -> "4", "5" -> "5"),
+                        '_label -> movie.name,
+                        '_error -> ratingsForm("m" + (index+1)).error.map(_.withMessage("Select Rating"))
+                    )
+                </div>
+            }
+            <input type="submit" class="tenratings" value="Submit Ratings and Load More Movies">
+        </div>
+    </div>
     }
     @* Which variable the value goes to *@
 }

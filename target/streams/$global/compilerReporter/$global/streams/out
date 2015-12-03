@@ -1,4 +1,5 @@
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:320: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   variable movieList[0m
-[0m[[31merror[0m] [0m  location: class controllers.RecApplication[0m
-[0m[[31merror[0m] [0mmovieList[0m
+[0m[[31merror[0m] [0mIO error while decoding /Users/alphaneo1/new/newMovieRec/target/scala-2.11/twirl/main/views/html/rate.template.scala with UTF-8[0m
+[0m[[31merror[0m] [0mPlease try specifying another one using the -encoding option[0m
+[0m[[31merror[0m] [0mIO error while decoding /Users/alphaneo1/new/newMovieRec/target/scala-2.11/twirl/main/views/html/recommended.template.scala with UTF-8[0m
+[0m[[31merror[0m] [0mPlease try specifying another one using the -encoding option[0m
+[0m[[31merror[0m] [0mtwo errors found[0m

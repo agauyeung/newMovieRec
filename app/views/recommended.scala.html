@@ -5,28 +5,33 @@
     
     @* For loop through list and print. *@
     
-    @for(movie <- recommendations) {
-        <img id="poster@movie.id" src=""></img>
-        <script>
-            movie = theMovieDb.movies.getById({"id": @movie.tmdbid }, successCB, errorCB);
-                    
-            function successCB(data) {
-                image_size = "w150";
-                var movie = JSON.parse(data);
-                document.getElementById("poster" + @movie.id).setAttribute("src", 
-                theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
-                        
-                console.log(theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
-                console.log(movie.poster_path);
-            };
-        
-            function errorCB(data) {
-                console.log("Error callback: " + data);
-            };
-        </script>
-        <br>
-        <b>@movie.name</b>
-        <br>
-        <br>
-    }
+    <div class="container">
+        <div class="row">
+        @for(movie <- recommendations) {
+            <div class="col-xs-4"> 
+                <img id="poster@movie.id" src="" class = "thumbnail2"></img>
+                <script>
+                    movie = theMovieDb.movies.getById({"id": @movie.tmdbid }, successCB, errorCB);
+                            
+                    function successCB(data) {
+                        image_size = "w150";
+                        var movie = JSON.parse(data);
+                        document.getElementById("poster" + @movie.id).setAttribute("src", 
+                        theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
+                                
+                        console.log(theMovieDb.common.getImage({size: image_size, file: movie.poster_path}));
+                        console.log(movie.poster_path);
+                    };
+                
+                    function errorCB(data) {
+                        console.log("Error callback: " + data);
+                    };
+                </script>
+                <br>
+                    <p>@movie.name</p>
+                <br>
+            </div>
+        }
+        </div>
+    </div>
 }

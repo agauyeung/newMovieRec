@@ -27,12 +27,23 @@
   box-sizing: border-box;
 }
 body {
+  margin-top: 0.5em;    
   padding-top: 80px;
   color: #34495e;
   background: #f5f5f5;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   text-align: center;
+}
+.thumbnail {
+    display: inline-block;
+}
+.thumbnail:hover {
+    position:relative;
+    top:-5px;
+    left:-5px;
+    height:auto;
+    z-index:999;
 }
 h1,
 h2,
