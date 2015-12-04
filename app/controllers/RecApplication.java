@@ -328,7 +328,7 @@ public class RecApplication extends Controller {
         preset.m7 = 0;
         preset.m8 = 0;
         preset.m9 = 0;
-        preset.m10 = 0;
+        //preset.m10 = 0;
         return preset;
     }
     
@@ -366,8 +366,8 @@ public class RecApplication extends Controller {
             ratingsMap.put(randMovieIDs.get(7) + 1, Integer.parseInt(formMap.get("m8")));
         if (formMap.get("m9") != null)
             ratingsMap.put(randMovieIDs.get(8) + 1, Integer.parseInt(formMap.get("m9")));
-        if (formMap.get("m10") != null)
-            ratingsMap.put(randMovieIDs.get(9) + 1, Integer.parseInt(formMap.get("m10")));
+        //if (formMap.get("m10") != null)
+            //ratingsMap.put(randMovieIDs.get(9) + 1, Integer.parseInt(formMap.get("m10")));
         
         //ADD RATINGS TO DATABASE
         

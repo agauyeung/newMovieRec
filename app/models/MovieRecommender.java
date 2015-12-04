@@ -136,7 +136,7 @@ public class MovieRecommender {
         Random rand = new Random();
         int num = 0;
         System.out.println("SIZE " + movies.size());
-        while(ranmov.size() < 10) {
+        while(ranmov.size() < 9) {
             num = rand.nextInt(movies.size());
             //Check to see if movie ID has been rated by user or already added to rand list
             if(!ranmov.contains(num) && !prev.contains(num)) {

@@ -9,7 +9,7 @@
         <div class="row">
         @for(movie <- recommendations) {
             <div class="col-xs-4"> 
-                <img id="poster@movie.id" src="" class = "thumbnail2"></img>
+                <img id="poster@movie.id" src="" class = "thumbnail"></img>
                 <script>
                     movie = theMovieDb.movies.getById({"id": @movie.tmdbid }, successCB, errorCB);
                             

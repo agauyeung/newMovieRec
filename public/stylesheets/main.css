@@ -38,6 +38,9 @@ body {
 .thumbnail {
     display: inline-block;
 }
+.thumbnail2 {
+    display: inline-block;
+}
 .thumbnail:hover {
     position:relative;
     top:-5px;
