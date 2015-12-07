@@ -34,46 +34,37 @@ Seq[Any](format.raw/*1.54*/("""
 """),_display_(/*3.2*/base(title, email)/*3.20*/ {_display_(Seq[Any](format.raw/*3.22*/("""
     """),format.raw/*4.5*/("""<script src=""""),_display_(/*4.19*/routes/*4.25*/.Assets.versioned("javascripts/themoviedb.js")),format.raw/*4.71*/(""""></script>
     
-    <h1>All Movies<h1>
+    <h1>Movies<h1>
     
-    <ul>
-    """),_display_(/*9.6*/for(movie <- movies) yield /*9.26*/ {_display_(Seq[Any](format.raw/*9.28*/("""
-      """),format.raw/*10.7*/("""<li>"""),_display_(/*10.12*/movie/*10.17*/.name),format.raw/*10.22*/("""
-        """),format.raw/*11.9*/("""<ul> 
-            """),_display_(/*12.14*/movie/*12.19*/.genres),format.raw/*12.26*/("""
-        """),format.raw/*13.9*/("""</ul>
-        <ul> 
-            """),_display_(/*15.14*/movie/*15.19*/.imdbid),format.raw/*15.26*/("""
-        """),format.raw/*16.9*/("""</ul>
-        <ul> 
-            """),_display_(/*18.14*/movie/*18.19*/.tmdbid),format.raw/*18.26*/("""
-        """),format.raw/*19.9*/("""</ul>
-        <div>
-            <img id="poster" src="" class = "thumbnail">
+    <div class="container">
+        <div class="row">
+        """),_display_(/*10.10*/for(movie <- movies) yield /*10.30*/ {_display_(Seq[Any](format.raw/*10.32*/("""
+            """),format.raw/*11.13*/("""<div class="col-xs-4">
+                <img id="poster"""),_display_(/*12.33*/movie/*12.38*/.id),format.raw/*12.41*/("""" src="" class = "thumbnail">
                 
-            </img>
-            
-            <script>
-                movie = theMovieDb.movies.getById("""),format.raw/*26.51*/("""{"""),format.raw/*26.52*/(""""id": """),_display_(/*26.59*/movie/*26.64*/.tmdbid),format.raw/*26.71*/(""" """),format.raw/*26.72*/("""}"""),format.raw/*26.73*/(""", successCB, errorCB);
+                </img>
                 
-                function successCB(data) """),format.raw/*28.42*/("""{"""),format.raw/*28.43*/("""
-                    """),format.raw/*29.21*/("""image_size = "w500";
-                    var movie = JSON.parse(data);
-                    document.getElementById("poster").setAttribute("src", 
-                    theMovieDb.common.getImage("""),format.raw/*32.48*/("""{"""),format.raw/*32.49*/("""size: image_size, file: movie.poster_path"""),format.raw/*32.90*/("""}"""),format.raw/*32.91*/("""));
+                <script>
+                    movie = theMovieDb.movies.getById("""),format.raw/*17.55*/("""{"""),format.raw/*17.56*/(""""id": """),_display_(/*17.63*/movie/*17.68*/.tmdbid),format.raw/*17.75*/(""" """),format.raw/*17.76*/("""}"""),format.raw/*17.77*/(""", successCB, errorCB);
                     
-                    console.log(theMovieDb.common.getImage("""),format.raw/*34.60*/("""{"""),format.raw/*34.61*/("""size: image_size, file: movie.poster_path"""),format.raw/*34.102*/("""}"""),format.raw/*34.103*/("""));
-                    console.log(movie.poster_path);
-                """),format.raw/*36.17*/("""}"""),format.raw/*36.18*/(""";
-    
-                function errorCB(data) """),format.raw/*38.40*/("""{"""),format.raw/*38.41*/("""
-                    """),format.raw/*39.21*/("""console.log("Error callback: " + data);
-                """),format.raw/*40.17*/("""}"""),format.raw/*40.18*/(""";
-             </script>
-         </div>
-      </li>
-    """)))}),format.raw/*44.6*/("""
-    """),format.raw/*45.5*/("""</ul>
+                    function successCB(data) """),format.raw/*19.46*/("""{"""),format.raw/*19.47*/("""
+                        """),format.raw/*20.25*/("""image_size = "w500";
+                        var movie = JSON.parse(data);
+                        document.getElementById("poster" + """),_display_(/*22.61*/movie/*22.66*/.id),format.raw/*22.69*/(""").setAttribute("src", 
+                        theMovieDb.common.getImage("""),format.raw/*23.52*/("""{"""),format.raw/*23.53*/("""size: image_size, file: movie.poster_path"""),format.raw/*23.94*/("""}"""),format.raw/*23.95*/("""));
+                        
+                        console.log(theMovieDb.common.getImage("""),format.raw/*25.64*/("""{"""),format.raw/*25.65*/("""size: image_size, file: movie.poster_path"""),format.raw/*25.106*/("""}"""),format.raw/*25.107*/("""));
+                        console.log(movie.poster_path);
+                    """),format.raw/*27.21*/("""}"""),format.raw/*27.22*/(""";
+            
+                    function errorCB(data) """),format.raw/*29.44*/("""{"""),format.raw/*29.45*/("""
+                        """),format.raw/*30.25*/("""console.log("Error callback: " + data);
+                    """),format.raw/*31.21*/("""}"""),format.raw/*31.22*/(""";
+                 </script>
+             </div>
+        """)))}),format.raw/*34.10*/("""
+        """),format.raw/*35.9*/("""</div>
+    </div>
 """)))}))
       }
     }
@@ -94,11 +85,11 @@ Seq[Any](format.raw/*1.54*/("""
 object view extends view_Scope0.view
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 03 17:36:14 PST 2015
-                  SOURCE: /Users/alphaneo1/new/newMovieRec/app/views/view.scala.html
-                  HASH: d4f4921679814c78581367dccb53e09710b5ed62
-                  MATRIX: 763->1|910->53|938->56|964->74|1003->76|1034->81|1074->95|1088->101|1154->147|1238->206|1273->226|1312->228|1346->235|1378->240|1392->245|1418->250|1454->259|1500->278|1514->283|1542->290|1578->299|1638->332|1652->337|1680->344|1716->353|1776->386|1790->391|1818->398|1854->407|2079->604|2108->605|2142->612|2156->617|2184->624|2213->625|2242->626|2351->707|2380->708|2429->729|2650->922|2679->923|2748->964|2777->965|2889->1049|2918->1050|2988->1091|3018->1092|3118->1164|3147->1165|3221->1211|3250->1212|3299->1233|3383->1289|3412->1290|3500->1348|3532->1353
-                  LINES: 27->1|32->1|34->3|34->3|34->3|35->4|35->4|35->4|35->4|40->9|40->9|40->9|41->10|41->10|41->10|41->10|42->11|43->12|43->12|43->12|44->13|46->15|46->15|46->15|47->16|49->18|49->18|49->18|50->19|57->26|57->26|57->26|57->26|57->26|57->26|57->26|59->28|59->28|60->29|63->32|63->32|63->32|63->32|65->34|65->34|65->34|65->34|67->36|67->36|69->38|69->38|70->39|71->40|71->40|75->44|76->45
+                  DATE: Sun Dec 06 18:37:01 PST 2015
+                  SOURCE: /Users/alphaneo1/login/app/views/view.scala.html
+                  HASH: a3f79bc5869445470a9483e286503c6941036674
+                  MATRIX: 763->1|910->53|938->56|964->74|1003->76|1034->81|1074->95|1088->101|1154->147|1285->251|1321->271|1361->273|1402->286|1484->341|1498->346|1522->349|1716->515|1745->516|1779->523|1793->528|1821->535|1850->536|1879->537|1996->626|2025->627|2078->652|2240->787|2254->792|2278->795|2380->869|2409->870|2478->911|2507->912|2627->1004|2656->1005|2726->1046|2756->1047|2864->1127|2893->1128|2979->1186|3008->1187|3061->1212|3149->1272|3178->1273|3267->1331|3303->1340
+                  LINES: 27->1|32->1|34->3|34->3|34->3|35->4|35->4|35->4|35->4|41->10|41->10|41->10|42->11|43->12|43->12|43->12|48->17|48->17|48->17|48->17|48->17|48->17|48->17|50->19|50->19|51->20|53->22|53->22|53->22|54->23|54->23|54->23|54->23|56->25|56->25|56->25|56->25|58->27|58->27|60->29|60->29|61->30|62->31|62->31|65->34|66->35
                   -- GENERATED --
               */
           

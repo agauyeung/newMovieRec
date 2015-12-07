@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/alphaneo1/new/newMovieRec/conf/routes
-// @DATE:Thu Dec 03 17:36:13 PST 2015
+// @SOURCE:/Users/alphaneo1/login/conf/routes
+// @DATE:Sun Dec 06 17:15:46 PST 2015
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -15,7 +15,7 @@ import _root_.play.libs.F
 package controllers.javascript {
   import ReverseRouteContext.empty
 
-  // @LINE:24
+  // @LINE:26
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -23,7 +23,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:24
+    // @LINE:26
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -43,7 +43,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:28
+    // @LINE:30
     def rate: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecApplication.rate",
       """
@@ -63,7 +63,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:30
+    // @LINE:46
+    def find: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecApplication.find",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "find"})
+        }
+      """
+    )
+  
+    // @LINE:32
     def maintenance: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecApplication.maintenance",
       """
@@ -73,7 +83,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:35
+    // @LINE:37
     def registered: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecApplication.registered",
       """
@@ -83,7 +93,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:21
+    // @LINE:23
     def users: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecApplication.users",
       """
@@ -93,7 +103,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:40
+    // @LINE:42
     def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecApplication.logout",
       """
@@ -123,7 +133,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:42
+    // @LINE:20
+    def search: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RecApplication.search",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "search"})
+        }
+      """
+    )
+  
+    // @LINE:44
     def authenticate: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecApplication.authenticate",
       """
@@ -153,7 +173,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:38
+    // @LINE:40
     def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.RecApplication.login",
       """

@@ -1,0 +1,12 @@
+@(title: String, searchForm: Form[Search])
+@import helper._
+
+@base(title, "") {	@*using main template, with page title as arg*@
+
+    @* CONTENTS FOR Search PAGE *@
+    @form(action = routes.RecApplication.find(), 'id -> "searchForm") {
+        
+        @inputText(field = searchForm("text"), 'placeholder -> "Movie Name to Search")
+        <input type="submit" class="button" value="Search">
+    }
+}

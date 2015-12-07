@@ -17,6 +17,8 @@ GET     /register                    controllers.RecApplication.register()
 
 GET		/view				controllers.RecApplication.view()
 
+GET		/search				controllers.RecApplication.search()
+
 # View users in the database
 GET		/users				controllers.RecApplication.users()	
 
@@ -40,4 +42,6 @@ GET     /login                  controllers.RecApplication.login()
 GET     /logout                  controllers.RecApplication.logout()
 
 POST     /authenticate                  controllers.RecApplication.authenticate()
+
+POST     /find                  controllers.RecApplication.find()
 

@@ -7,9 +7,8 @@
     @form(action = routes.RecApplication.authenticate(), 'id -> "loginForm") {
         
         @inputText(field = loginForm("email"), 'placeholder -> "email")
-        @inputText(field = loginForm("password"), 'placeholder -> "password")
+        @inputPassword(field = loginForm("password"), 'placeholder -> "password")
         <input type="submit" class="login" value="Login">         
 
     }
-
 }

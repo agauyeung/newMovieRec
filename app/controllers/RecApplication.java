@@ -16,6 +16,7 @@ import models.Login;
 import models.Hash;
 import models.AppException;
 import models.UserMap;
+import models.Search;
 import views.html.*;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -31,9 +32,11 @@ import java.nio.file.Paths;
 public class RecApplication extends Controller {
 
     final static Form<TenRatings> ratingsForm = Form.form(TenRatings.class);
+    
     static boolean filled = false;
     final static Form<Users> dbRegForm = Form.form(Users.class);
     final static Form<Login> loginForm = Form.form(Login.class);
+    final static Form<Search> searchForm = Form.form(Search.class);
 
     List<Integer> randMovieIDs = null;
     boolean redirectFromRecommended = false;
@@ -41,17 +44,7 @@ public class RecApplication extends Controller {
     //MovieRecommender movRec = new MovieRecommender("movies_1M.txt", "V_1M_short.txt");
     public static MovieRecommender movRec = new MovieRecommender(Movies.find.all(), "V_1M_short.txt");
 
-    //database stuff
-
     public Result index() {
-        //Recommender.rebuildUserMap(MovieRatings.find.where().orderBy("userID asc").findList(), Movies.find.all());
-        /*List<Users> uDB = Users.find.all();
-
-        System.out.println("Deleting...");
-        for (Users u : uDB) {
-            u.delete();
-        }
-        System.out.println("Deleted");*/
         String user = session("connected");
         
         if (user != null) {
@@ -111,6 +104,10 @@ public class RecApplication extends Controller {
         return ok(login.render("User Login", loginForm));
     }
     
+    public Result search() {
+        return ok(search.render("Movie Search", searchForm));
+    }
+    
     public Result logout() {
         String email = session("connected");
         System.out.println(email);
@@ -143,11 +140,38 @@ public class RecApplication extends Controller {
             email = "";
         }
         
-        int id = 4954;
-
-        return ok(view.render("View Movies", email,
-            Movies.find.where().eq("id", id).findList()
-            //Movies.find.all(), Links.find.all()
+        //int id = 4954;
+    
+        return ok(view.render("View All Movies", email,
+            Movies.find
+            .setMaxRows(21)
+            .findList()
+        ));
+    }
+    
+    public Result find() {
+        String email = session("connected");
+        
+        if (email == null){
+            email = "";
+        }
+        
+        Form<Search> filledForm = searchForm.bindFromRequest();
+        Map<String, String> userMap = filledForm.data();
+        
+        //Grab each rating in from the form and add to User Ratings.
+        String movieText = userMap.get("text");
+        
+        // More complex task query
+        List<Movies> foundMovies = Movies.find.where()
+            .ilike("name", "%" + movieText + "%")
+            .setMaxRows(21)
+            .findList();
+            
+        System.out.println(foundMovies.size());
+        
+        return ok(view.render("Found Movies", email,
+            foundMovies
         ));
     }
     
