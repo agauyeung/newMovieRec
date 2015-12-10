@@ -16,6 +16,7 @@ import models.Login;
 import models.Hash;
 import models.AppException;
 import models.UserMap;
+import models.Search;
 import views.html.*;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -31,9 +32,11 @@ import java.nio.file.Paths;
 public class RecApplication extends Controller {
 
     final static Form<TenRatings> ratingsForm = Form.form(TenRatings.class);
+    
     static boolean filled = false;
     final static Form<Users> dbRegForm = Form.form(Users.class);
     final static Form<Login> loginForm = Form.form(Login.class);
+    final static Form<Search> searchForm = Form.form(Search.class);
 
     List<Integer> randMovieIDs = null;
     boolean redirectFromRecommended = false;
@@ -41,17 +44,7 @@ public class RecApplication extends Controller {
     //MovieRecommender movRec = new MovieRecommender("movies_1M.txt", "V_1M_short.txt");
     public static MovieRecommender movRec = new MovieRecommender(Movies.find.all(), "V_1M_short.txt");
 
-    //database stuff
-
     public Result index() {
-        //Recommender.rebuildUserMap(MovieRatings.find.where().orderBy("userID asc").findList(), Movies.find.all());
-        /*List<Users> uDB = Users.find.all();
-
-        System.out.println("Deleting...");
-        for (Users u : uDB) {
-            u.delete();
-        }
-        System.out.println("Deleted");*/
         String user = session("connected");
         
         if (user != null) {
@@ -64,6 +57,10 @@ public class RecApplication extends Controller {
     //CAN CREATE methods to open other pages...
 
     public Result recommended() {
+        if (movRec == null) {
+            System.out.println("initializeing Movie Recommender since movRec = null");
+            movRec = new MovieRecommender(Movies.find.all(), "V_1M_short.txt"); 
+        }
         String userID = session("userID");
         String username = session("connected");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
@@ -82,31 +79,6 @@ public class RecApplication extends Controller {
                 if (tmpMovie != null) {
                     movieList.add(tmpMovie);
                     System.out.println(tmpMovie.name);
-                } else {
-                    System.out.println("Looping because null entry");
-                    int original = i;
-                    boolean done = false;
-                    while (i <= movRec.getNumOfMovies()) {
-                        i ++;
-                        tmpMovie = Movies.find.byId(i);
-                        if (tmpMovie != null) {
-                            movieList.add(tmpMovie);
-                            done = true;
-                            break;
-                        }
-                    }
-                    if (!done) {
-                        i = 0;
-                        while (i < original) {
-                            i ++;
-                            tmpMovie = Movies.find.byId(i);
-                            if (tmpMovie != null) {
-                                movieList.add(tmpMovie);
-                                break;
-                            }
-                        }
-                    }
-                    //What if user has rated this before?
                 }
             }
             
@@ -134,6 +106,10 @@ public class RecApplication extends Controller {
     
     public Result login() {
         return ok(login.render("User Login", loginForm));
+    }
+    
+    public Result search() {
+        return ok(search.render("Movie Search", searchForm));
     }
     
     public Result logout() {
@@ -168,11 +144,38 @@ public class RecApplication extends Controller {
             email = "";
         }
         
-        int id = 4954;
-
-        return ok(view.render("View Movies", email,
-            Movies.find.where().eq("id", id).findList()
-            //Movies.find.all(), Links.find.all()
+        //int id = 4954;
+    
+        return ok(view.render("View All Movies", email,
+            Movies.find
+            .setMaxRows(21)
+            .findList()
+        ));
+    }
+    
+    public Result find() {
+        String email = session("connected");
+        
+        if (email == null){
+            email = "";
+        }
+        
+        Form<Search> filledForm = searchForm.bindFromRequest();
+        Map<String, String> userMap = filledForm.data();
+        
+        //Grab each rating in from the form and add to User Ratings.
+        String movieText = userMap.get("text");
+        
+        // More complex task query
+        List<Movies> foundMovies = Movies.find.where()
+            .ilike("name", "%" + movieText + "%")
+            .setMaxRows(21)
+            .findList();
+            
+        System.out.println(foundMovies.size());
+        
+        return ok(view.render("Found Movies", email,
+            foundMovies
         ));
     }
     
@@ -353,7 +356,7 @@ public class RecApplication extends Controller {
         preset.m7 = 0;
         preset.m8 = 0;
         preset.m9 = 0;
-        preset.m10 = 0;
+        //preset.m10 = 0;
         return preset;
     }
     
@@ -391,8 +394,8 @@ public class RecApplication extends Controller {
             ratingsMap.put(randMovieIDs.get(7) + 1, Integer.parseInt(formMap.get("m8")));
         if (formMap.get("m9") != null)
             ratingsMap.put(randMovieIDs.get(8) + 1, Integer.parseInt(formMap.get("m9")));
-        if (formMap.get("m10") != null)
-            ratingsMap.put(randMovieIDs.get(9) + 1, Integer.parseInt(formMap.get("m10")));
+        //if (formMap.get("m10") != null)
+            //ratingsMap.put(randMovieIDs.get(9) + 1, Integer.parseInt(formMap.get("m10")));
         
         //ADD RATINGS TO DATABASE
         

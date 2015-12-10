@@ -57,6 +57,10 @@ public class RecApplication extends Controller {
     //CAN CREATE methods to open other pages...
 
     public Result recommended() {
+        if (movRec == null) {
+            System.out.println("initializeing Movie Recommender since movRec = null");
+            movRec = new MovieRecommender(Movies.find.all(), "V_1M_short.txt"); 
+        }
         String userID = session("userID");
         String username = session("connected");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
@@ -281,6 +285,10 @@ public class RecApplication extends Controller {
 
     /** DEMO */
     public Result rate() {
+        if (movRec == null) {
+            System.out.println("initializeing Movie Recommender since movRec = null");
+            movRec = new MovieRecommender(Movies.find.all(), "V_1M_short.txt"); 
+        }
         //Send Ratings to Database. Ensures form is filled to 0.
         addRatings();
 
