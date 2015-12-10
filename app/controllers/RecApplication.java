@@ -45,7 +45,7 @@ public class RecApplication extends Controller {
     boolean redirectFromRecommended = false;
     
     //MovieRecommender movRec = new MovieRecommender("movies_1M.txt", "V_1M_short.txt");
-    public static MovieRecommender movRec = new MovieRecommender(Movies.find.all(), "V_1M_short.txt");
+    public static MovieRecommender movRec = new MovieRecommender(Movies.find.all(), "/app/target/universal/stage/V_1M_short.txt");
 
     public Result index() {
         String user = session("connected");
@@ -61,26 +61,19 @@ public class RecApplication extends Controller {
 
     public Result recommended() {
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
-        Path path = null;
-        File curDir = new File(".");
+        /*File curDir = new File(".");
         File[] filesList = curDir.listFiles();
         for(File f : filesList){
             //if(f.isDirectory())
             //    getAllFilse(f);
             if(f.isFile()){
                 System.out.println(f.getName());
-                if (f.getName().equals("V_1M_short.txt")) {
-                    path = f.toPath();
-                    System.out.println("Path Set");
-                }
             }
-        }
+        }*/
         try {
             if (!movRec.isVSet()) {
                 System.out.println("initializing V");
-                movRec.readV(path);
-                //movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
-                
+                movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
             }
         } catch (IOException e) {
 			System.out.println("V file not valid.");
