@@ -45,7 +45,7 @@ public class RecApplication extends Controller {
     boolean redirectFromRecommended = false;
     
     //MovieRecommender movRec = new MovieRecommender("movies_1M.txt", "V_1M_short.txt");
-    public static MovieRecommender movRec = new MovieRecommender(Movies.find.all(), "/app/target/universal/stage/V_1M_short.txt");
+    public static MovieRecommender movRec = new MovieRecommender(Movies.find.all(), "V_1M_short.txt");
 
     public Result index() {
         String user = session("connected");
@@ -70,7 +70,7 @@ public class RecApplication extends Controller {
                 System.out.println(f.getName());
             }
         }*/
-        try {
+        /*try {
             if (!movRec.isVSet()) {
                 System.out.println("initializing V");
                 //movRec.readV(Play.application().getFile("/app/target/universal/stage/V_1M_short.txt").toPath()); 
@@ -78,7 +78,7 @@ public class RecApplication extends Controller {
             }
         } catch (IOException e) {
 			System.out.println("V file not valid.");
-		}
+		}*/
         String userID = session("userID");
         String username = session("connected");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
