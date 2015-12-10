@@ -31,7 +31,8 @@ import java.nio.file.Paths;
 import java.io.IOException;
 
 public class RecApplication extends Controller {
-   
+      
+    private final play.api.Application application;   
     final static Form<TenRatings> ratingsForm = Form.form(TenRatings.class);
     
     static boolean filled = false;
@@ -61,7 +62,7 @@ public class RecApplication extends Controller {
         try {
             if (!movRec.isVSet()) {
                 System.out.println("initializing V");
-                movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
+                movRec.readV(application.getFile("V_1M_short.txt").toPath()); 
             }
         } catch (IOException e) {
 			System.out.println("The movie file or V file not valid.");
@@ -293,7 +294,7 @@ public class RecApplication extends Controller {
         try {
             if (!movRec.isVSet()) {
                 System.out.println("initializing V");
-                movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
+                movRec.readV(application.getFile("V_1M_short.txt").toPath()); 
             }
         } catch (IOException e) {
 			System.out.println("The movie file or V file not valid.");
