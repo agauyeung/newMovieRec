@@ -61,7 +61,7 @@ public class RecApplication extends Controller {
         try {
             if (movRec.V == null) {
                 System.out.println("initializing V");
-                movRec.readV(Play.application().getFile("V_1M_short.txt")); 
+                movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
             }
         } catch (IOException e) {
 			System.out.println("The movie file or V file not valid.");
@@ -293,7 +293,7 @@ public class RecApplication extends Controller {
         try {
             if (movRec.V == null) {
                 System.out.println("initializing V");
-                movRec.readV(Play.application().getFile("V_1M_short.txt")); 
+                movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
             }
         } catch (IOException e) {
 			System.out.println("The movie file or V file not valid.");

@@ -59,7 +59,7 @@ public class RecApplication extends Controller {
 
     public Result recommended() {
         try {
-            if (movRec.V == null) {
+            if (!movRec.isVSet()) {
                 System.out.println("initializing V");
                 movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
             }
@@ -291,7 +291,7 @@ public class RecApplication extends Controller {
     /** DEMO */
     public Result rate() {
         try {
-            if (movRec.V == null) {
+            if (!movRec.isVSet()) {
                 System.out.println("initializing V");
                 movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
             }

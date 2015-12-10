@@ -66,6 +66,13 @@ public class MovieRecommender {
 		return movies.size();
 	}
 	
+	public boolean isVSet() {
+	    if (V == null) {
+	        return false;
+	    }
+	    return true;
+	}
+	
 	/**
 	 * Goes through each word in the line; they are separated by 1 space.
 	 * 
@@ -91,7 +98,7 @@ public class MovieRecommender {
 		return words;
 	}
 	
-	private void readV(Path path) throws IOException {
+	public void readV(Path path) throws IOException {
 		
 		List<String> line;
 		String text;
