@@ -175,7 +175,7 @@ public class MovieRecommender {
     	return vector;
     }
     
-	public Matrix calcRecVector(SparseMatrix user) throws UnsupportedEncodingException, FileNotFoundException, IOException {
+	public Matrix calcRecVector(SparseMatrix user) throws IOException {
 		Matrix qV = user.times(V);
 		Matrix VTransposed = V.transpose();
 		Matrix recommendations = qV.times(VTransposed);
@@ -197,8 +197,8 @@ public class MovieRecommender {
     	Matrix recommendations = null;
     	try {
     		recommendations = calcRecVector(user);
-    	} catch (Exception e) {
-    		System.out.println("Exception from calcRecVector");
+    	} catch (IOException e) {
+    		System.out.println("Exception from calcRecVector" + e.getMessage());
     	}
     	
         System.out.println("Recommending Movies...");
