@@ -66,7 +66,7 @@ public class RecApplication extends Controller {
                 movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
             }
         } catch (IOException e) {
-			System.out.println("V file not valid.");
+			System.out.println("V file not valid." + Play.application().getFile("V_1M_short.txt").toString());
 		}
         String userID = session("userID");
         String username = session("connected");
