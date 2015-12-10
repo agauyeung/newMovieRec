@@ -20,9 +20,6 @@ import java.util.ListIterator;
 import java.util.Random;
 import java.util.TreeMap;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 import org.apache.mahout.math.Matrix;
 import org.apache.mahout.math.SparseMatrix;
 
@@ -34,7 +31,7 @@ public class MovieRecommender {
 	private static final int MAXNUMOFRECS = 10;
 	
 	private static ArrayList<String> movies;
-	public static SparseMatrix V;
+	private static SparseMatrix V;
 	
 	public MovieRecommender(List<Movies> movies, String VFile){
 		try {
@@ -94,7 +91,7 @@ public class MovieRecommender {
 		return words;
 	}
 	
-	public void readV(Path path) throws IOException {
+	private void readV(Path path) throws IOException {
 		
 		List<String> line;
 		String text;
@@ -102,39 +99,6 @@ public class MovieRecommender {
 			
 		try (
 				BufferedReader reader = Files.newBufferedReader(path, Charset.forName("UTF8"))
-			) {
-			movie = 0;
-			
-			if ((text = reader.readLine()) != null){
-				line = parseText(text);
-				
-				System.out.println("Columns Retained: " + line.size());
-				
-				V = new SparseMatrix(movies.size(), line.size());
-				for (i = 0; i < line.size(); i ++) {
-					V.set(movie, i, Double.parseDouble(line.get(i)));
-				}
-				movie ++;
-			}
-			
-			while ((text = reader.readLine()) != null){
-				line = parseText(text);
-				for (i = 0; i < line.size(); i ++) {
-					V.set(movie, i, Double.parseDouble(line.get(i)));
-				}
-				movie ++;
-			}
-		}
-	}
-	
-	public void readV(InputStream path) throws IOException {
-		
-		List<String> line;
-		String text;
-		int movie, i;
-			
-		try (
-				BufferedReader reader = Files.newBufferedReader(new InputStreamReader(path), Charset.forName("UTF8"))
 			) {
 			movie = 0;
 			
