@@ -69,7 +69,7 @@ public class RecApplication extends Controller {
             //    getAllFilse(f);
             if(f.isFile()){
                 System.out.println(f.getName());
-                if (f.getName().equals("V_1M_short.txt") {
+                if (f.getName().equals("V_1M_short.txt")) {
                     path = f.toPath();
                     System.out.println("Path Set");
                 }

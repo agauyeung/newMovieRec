@@ -60,8 +60,8 @@ public class RecApplication extends Controller {
     //CAN CREATE methods to open other pages...
 
     public Result recommended() {
-                System.out.println("Working Directory = " +
-              System.getProperty("user.dir"));
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+        Path path = null;
         File curDir = new File(".");
         File[] filesList = curDir.listFiles();
         for(File f : filesList){
@@ -69,12 +69,18 @@ public class RecApplication extends Controller {
             //    getAllFilse(f);
             if(f.isFile()){
                 System.out.println(f.getName());
+                if (f.getName().equals("V_1M_short.txt") {
+                    path = f.toPath();
+                    System.out.println("Path Set");
+                }
             }
         }
         try {
             if (!movRec.isVSet()) {
                 System.out.println("initializing V");
-                movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
+                movRec.readV(path);
+                //movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
+                
             }
         } catch (IOException e) {
 			System.out.println("V file not valid.");
