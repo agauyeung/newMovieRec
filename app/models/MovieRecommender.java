@@ -176,6 +176,12 @@ public class MovieRecommender {
     }
     
 	public Matrix calcRecVector(SparseMatrix user) throws UnsupportedEncodingException, FileNotFoundException, IOException {
+	    if (V == null) {
+	        System.out.println("V is null");
+	    }
+	    if (user == null) {
+	        System.out.println("User is null");
+	    }
 	    System.out.println("q times V");
 		Matrix qV = user.times(V);
 	    System.out.println("V Transposed");

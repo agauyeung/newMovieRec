@@ -8,8 +8,7 @@
 # This must be changed for production, but we recommend not changing it in this file.
 #
 # See http://www.playframework.com/documentation/latest/ApplicationSecret for more details.
-play.crypto.secret="^=/Pbeo^p4E1^Lm58hnJ_q?tey3[z0<WZf;XXv]gBthC=vBKtr<8OgC1l9?NLeRf"
-play.crypto.secret=${?APPLICATION_SECRET}
+play.crypto.secret = "changeme"
 
 # The application languages
 # ~~~~~
