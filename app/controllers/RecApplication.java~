@@ -65,8 +65,8 @@ public class RecApplication extends Controller {
         File curDir = new File(".");
         File[] filesList = curDir.listFiles();
         for(File f : filesList){
-            if(f.isDirectory())
-                getAllFilse(f);
+            //if(f.isDirectory())
+            //    getAllFilse(f);
             if(f.isFile()){
                 System.out.println(f.getName());
             }
