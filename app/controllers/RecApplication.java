@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.io.IOException;
 
 public class RecApplication extends Controller {
 
@@ -57,10 +58,14 @@ public class RecApplication extends Controller {
     //CAN CREATE methods to open other pages...
 
     public Result recommended() {
-        if (movRec.V == null) {
-            System.out.println("initializing V");
-            movRec.readV(Paths.get("V_1M_short.txt")); 
-        }
+        try {
+            if (movRec.V == null) {
+                System.out.println("initializing V");
+                movRec.readV(Paths.get("V_1M_short.txt")); 
+            }
+        } catch (IOException e) {
+			System.out.println("The movie file or V file not valid.");
+		}
         String userID = session("userID");
         String username = session("connected");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
@@ -285,10 +290,14 @@ public class RecApplication extends Controller {
 
     /** DEMO */
     public Result rate() {
-        if (movRec.V == null) {
-            System.out.println("initializing V");
-            movRec.readV(Paths.get("V_1M_short.txt")); 
-        }
+        try {
+            if (movRec.V == null) {
+                System.out.println("initializing V");
+                movRec.readV(Paths.get("V_1M_short.txt")); 
+            }
+        } catch (IOException e) {
+			System.out.println("The movie file or V file not valid.");
+		}
         //Send Ratings to Database. Ensures form is filled to 0.
         addRatings();
 
