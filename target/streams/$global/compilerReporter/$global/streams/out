@@ -1,8 +1,4 @@
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:68: exception java.io.IOException is never thrown in body of corresponding try statement[0m
-[0m[[31merror[0m] [0mcatch (IOException e) {[0m
-[0m[[31merror[0m] [0m			System.out.println("The movie file or V file not valid.");[0m
-[0m[[31merror[0m] [0m		}[0m
-[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:300: exception java.io.IOException is never thrown in body of corresponding try statement[0m
-[0m[[31merror[0m] [0mcatch (IOException e) {[0m
-[0m[[31merror[0m] [0m			System.out.println("The movie file or V file not valid.");[0m
-[0m[[31merror[0m] [0m		}[0m
+[0m[[31merror[0m] [0m/home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/controllers/RecApplication.java:66: cannot find symbol[0m
+[0m[[31merror[0m] [0m  symbol:   variable Play[0m
+[0m[[31merror[0m] [0m  location: class controllers.RecApplication[0m
+[0m[[31merror[0m] [0mPlay[0m

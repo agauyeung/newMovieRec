@@ -1,6 +1,6 @@
 package controllers;
 
-
+import play.*;
 import play.data.Form;
 import play.mvc.*;
 import play.db.*;
@@ -60,14 +60,14 @@ public class RecApplication extends Controller {
     public Result recommended() {
                 System.out.println("Working Directory = " +
               System.getProperty("user.dir"));
-        /*try {
+        try {
             if (!movRec.isVSet()) {
                 System.out.println("initializing V");
-                //movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
+                movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
             }
         } catch (IOException e) {
 			System.out.println("The movie file or V file not valid.");
-		}*/
+		}
         String userID = session("userID");
         String username = session("connected");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
