@@ -60,9 +60,8 @@ public class RecApplication extends Controller {
     //CAN CREATE methods to open other pages...
 
     public Result recommended() {
-                System.out.println("Working Directory = " +
-              System.getProperty("user.dir"));
-        File curDir = new File(".");
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+        /*File curDir = new File(".");
         File[] filesList = curDir.listFiles();
         for(File f : filesList){
             //if(f.isDirectory())
@@ -70,7 +69,7 @@ public class RecApplication extends Controller {
             if(f.isFile()){
                 System.out.println(f.getName());
             }
-        }
+        }*/
         try {
             if (!movRec.isVSet()) {
                 System.out.println("initializing V");
