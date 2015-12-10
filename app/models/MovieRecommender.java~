@@ -91,7 +91,7 @@ public class MovieRecommender {
 		return words;
 	}
 	
-	private void readV(Path path) throws IOException {
+	public void readV(Path path) throws IOException {
 		
 		List<String> line;
 		String text;
