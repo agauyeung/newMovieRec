@@ -4,7 +4,7 @@
 		module="login-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20151204015022"
+		publication="20151210141633"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

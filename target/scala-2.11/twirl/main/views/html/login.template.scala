@@ -36,12 +36,14 @@ Seq[Any](format.raw/*1.41*/("""
     """),format.raw/*6.41*/("""
     """),_display_(/*7.6*/form(action = routes.RecApplication.authenticate(), 'id -> "loginForm")/*7.77*/ {_display_(Seq[Any](format.raw/*7.79*/("""
         
-        """),_display_(/*9.10*/inputText(field = loginForm("email"), 'placeholder -> "email")),format.raw/*9.72*/("""
-        """),_display_(/*10.10*/inputPassword(field = loginForm("password"), 'placeholder -> "password")),format.raw/*10.82*/("""
-        """),format.raw/*11.9*/("""<input type="submit" class="login" value="Login">         
+        """),_display_(/*9.10*/inputText(field = loginForm("email"), 'placeholder -> "email",
+            '_label -> "Email")),format.raw/*10.32*/("""
+        """),_display_(/*11.10*/inputPassword(field = loginForm("password"), 'placeholder -> "password",
+            '_label -> "Password")),format.raw/*12.35*/("""
+        """),format.raw/*13.9*/("""<input type="submit" class="login" value="Login">         
 
-    """)))}),format.raw/*13.6*/("""
-""")))}),format.raw/*14.2*/("""
+    """)))}),format.raw/*15.6*/("""
+""")))}),format.raw/*16.2*/("""
 """))
       }
     }
@@ -62,11 +64,11 @@ Seq[Any](format.raw/*1.41*/("""
 object login extends login_Scope0.login
               /*
                   -- GENERATED --
-                  DATE: Sun Dec 06 17:00:56 PST 2015
+                  DATE: Thu Dec 10 14:17:08 PST 2015
                   SOURCE: /Users/alphaneo1/login/app/views/login.scala.html
-                  HASH: 5c0a18d53924320920783f942263d6a1257a5406
-                  MATRIX: 757->1|906->40|933->58|960->60|983->75|1022->77|1050->125|1083->167|1114->173|1193->244|1232->246|1277->265|1359->327|1396->337|1489->409|1525->418|1620->483|1652->485
-                  LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|37->7|37->7|37->7|39->9|39->9|40->10|40->10|41->11|43->13|44->14
+                  HASH: fd75536b9a8d11c8ff1de4afd900e1b335650ab9
+                  MATRIX: 757->1|906->40|933->58|960->60|983->75|1022->77|1050->125|1083->167|1114->173|1193->244|1232->246|1277->265|1392->359|1429->369|1557->476|1593->485|1688->550|1720->552
+                  LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|37->7|37->7|37->7|39->9|40->10|41->11|42->12|43->13|45->15|46->16
                   -- GENERATED --
               */
           

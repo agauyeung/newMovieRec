@@ -6,8 +6,10 @@
     @* CONTENTS FOR REGISTRATION PAGE *@
     @form(action = routes.RecApplication.authenticate(), 'id -> "loginForm") {
         
-        @inputText(field = loginForm("email"), 'placeholder -> "email")
-        @inputPassword(field = loginForm("password"), 'placeholder -> "password")
+        @inputText(field = loginForm("email"), 'placeholder -> "email",
+            '_label -> "Email")
+        @inputPassword(field = loginForm("password"), 'placeholder -> "password",
+            '_label -> "Password")
         <input type="submit" class="login" value="Login">         
 
     }

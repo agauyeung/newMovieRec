@@ -1,12 +1,14 @@
-@(title: String, searchForm: Form[Search])
+@(title: String, email: String, searchForm: Form[Search])
 @import helper._
 
-@base(title, "") {	@*using main template, with page title as arg*@
+@base(title, email) {	@*using main template, with page title as arg*@
 
     @* CONTENTS FOR Search PAGE *@
     @form(action = routes.RecApplication.find(), 'id -> "searchForm") {
         
-        @inputText(field = searchForm("text"), 'placeholder -> "Movie Name to Search")
-        <input type="submit" class="button" value="Search">
+        @inputText(field = searchForm("text"), 'placeholder -> "Enter keyword:",
+                                                '_label -> "Search Movie by Movie Title:"
+        )
+        <input label="Enter Keyword(s) here:" type="submit" class="button" value="Search">
     }
 }

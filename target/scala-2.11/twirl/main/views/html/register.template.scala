@@ -36,14 +36,17 @@ Seq[Any](format.raw/*1.39*/("""
     """),format.raw/*6.41*/("""
     """),_display_(/*7.6*/form(action = routes.RecApplication.registered(), 'id -> "regForm")/*7.73*/ {_display_(Seq[Any](format.raw/*7.75*/("""
         
-        """),_display_(/*9.10*/inputText(field = regForm("email"), 'placeholder -> "email")),format.raw/*9.70*/("""
-        """),_display_(/*10.10*/inputText(field = regForm("username"), 'placeholder -> "username")),format.raw/*10.76*/("""
-        """),_display_(/*11.10*/inputPassword(field = regForm("password"), 'placeholder -> "password")),format.raw/*11.80*/("""
-        """),format.raw/*12.9*/("""<input type="submit" class="tenratings" value="Register Now">         
+        """),_display_(/*9.10*/inputText(field = regForm("email"), 'placeholder -> "Email",
+        '_label -> "Email")),format.raw/*10.28*/("""
+        """),_display_(/*11.10*/inputText(field = regForm("username"), 'placeholder -> "Username",
+        '_label -> "Username")),format.raw/*12.31*/("""
+        """),_display_(/*13.10*/inputPassword(field = regForm("password"), 'placeholder -> "Password",
+        '_label -> "Password")),format.raw/*14.31*/("""
+        """),format.raw/*15.9*/("""<input type="submit" class="tenratings" value="Register Now">         
 
-    """)))}),format.raw/*14.6*/("""
+    """)))}),format.raw/*17.6*/("""
 
-""")))}),format.raw/*16.2*/("""
+""")))}),format.raw/*19.2*/("""
 """))
       }
     }
@@ -64,11 +67,11 @@ Seq[Any](format.raw/*1.39*/("""
 object register extends register_Scope0.register
               /*
                   -- GENERATED --
-                  DATE: Sun Dec 06 16:53:16 PST 2015
+                  DATE: Thu Dec 10 14:20:21 PST 2015
                   SOURCE: /Users/alphaneo1/login/app/views/register.scala.html
-                  HASH: 8f79612fc1b696ef5291e703201bd3d081f0a862
-                  MATRIX: 763->1|910->38|937->56|964->58|987->73|1026->75|1054->123|1087->165|1118->171|1193->238|1232->240|1277->259|1357->319|1394->329|1481->395|1518->405|1609->475|1645->484|1752->561|1785->564
-                  LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|37->7|37->7|37->7|39->9|39->9|40->10|40->10|41->11|41->11|42->12|44->14|46->16
+                  HASH: 13691f9cfcc293c97ac9bf6d5dc8c34d959d4a44
+                  MATRIX: 763->1|910->38|937->56|964->58|987->73|1026->75|1054->123|1087->165|1118->171|1193->238|1232->240|1277->259|1386->347|1423->357|1541->454|1578->464|1700->565|1736->574|1843->651|1876->654
+                  LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|37->7|37->7|37->7|39->9|40->10|41->11|42->12|43->13|44->14|45->15|47->17|49->19
                   -- GENERATED --
               */
           

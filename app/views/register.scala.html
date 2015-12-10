@@ -6,9 +6,12 @@
     @* CONTENTS FOR REGISTRATION PAGE *@
     @form(action = routes.RecApplication.registered(), 'id -> "regForm") {
         
-        @inputText(field = regForm("email"), 'placeholder -> "email")
-        @inputText(field = regForm("username"), 'placeholder -> "username")
-        @inputPassword(field = regForm("password"), 'placeholder -> "password")
+        @inputText(field = regForm("email"), 'placeholder -> "Email",
+        '_label -> "Email")
+        @inputText(field = regForm("username"), 'placeholder -> "Username",
+        '_label -> "Username")
+        @inputPassword(field = regForm("password"), 'placeholder -> "Password",
+        '_label -> "Password")
         <input type="submit" class="tenratings" value="Register Now">         
 
     }

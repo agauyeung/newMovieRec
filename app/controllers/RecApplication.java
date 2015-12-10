@@ -105,7 +105,13 @@ public class RecApplication extends Controller {
     }
     
     public Result search() {
-        return ok(search.render("Movie Search", searchForm));
+        String email = session("connected");
+        
+        if (email == null){
+            email = "";
+        }
+        
+        return ok(search.render("Movie Search", email, searchForm));
     }
     
     public Result logout() {
@@ -167,6 +173,10 @@ public class RecApplication extends Controller {
             .ilike("name", "%" + movieText + "%")
             .setMaxRows(21)
             .findList();
+            
+        for (Movies m : foundMovies) {
+            System.out.println("Movie: " + m.id);
+        }
             
         System.out.println(foundMovies.size());
         

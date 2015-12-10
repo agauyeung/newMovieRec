@@ -11,6 +11,9 @@
 .clearfix:after {
   clear: both;
 }
+dt {
+  margin-top: 2em;
+}
 .hide-text {
   font: 0/0 a;
   color: transparent;
