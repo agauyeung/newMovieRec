@@ -31,7 +31,7 @@ public class MovieRecommender {
 	private static final int MAXNUMOFRECS = 10;
 	
 	private static ArrayList<String> movies;
-	private static SparseMatrix V;
+	public static SparseMatrix V;
 	
 	public MovieRecommender(List<Movies> movies, String VFile){
 		try {
