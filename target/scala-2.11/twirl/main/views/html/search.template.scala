@@ -60,8 +60,8 @@ Seq[Any](format.raw/*1.43*/("""
 object search extends search_Scope0.search
               /*
                   -- GENERATED --
-                  DATE: Sun Dec 06 17:11:31 PST 2015
-                  SOURCE: /Users/alphaneo1/login/app/views/search.scala.html
+                  DATE: Sun Dec 06 18:57:47 PST 2015
+                  SOURCE: /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/app/views/search.scala.html
                   HASH: 1a23dccdfe1e1f468ff432042f2cfb3bd46ec7a1
                   MATRIX: 760->1|911->42|938->60|965->62|988->77|1027->79|1055->127|1088->163|1119->169|1191->233|1230->235|1275->254|1372->331|1408->340|1495->397|1527->399
                   LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|36->6|37->7|37->7|37->7|39->9|39->9|40->10|41->11|42->12

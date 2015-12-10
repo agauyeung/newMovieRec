@@ -1,0 +1,2 @@
+[0m[[0minfo[0m] [0mUpdating application secret in /home/agauyeung/typesafe_activator_1.3.6/newMovieRec/conf/application.conf[0m
+[0m[[0minfo[0m] [0mReplacing old application secret: play.crypto.secret = "changeme"[0m

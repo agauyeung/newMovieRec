@@ -1,6 +1,0 @@
-[0m[[31merror[0m] [0m/Users/alphaneo1/login/app/controllers/RecApplication.java:149: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   method all()[0m
-[0m[[31merror[0m] [0m  location: interface java.util.List<models.Movies>[0m
-[0m[[31merror[0m] [0mMovies.find[0m
-[0m[[31merror[0m] [0m            .setMaxRows(50).findList()[0m
-[0m[[31merror[0m] [0m            .all[0m
