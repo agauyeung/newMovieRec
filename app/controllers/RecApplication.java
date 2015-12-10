@@ -73,7 +73,8 @@ public class RecApplication extends Controller {
         try {
             if (!movRec.isVSet()) {
                 System.out.println("initializing V");
-                movRec.readV(Play.application().getFile("/app/target/universal/stage/V_1M_short.txt").toPath()); 
+                //movRec.readV(Play.application().getFile("/app/target/universal/stage/V_1M_short.txt").toPath()); 
+                movRec.readV(Paths.get("/app/target/universal/stage/V_1M_short.txt"));
             }
         } catch (IOException e) {
 			System.out.println("V file not valid.");
