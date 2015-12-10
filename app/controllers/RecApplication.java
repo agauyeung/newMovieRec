@@ -26,6 +26,8 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import java.io.File;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.IOException;
@@ -60,13 +62,22 @@ public class RecApplication extends Controller {
     public Result recommended() {
                 System.out.println("Working Directory = " +
               System.getProperty("user.dir"));
+        File curDir = new File(".");
+        File[] filesList = curDir.listFiles();
+        for(File f : filesList){
+            if(f.isDirectory())
+                getAllFilse(f);
+            if(f.isFile()){
+                System.out.println(f.getName());
+            }
+        }
         try {
             if (!movRec.isVSet()) {
                 System.out.println("initializing V");
                 movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
             }
         } catch (IOException e) {
-			System.out.println("V file not valid." + Play.application().getFile("V_1M_short.txt").toString());
+			System.out.println("V file not valid.");
 		}
         String userID = session("userID");
         String username = session("connected");
