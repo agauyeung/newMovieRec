@@ -31,8 +31,7 @@ import java.nio.file.Paths;
 import java.io.IOException;
 
 public class RecApplication extends Controller {
-      
-    private final play.api.Application application;   
+   
     final static Form<TenRatings> ratingsForm = Form.form(TenRatings.class);
     
     static boolean filled = false;
@@ -59,14 +58,16 @@ public class RecApplication extends Controller {
     //CAN CREATE methods to open other pages...
 
     public Result recommended() {
-        try {
+                System.out.println("Working Directory = " +
+              System.getProperty("user.dir"));
+        /*try {
             if (!movRec.isVSet()) {
                 System.out.println("initializing V");
-                movRec.readV(application.getFile("V_1M_short.txt").toPath()); 
+                //movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
             }
         } catch (IOException e) {
 			System.out.println("The movie file or V file not valid.");
-		}
+		}*/
         String userID = session("userID");
         String username = session("connected");
         List<MovieRatings> storedRatings = MovieRatings.find.where().eq("userID", userID).findList();
@@ -291,15 +292,15 @@ public class RecApplication extends Controller {
 
     /** DEMO */
     public Result rate() {
-        try {
+/*        try {
             if (!movRec.isVSet()) {
                 System.out.println("initializing V");
-                movRec.readV(application.getFile("V_1M_short.txt").toPath()); 
+                movRec.readV(Play.application().getFile("V_1M_short.txt").toPath()); 
             }
         } catch (IOException e) {
 			System.out.println("The movie file or V file not valid.");
 		}
-        //Send Ratings to Database. Ensures form is filled to 0.
+*/        //Send Ratings to Database. Ensures form is filled to 0.
         addRatings();
 
         //Make sure we don't get movieIDs the user has already rated.
