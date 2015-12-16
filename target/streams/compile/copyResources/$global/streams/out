@@ -1,9 +1,9 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/Users/alphaneo1/login/conf/application.conf,/Users/alphaneo1/login/target/scala-2.11/classes/application.conf)[0m
-[0m[[0mdebug[0m] [0m	(/Users/alphaneo1/login/conf/evolutions,/Users/alphaneo1/login/target/scala-2.11/classes/evolutions)[0m
-[0m[[0mdebug[0m] [0m	(/Users/alphaneo1/login/conf/logback.xml,/Users/alphaneo1/login/target/scala-2.11/classes/logback.xml)[0m
-[0m[[0mdebug[0m] [0m	(/Users/alphaneo1/login/conf/META-INF,/Users/alphaneo1/login/target/scala-2.11/classes/META-INF)[0m
-[0m[[0mdebug[0m] [0m	(/Users/alphaneo1/login/conf/routes,/Users/alphaneo1/login/target/scala-2.11/classes/routes)[0m
-[0m[[0mdebug[0m] [0m	(/Users/alphaneo1/login/conf/evolutions/default,/Users/alphaneo1/login/target/scala-2.11/classes/evolutions/default)[0m
-[0m[[0mdebug[0m] [0m	(/Users/alphaneo1/login/conf/evolutions/default/1.sql,/Users/alphaneo1/login/target/scala-2.11/classes/evolutions/default/1.sql)[0m
-[0m[[0mdebug[0m] [0m	(/Users/alphaneo1/login/conf/META-INF/persistence.xml,/Users/alphaneo1/login/target/scala-2.11/classes/META-INF/persistence.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/agauyeung/cs490/newMovieRec/conf/evolutions,/home/agauyeung/cs490/newMovieRec/target/scala-2.11/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/home/agauyeung/cs490/newMovieRec/conf/application.conf,/home/agauyeung/cs490/newMovieRec/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/agauyeung/cs490/newMovieRec/conf/routes,/home/agauyeung/cs490/newMovieRec/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/agauyeung/cs490/newMovieRec/conf/META-INF,/home/agauyeung/cs490/newMovieRec/target/scala-2.11/classes/META-INF)[0m
+[0m[[0mdebug[0m] [0m	(/home/agauyeung/cs490/newMovieRec/conf/logback.xml,/home/agauyeung/cs490/newMovieRec/target/scala-2.11/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/agauyeung/cs490/newMovieRec/conf/evolutions/default,/home/agauyeung/cs490/newMovieRec/target/scala-2.11/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/home/agauyeung/cs490/newMovieRec/conf/evolutions/default/1.sql,/home/agauyeung/cs490/newMovieRec/target/scala-2.11/classes/evolutions/default/1.sql)[0m
+[0m[[0mdebug[0m] [0m	(/home/agauyeung/cs490/newMovieRec/conf/META-INF/persistence.xml,/home/agauyeung/cs490/newMovieRec/target/scala-2.11/classes/META-INF/persistence.xml)[0m

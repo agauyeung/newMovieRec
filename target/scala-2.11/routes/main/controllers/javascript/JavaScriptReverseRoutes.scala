@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/alphaneo1/login/conf/routes
-// @DATE:Thu Dec 10 14:17:07 PST 2015
+// @SOURCE:/home/agauyeung/cs490/newMovieRec/conf/routes
+// @DATE:Thu Dec 10 17:41:59 PST 2015
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }

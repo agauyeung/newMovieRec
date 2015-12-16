@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.nio.charset.Charset;
+import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -48,20 +49,6 @@ public class MovieRecommender {
 		}
 	}
 	
-//	public MovieRecommender(String movieFile, String VFile){
-//		try {
-//			//Recommender.readMoviesTenK(Paths.get(movieFile));
-//			Recommender.readMoviesOneM(Paths.get(movieFile));
-//
-//			movies = (ArrayList<String>) Recommender.getMovies();
-//		
-//			readV(Paths.get(VFile));
-//			System.out.println("Movie Recommender object initialized. All files read successfully.");
-//		} catch (IOException e) {
-//			System.out.println("The movie file or V file not valid.");
-//		}
-//	}
-	
 	public int getNumOfMovies() {
 		return movies.size();
 	}
@@ -98,7 +85,9 @@ public class MovieRecommender {
 		int movie, i;
 			
 		try (
-				BufferedReader reader = Files.newBufferedReader(path, Charset.forName("UTF8"))
+				//DO NOT USE: BufferedReader reader = Files.newBufferedReader(path, Charset.forName("UTF8"))
+				//-- Incompatible with Heroku
+				BufferedReader reader = new BufferedReader(new FileReader(path.toString()));
 			) {
 			movie = 0;
 			

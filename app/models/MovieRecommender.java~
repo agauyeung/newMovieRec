@@ -24,6 +24,7 @@ import org.apache.mahout.math.Matrix;
 import org.apache.mahout.math.SparseMatrix;
 
 import models.MovieRatings;
+import models.Movies;
 
 public class MovieRecommender {
 	
@@ -135,9 +136,9 @@ public class MovieRecommender {
         Random rand = new Random();
         int num = 0;
         System.out.println("SIZE " + movies.size());
-        while(ranmov.size() < 10) {
+        while(ranmov.size() < 9) {
             num = rand.nextInt(movies.size());
-            //TODO: Add a check to see if movie ID has been rated by user.
+            //Check to see if movie ID has been rated by user or already added to rand list
             if(!ranmov.contains(num) && !prev.contains(num)) {
                 ranmov.add(num);
             }
@@ -202,17 +203,21 @@ public class MovieRecommender {
     	
         System.out.println("Recommending Movies...");
         List<String> recMovies = new ArrayList<String>();
+        //List<Movies> moviesList = new ArrayList<Movies>();
+        
         for (int i = 0; i < MAXNUMOFRECS; i++) {
             recMovies.add(null);
+            //moviesList.add(null);
         }
         int movieID;
         
         LinkedList<Integer> topRecs = new LinkedList<Integer>();
         
         for (int j = 0; j < recommendations.columnSize(); j++) {
-//        	if (recommendations.get(0, j) <= 3) {
-//        		continue;
-//        	}
+            //Don't recommend movies the user has already seen
+        	if (user.get(0, j) != 0) {
+        		continue;
+        	}
 
         	//go through all ratings
         	//if max, put in linked list
@@ -268,11 +273,18 @@ public class MovieRecommender {
         int index = topRecs.size() - 1;
     	while (listIterator.hasNext()) {
     		movieID = listIterator.next();
+    		
+    		//Movies tmpMovie = new Movies();
+    		//tmpMovie = Movies.find.byId(movieID);
+    		
     		System.out.println("Movie " + getMovieTitle(movieID));
-    		recMovies.set(index, getMovieTitle(movieID));
+    		System.out.println("Movie " + movieID);
+    		recMovies.set(index, Integer.toString(movieID));
+    		//moviesList.set(index, tmpMovie);
     		index --;
     	}
         
+        //System.out.println(moviesList.size());
         System.out.println("DONE RECOMMENDING");
         return recMovies;
     }
