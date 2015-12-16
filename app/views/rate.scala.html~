@@ -7,7 +7,7 @@
     @if(redirect == 1){
         <font color="red">
             <br>Note that you must rate at least 10 movies before getting recommendations.
-            <br>When you have done so, please navigate to "Recommended".<br><br>
+            <br>When you have done so, please navigate to "Recommended For You".<br><br>
         </font>
     }
     
