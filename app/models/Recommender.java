@@ -23,7 +23,13 @@ import org.apache.mahout.math.SingularValueDecomposition;
 import org.apache.mahout.math.SparseMatrix;
 
 
-
+/**
+ * Specifically created to read data from 100K and 1M datasets of GroupLens Research.
+ * Implements 3 recommendations algorithms:
+ * 1. Dot Product
+ * 2. Pearson Correlation
+ * 3. SVD (Singular Value Decomposition)
+ */
 public class Recommender {
 	
 	/**
@@ -717,18 +723,12 @@ public class Recommender {
 			//readRatingsOneM(Paths.get("ratings1M.txt"));
 
 			/* Find SVD Matrices */
-            //findSVDMatrices();
-			
+
 			System.out.println("100K Dataset: Retain " + findRetain(Paths.get("S_100K.txt")) + " eigenvalues out of rank " + 943);
 			System.out.println("1M Dataset: Retain " + findRetain(Paths.get("S_1M.txt")) + " eigenvalues out of rank " + 3883);
 
 			System.exit(0);
-			
 
-
-
-			
-			
 			algorithm = Integer.parseInt(args[2]);
 			if (algorithm < 0 || algorithm >= NUMOFALGORITHMS) {
 				System.out.println("No such algorithm.");
@@ -755,32 +755,6 @@ public class Recommender {
 			for (int i = 0; i < recommendations.size(); i++) {
 				System.out.println(recommendations.get(i) + "\t" + movies.get(recommendations.get(i)));
 			}
-			
-
-			
-//			System.out.println("M should be 3885. U should be 6040.");
-//			int movieID;
-//			int j = 0;
-//			for (int fileRating : fixedRatingsMap.keySet()) {
-//				movieID = fixedRatingsMap.get(fileRating);
-//				System.out.println(fileRating + " : " + movieID);
-//				System.out.println("Movie: " + movies.get(movieID));
-//				j ++;
-//				if (j > 225)
-//					break;
-//				
-//			}
-//			
-//			System.out.println("Movies: " + movies.size());
-//			System.out.println("Users: " + userMap.size());
-//			
-//			System.out.println("MovieID 90: " + movies.get(90));
-//			System.out.println("UserID 5: ");
-//			for (int rating : userMap.getRatings(5)) {
-//				System.out.print(rating + " ");
-//			}
-			
-            
 		} catch (IOException e) {
 			System.out.println("Text file(s) does not exist.");
 			e.printStackTrace();

@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="compile-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, fork-run"
-		date="20151210174159"/>
+		date="20151216223934"/>
 	<dependencies>
 		<module organisation="com.omertron" name="themoviedbapi">
 			<revision name="4.0" status="release" pubdate="20150317061158" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/Omertron/api-themoviedb" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="91">

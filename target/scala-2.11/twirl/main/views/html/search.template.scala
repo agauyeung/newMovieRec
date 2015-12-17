@@ -62,7 +62,7 @@ Seq[Any](format.raw/*1.58*/("""
 object search extends search_Scope0.search
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 10 17:41:58 PST 2015
+                  DATE: Wed Dec 16 22:39:32 PST 2015
                   SOURCE: /home/agauyeung/cs490/newMovieRec/app/views/search.scala.html
                   HASH: 9d59ce6616501987dff9cf8729a008a8fade02bc
                   MATRIX: 767->1|933->57|960->75|987->77|1013->95|1052->97|1080->145|1113->181|1144->187|1216->251|1255->253|1300->272|1492->443|1528->452|1646->540|1678->542

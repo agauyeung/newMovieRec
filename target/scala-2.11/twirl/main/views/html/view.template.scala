@@ -32,38 +32,40 @@ class view extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format
 Seq[Any](format.raw/*1.54*/("""
 
 """),_display_(/*3.2*/base(title, email)/*3.20*/ {_display_(Seq[Any](format.raw/*3.22*/("""
-    """),format.raw/*4.5*/("""<script src=""""),_display_(/*4.19*/routes/*4.25*/.Assets.versioned("javascripts/themoviedb.js")),format.raw/*4.71*/(""""></script>
+    """),format.raw/*4.70*/("""
+
+    """),format.raw/*6.5*/("""<script src=""""),_display_(/*6.19*/routes/*6.25*/.Assets.versioned("javascripts/themoviedb.js")),format.raw/*6.71*/(""""></script>
     
     <h1>Movies<h1>
     
     <div class="container">
         <div class="row">
-        """),_display_(/*10.10*/for(movie <- movies) yield /*10.30*/ {_display_(Seq[Any](format.raw/*10.32*/("""
-            """),format.raw/*11.13*/("""<div class="col-xs-4">
-                <img id="poster"""),_display_(/*12.33*/movie/*12.38*/.id),format.raw/*12.41*/("""" src="" class = "thumbnail">
+        """),_display_(/*12.10*/for(movie <- movies) yield /*12.30*/ {_display_(Seq[Any](format.raw/*12.32*/("""
+            """),format.raw/*13.13*/("""<div class="col-xs-4">
+                <img id="poster"""),_display_(/*14.33*/movie/*14.38*/.id),format.raw/*14.41*/("""" src="" class = "thumbnail">
                 
                 </img>
                 
                 <script>
-                    movie = theMovieDb.movies.getById("""),format.raw/*17.55*/("""{"""),format.raw/*17.56*/(""""id": """),_display_(/*17.63*/movie/*17.68*/.tmdbid),format.raw/*17.75*/(""" """),format.raw/*17.76*/("""}"""),format.raw/*17.77*/(""", successCB, errorCB);
+                    movie = theMovieDb.movies.getById("""),format.raw/*19.55*/("""{"""),format.raw/*19.56*/(""""id": """),_display_(/*19.63*/movie/*19.68*/.tmdbid),format.raw/*19.75*/(""" """),format.raw/*19.76*/("""}"""),format.raw/*19.77*/(""", successCB, errorCB);
                     
-                    function successCB(data) """),format.raw/*19.46*/("""{"""),format.raw/*19.47*/("""
-                        """),format.raw/*20.25*/("""image_size = "w500";
+                    function successCB(data) """),format.raw/*21.46*/("""{"""),format.raw/*21.47*/("""
+                        """),format.raw/*22.25*/("""image_size = "w500";
                         var movie = JSON.parse(data);
-                        document.getElementById("poster" + """),_display_(/*22.61*/movie/*22.66*/.id),format.raw/*22.69*/(""").setAttribute("src", 
-                        theMovieDb.common.getImage("""),format.raw/*23.52*/("""{"""),format.raw/*23.53*/("""size: image_size, file: movie.poster_path"""),format.raw/*23.94*/("""}"""),format.raw/*23.95*/("""));
+                        document.getElementById("poster" + """),_display_(/*24.61*/movie/*24.66*/.id),format.raw/*24.69*/(""").setAttribute("src", 
+                        theMovieDb.common.getImage("""),format.raw/*25.52*/("""{"""),format.raw/*25.53*/("""size: image_size, file: movie.poster_path"""),format.raw/*25.94*/("""}"""),format.raw/*25.95*/("""));
                         
-                        console.log(theMovieDb.common.getImage("""),format.raw/*25.64*/("""{"""),format.raw/*25.65*/("""size: image_size, file: movie.poster_path"""),format.raw/*25.106*/("""}"""),format.raw/*25.107*/("""));
+                        console.log(theMovieDb.common.getImage("""),format.raw/*27.64*/("""{"""),format.raw/*27.65*/("""size: image_size, file: movie.poster_path"""),format.raw/*27.106*/("""}"""),format.raw/*27.107*/("""));
                         console.log(movie.poster_path);
-                    """),format.raw/*27.21*/("""}"""),format.raw/*27.22*/(""";
+                    """),format.raw/*29.21*/("""}"""),format.raw/*29.22*/(""";
             
-                    function errorCB(data) """),format.raw/*29.44*/("""{"""),format.raw/*29.45*/("""
-                        """),format.raw/*30.25*/("""console.log("Error callback: " + data);
-                    """),format.raw/*31.21*/("""}"""),format.raw/*31.22*/(""";
+                    function errorCB(data) """),format.raw/*31.44*/("""{"""),format.raw/*31.45*/("""
+                        """),format.raw/*32.25*/("""console.log("Error callback: " + data);
+                    """),format.raw/*33.21*/("""}"""),format.raw/*33.22*/(""";
                  </script>
              </div>
-        """)))}),format.raw/*34.10*/("""
-        """),format.raw/*35.9*/("""</div>
+        """)))}),format.raw/*36.10*/("""
+        """),format.raw/*37.9*/("""</div>
     </div>
 """)))}))
       }
@@ -85,11 +87,11 @@ Seq[Any](format.raw/*1.54*/("""
 object view extends view_Scope0.view
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 10 17:41:59 PST 2015
+                  DATE: Wed Dec 16 22:39:32 PST 2015
                   SOURCE: /home/agauyeung/cs490/newMovieRec/app/views/view.scala.html
-                  HASH: a3f79bc5869445470a9483e286503c6941036674
-                  MATRIX: 763->1|910->53|938->56|964->74|1003->76|1034->81|1074->95|1088->101|1154->147|1285->251|1321->271|1361->273|1402->286|1484->341|1498->346|1522->349|1716->515|1745->516|1779->523|1793->528|1821->535|1850->536|1879->537|1996->626|2025->627|2078->652|2240->787|2254->792|2278->795|2380->869|2409->870|2478->911|2507->912|2627->1004|2656->1005|2726->1046|2756->1047|2864->1127|2893->1128|2979->1186|3008->1187|3061->1212|3149->1272|3178->1273|3267->1331|3303->1340
-                  LINES: 27->1|32->1|34->3|34->3|34->3|35->4|35->4|35->4|35->4|41->10|41->10|41->10|42->11|43->12|43->12|43->12|48->17|48->17|48->17|48->17|48->17|48->17|48->17|50->19|50->19|51->20|53->22|53->22|53->22|54->23|54->23|54->23|54->23|56->25|56->25|56->25|56->25|58->27|58->27|60->29|60->29|61->30|62->31|62->31|65->34|66->35
+                  HASH: 933c26a8ca12bd8f187d0edad28f48c3d67dc52b
+                  MATRIX: 763->1|910->53|938->56|964->74|1003->76|1035->146|1067->152|1107->166|1121->172|1187->218|1318->322|1354->342|1394->344|1435->357|1517->412|1531->417|1555->420|1749->586|1778->587|1812->594|1826->599|1854->606|1883->607|1912->608|2029->697|2058->698|2111->723|2273->858|2287->863|2311->866|2413->940|2442->941|2511->982|2540->983|2660->1075|2689->1076|2759->1117|2789->1118|2897->1198|2926->1199|3012->1257|3041->1258|3094->1283|3182->1343|3211->1344|3300->1402|3336->1411
+                  LINES: 27->1|32->1|34->3|34->3|34->3|35->4|37->6|37->6|37->6|37->6|43->12|43->12|43->12|44->13|45->14|45->14|45->14|50->19|50->19|50->19|50->19|50->19|50->19|50->19|52->21|52->21|53->22|55->24|55->24|55->24|56->25|56->25|56->25|56->25|58->27|58->27|58->27|58->27|60->29|60->29|62->31|62->31|63->32|64->33|64->33|67->36|68->37
                   -- GENERATED --
               */
           

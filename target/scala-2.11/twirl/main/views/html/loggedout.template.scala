@@ -32,7 +32,7 @@ class loggedout extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,F
 Seq[Any](format.raw/*1.32*/("""
 
 """),_display_(/*3.2*/base(title, email)/*3.20*/ {_display_(Seq[Any](format.raw/*3.22*/("""	"""),format.raw/*3.70*/("""
-
+    """),format.raw/*4.52*/("""
     """),format.raw/*5.5*/("""Hello, """),_display_(/*5.13*/email),format.raw/*5.18*/("""!<br>
     You are now logged out!
 
@@ -56,11 +56,11 @@ Seq[Any](format.raw/*1.32*/("""
 object loggedout extends loggedout_Scope0.loggedout
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 10 17:41:58 PST 2015
+                  DATE: Wed Dec 16 22:39:32 PST 2015
                   SOURCE: /home/agauyeung/cs490/newMovieRec/app/views/loggedout.scala.html
-                  HASH: 7b3b95072e65e74a7cddb6e58c84a026728befd4
-                  MATRIX: 760->1|885->31|913->34|939->52|978->54|1006->102|1038->108|1072->116|1097->121
-                  LINES: 27->1|32->1|34->3|34->3|34->3|34->3|36->5|36->5|36->5
+                  HASH: 575912e96a9891dee5f3414616e98ced1e5fc687
+                  MATRIX: 760->1|885->31|913->34|939->52|978->54|1006->102|1038->154|1069->159|1103->167|1128->172
+                  LINES: 27->1|32->1|34->3|34->3|34->3|34->3|35->4|36->5|36->5|36->5
                   -- GENERATED --
               */
           

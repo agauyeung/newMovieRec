@@ -2,6 +2,8 @@
 @import helper._
 
 @base(title, email) {	@*using main template, with page title as arg*@
+    @*This is the view that allows users to rate movies.*@
+
     <script src="@routes.Assets.versioned("javascripts/themoviedb.js")"></script>
 
     @if(redirect == 1){
@@ -11,7 +13,6 @@
         </font>
     }
     
-    @*@form(action = routes.RecApplication.results(), 'id -> "ratingsForm")*@
     @form(action = routes.RecApplication.rate(), 'id -> "ratingsForm") {
     
     <div class="container">
@@ -37,6 +38,7 @@
                             console.log("Error callback: " + data);
                         };
                     </script>
+                    @*These are radio buttons. m1, m2, etc. correspond to TenRatings.java*@
                     
                     @inputRadioGroup(
                         ratingsForm("m" + (index+1)),  

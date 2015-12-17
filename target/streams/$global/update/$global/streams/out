@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for movie_rec#movie_rec_2.11;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies movie_rec#movie_rec_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.6 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.6 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@12a34432[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2f5c5000[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.6[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.11.6 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m	[2.11.6] org.scala-lang#scala-library;2.11.6[0m
@@ -9862,7 +9862,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#control_2.11;0.13.8-M3!control_2.11.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.akka#akka-actor_2.11;2.3.8!akka-actor_2.11.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.akka#akka-testkit_2.11;2.3.8!akka-testkit_2.11.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 24485ms :: artifacts dl 847ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 40138ms :: artifacts dl 1208ms[0m
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT compile produced in /home/agauyeung/cs490/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT runtime produced in /home/agauyeung/cs490/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT test produced in /home/agauyeung/cs490/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-test.xml[0m
@@ -9877,5 +9877,5 @@
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT pom produced in /home/agauyeung/cs490/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT scala-tool produced in /home/agauyeung/cs490/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-scala-tool.xml[0m
 [0m[[0mdebug[0m] [0m	report for movie_rec#movie_rec_2.11;1.0-SNAPSHOT fork-run produced in /home/agauyeung/cs490/newMovieRec/target/resolution-cache/reports/movie_rec-movie_rec_2.11-fork-run.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (24485ms resolve - 847ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (40138ms resolve - 1208ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

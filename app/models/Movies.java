@@ -7,6 +7,10 @@ import com.avaje.ebean.Model;
 import play.data.format.*;
 import play.data.validation.*;
 
+/**
+ * Movies model in database
+ */
+
 @Entity
 public class Movies extends Model {
 

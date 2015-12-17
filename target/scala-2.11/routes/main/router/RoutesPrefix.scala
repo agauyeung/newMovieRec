@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/agauyeung/cs490/newMovieRec/conf/routes
-// @DATE:Thu Dec 10 17:41:59 PST 2015
+// @DATE:Wed Dec 16 22:39:33 PST 2015
 
 
 package router {

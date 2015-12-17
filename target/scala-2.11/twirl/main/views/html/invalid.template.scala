@@ -32,7 +32,7 @@ class invalid extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,For
 Seq[Any](format.raw/*1.32*/("""
 
 """),_display_(/*3.2*/base(title, email)/*3.20*/ {_display_(Seq[Any](format.raw/*3.22*/("""	"""),format.raw/*3.70*/("""
-
+    """),format.raw/*4.53*/("""
     """),_display_(/*5.6*/title),format.raw/*5.11*/("""!
 
 """)))}))
@@ -55,11 +55,11 @@ Seq[Any](format.raw/*1.32*/("""
 object invalid extends invalid_Scope0.invalid
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 10 17:41:59 PST 2015
+                  DATE: Wed Dec 16 22:39:32 PST 2015
                   SOURCE: /home/agauyeung/cs490/newMovieRec/app/views/invalid.scala.html
-                  HASH: 763f1d7f190321c74e904071868fefb4d0183114
-                  MATRIX: 756->1|881->31|909->34|935->52|974->54|1002->102|1034->109|1059->114
-                  LINES: 27->1|32->1|34->3|34->3|34->3|34->3|36->5|36->5
+                  HASH: 1789bb80534ecb0287887bdc288355fa43c0387e
+                  MATRIX: 756->1|881->31|909->34|935->52|974->54|1002->102|1034->155|1065->161|1090->166
+                  LINES: 27->1|32->1|34->3|34->3|34->3|34->3|35->4|36->5|36->5
                   -- GENERATED --
               */
           

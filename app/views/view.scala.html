@@ -1,6 +1,8 @@
 @(title: String, email: String, movies: List[Movies])
 
 @base(title, email) {
+    @*This is the view that displays some movies from the database.*@
+
     <script src="@routes.Assets.versioned("javascripts/themoviedb.js")"></script>
     
     <h1>Movies<h1>

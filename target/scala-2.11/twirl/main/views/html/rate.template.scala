@@ -32,58 +32,60 @@ import helper._
 Seq[Any](format.raw/*1.100*/("""
 """),format.raw/*3.1*/("""
 """),_display_(/*4.2*/base(title, email)/*4.20*/ {_display_(Seq[Any](format.raw/*4.22*/("""	"""),format.raw/*4.70*/("""
-    """),format.raw/*5.5*/("""<script src=""""),_display_(/*5.19*/routes/*5.25*/.Assets.versioned("javascripts/themoviedb.js")),format.raw/*5.71*/(""""></script>
+    """),format.raw/*5.59*/("""
 
-    """),_display_(/*7.6*/if(redirect == 1)/*7.23*/{_display_(Seq[Any](format.raw/*7.24*/("""
-        """),format.raw/*8.9*/("""<font color="red">
+    """),format.raw/*7.5*/("""<script src=""""),_display_(/*7.19*/routes/*7.25*/.Assets.versioned("javascripts/themoviedb.js")),format.raw/*7.71*/(""""></script>
+
+    """),_display_(/*9.6*/if(redirect == 1)/*9.23*/{_display_(Seq[Any](format.raw/*9.24*/("""
+        """),format.raw/*10.9*/("""<font color="red">
             <br>Note that you must rate at least 10 movies before getting recommendations.
-            <br>When you have done so, please navigate to "Recommended For You".<br><br>
+            <br>When you have done so, please navigate to "Recommended".<br><br>
         </font>
-    """)))}),format.raw/*12.6*/("""
+    """)))}),format.raw/*14.6*/("""
     
-    """),format.raw/*14.78*/("""
-    """),_display_(/*15.6*/form(action = routes.RecApplication.rate(), 'id -> "ratingsForm")/*15.71*/ {_display_(Seq[Any](format.raw/*15.73*/("""
+    """),_display_(/*16.6*/form(action = routes.RecApplication.rate(), 'id -> "ratingsForm")/*16.71*/ {_display_(Seq[Any](format.raw/*16.73*/("""
     
-    """),format.raw/*17.5*/("""<div class="container">
+    """),format.raw/*18.5*/("""<div class="container">
         <div class="row">
-            """),_display_(/*19.14*/for((movie, index) <- movies.zipWithIndex) yield /*19.56*/ {_display_(Seq[Any](format.raw/*19.58*/("""
-                """),format.raw/*20.17*/("""<div class="col-xs-4">
-                    <img id="poster"""),_display_(/*21.37*/movie/*21.42*/.id),format.raw/*21.45*/("""" src="" class = "thumbnail"></img>
+            """),_display_(/*20.14*/for((movie, index) <- movies.zipWithIndex) yield /*20.56*/ {_display_(Seq[Any](format.raw/*20.58*/("""
+                """),format.raw/*21.17*/("""<div class="col-xs-4">
+                    <img id="poster"""),_display_(/*22.37*/movie/*22.42*/.id),format.raw/*22.45*/("""" src="" class = "thumbnail"></img>
                     
                     <script>
-                        movie = theMovieDb.movies.getById("""),format.raw/*24.59*/("""{"""),format.raw/*24.60*/(""""id": """),_display_(/*24.67*/movie/*24.72*/.tmdbid),format.raw/*24.79*/(""" """),format.raw/*24.80*/("""}"""),format.raw/*24.81*/(""", successCB, errorCB);
+                        movie = theMovieDb.movies.getById("""),format.raw/*25.59*/("""{"""),format.raw/*25.60*/(""""id": """),_display_(/*25.67*/movie/*25.72*/.tmdbid),format.raw/*25.79*/(""" """),format.raw/*25.80*/("""}"""),format.raw/*25.81*/(""", successCB, errorCB);
                         
-                        function successCB(data) """),format.raw/*26.50*/("""{"""),format.raw/*26.51*/("""
-                            """),format.raw/*27.29*/("""image_size = "w150";
+                        function successCB(data) """),format.raw/*27.50*/("""{"""),format.raw/*27.51*/("""
+                            """),format.raw/*28.29*/("""image_size = "w150";
                             var movie = JSON.parse(data);
-                            document.getElementById("poster" + """),_display_(/*29.65*/movie/*29.70*/.id),format.raw/*29.73*/(""").setAttribute("src", 
-                            theMovieDb.common.getImage("""),format.raw/*30.56*/("""{"""),format.raw/*30.57*/("""size: image_size, file: movie.poster_path"""),format.raw/*30.98*/("""}"""),format.raw/*30.99*/("""));
+                            document.getElementById("poster" + """),_display_(/*30.65*/movie/*30.70*/.id),format.raw/*30.73*/(""").setAttribute("src", 
+                            theMovieDb.common.getImage("""),format.raw/*31.56*/("""{"""),format.raw/*31.57*/("""size: image_size, file: movie.poster_path"""),format.raw/*31.98*/("""}"""),format.raw/*31.99*/("""));
                             
-                            console.log(theMovieDb.common.getImage("""),format.raw/*32.68*/("""{"""),format.raw/*32.69*/("""size: image_size, file: movie.poster_path"""),format.raw/*32.110*/("""}"""),format.raw/*32.111*/("""));
+                            console.log(theMovieDb.common.getImage("""),format.raw/*33.68*/("""{"""),format.raw/*33.69*/("""size: image_size, file: movie.poster_path"""),format.raw/*33.110*/("""}"""),format.raw/*33.111*/("""));
                             console.log(movie.poster_path);
-                        """),format.raw/*34.25*/("""}"""),format.raw/*34.26*/(""";
+                        """),format.raw/*35.25*/("""}"""),format.raw/*35.26*/(""";
             
-                        function errorCB(data) """),format.raw/*36.48*/("""{"""),format.raw/*36.49*/("""
-                            """),format.raw/*37.29*/("""console.log("Error callback: " + data);
-                        """),format.raw/*38.25*/("""}"""),format.raw/*38.26*/(""";
+                        function errorCB(data) """),format.raw/*37.48*/("""{"""),format.raw/*37.49*/("""
+                            """),format.raw/*38.29*/("""console.log("Error callback: " + data);
+                        """),format.raw/*39.25*/("""}"""),format.raw/*39.26*/(""";
                     </script>
+                    """),format.raw/*41.92*/("""
                     
-                    """),_display_(/*41.22*/inputRadioGroup(
+                    """),_display_(/*43.22*/inputRadioGroup(
                         ratingsForm("m" + (index+1)),  
                         options = Seq("0" -> "0", "1" -> "1", "2" -> "2", "3" -> "3", "4" -> "4", "5" -> "5"),
                         '_label -> movie.name,
                         '_error -> ratingsForm("m" + (index+1)).error.map(_.withMessage("Select Rating"))
-                    )),format.raw/*46.22*/("""
-                """),format.raw/*47.17*/("""</div>
-            """)))}),format.raw/*48.14*/("""
-            """),format.raw/*49.13*/("""<div class="center-block">
+                    )),format.raw/*48.22*/("""
+                """),format.raw/*49.17*/("""</div>
+            """)))}),format.raw/*50.14*/("""
+            """),format.raw/*51.13*/("""<div class="center-block">
                 <input type="submit" class="tenratings" value="Submit Ratings and Load More Movies">
             </div>
         </div>
     </div>
-    """)))}),format.raw/*54.6*/("""
-    """),format.raw/*55.43*/("""
-""")))}),format.raw/*56.2*/("""
+    """)))}),format.raw/*56.6*/("""
+    """),format.raw/*57.43*/("""
+""")))}),format.raw/*58.2*/("""
 """))
       }
     }
@@ -104,11 +106,11 @@ Seq[Any](format.raw/*1.100*/("""
 object rate extends rate_Scope0.rate
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 10 17:41:58 PST 2015
+                  DATE: Wed Dec 16 22:39:32 PST 2015
                   SOURCE: /home/agauyeung/cs490/newMovieRec/app/views/rate.scala.html
-                  HASH: 5da534107e82422a828aa82fd434b927d0107c99
-                  MATRIX: 784->1|993->99|1020->117|1047->119|1073->137|1112->139|1140->187|1171->192|1211->206|1225->212|1291->258|1334->276|1359->293|1397->294|1432->303|1682->523|1720->606|1752->612|1826->677|1866->679|1903->689|1993->752|2051->794|2091->796|2136->813|2222->872|2236->877|2260->880|2432->1024|2461->1025|2495->1032|2509->1037|2537->1044|2566->1045|2595->1046|2720->1143|2749->1144|2806->1173|2976->1316|2990->1321|3014->1324|3120->1402|3149->1403|3218->1444|3247->1445|3375->1545|3404->1546|3474->1587|3504->1588|3620->1676|3649->1677|3739->1739|3768->1740|3825->1769|3917->1833|3946->1834|4047->1908|4426->2266|4471->2283|4522->2303|4563->2316|4771->2494|4804->2537|4836->2539
-                  LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|35->5|35->5|35->5|35->5|37->7|37->7|37->7|38->8|42->12|44->14|45->15|45->15|45->15|47->17|49->19|49->19|49->19|50->20|51->21|51->21|51->21|54->24|54->24|54->24|54->24|54->24|54->24|54->24|56->26|56->26|57->27|59->29|59->29|59->29|60->30|60->30|60->30|60->30|62->32|62->32|62->32|62->32|64->34|64->34|66->36|66->36|67->37|68->38|68->38|71->41|76->46|77->47|78->48|79->49|84->54|85->55|86->56
+                  HASH: c23e16f182d3552d575996a25c292f0cc2f50748
+                  MATRIX: 784->1|993->99|1020->117|1047->119|1073->137|1112->139|1140->187|1172->246|1204->252|1244->266|1258->272|1324->318|1367->336|1392->353|1430->354|1466->363|1708->575|1745->586|1819->651|1859->653|1896->663|1986->726|2044->768|2084->770|2129->787|2215->846|2229->851|2253->854|2425->998|2454->999|2488->1006|2502->1011|2530->1018|2559->1019|2588->1020|2713->1117|2742->1118|2799->1147|2969->1290|2983->1295|3007->1298|3113->1376|3142->1377|3211->1418|3240->1419|3368->1519|3397->1520|3467->1561|3497->1562|3613->1650|3642->1651|3732->1713|3761->1714|3818->1743|3910->1807|3939->1808|4019->1931|4089->1974|4468->2332|4513->2349|4564->2369|4605->2382|4813->2560|4846->2603|4878->2605
+                  LINES: 27->1|32->1|33->3|34->4|34->4|34->4|34->4|35->5|37->7|37->7|37->7|37->7|39->9|39->9|39->9|40->10|44->14|46->16|46->16|46->16|48->18|50->20|50->20|50->20|51->21|52->22|52->22|52->22|55->25|55->25|55->25|55->25|55->25|55->25|55->25|57->27|57->27|58->28|60->30|60->30|60->30|61->31|61->31|61->31|61->31|63->33|63->33|63->33|63->33|65->35|65->35|67->37|67->37|68->38|69->39|69->39|71->41|73->43|78->48|79->49|80->50|81->51|86->56|87->57|88->58
                   -- GENERATED --
               */
           

@@ -10,6 +10,10 @@ import play.data.validation.*;
     
 import org.mindrot.jbcrypt.BCrypt;
 
+/**
+ * Users model in database
+ */
+
 @Entity
 public class Users extends Model {
 

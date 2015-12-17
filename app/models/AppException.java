@@ -1,5 +1,8 @@
 package models;
 
+/**
+ * Login/Authentication Exception
+ */
 public class AppException extends Exception {
 
     public AppException() {

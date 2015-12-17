@@ -7,6 +7,10 @@ import com.avaje.ebean.Model;
 import play.data.format.*;
 import play.data.validation.*;
 
+/**
+ * Links our movieIDs with movieIDs in imdb and tmdb (assists in grabbing movie posters)
+ */
+
 @Entity
 public class Links extends Model {
 

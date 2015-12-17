@@ -1,6 +1,7 @@
 @(title: String, email: String, recommendations: List[String])
 
 @base(title, email) {	@*using main template, with page title as arg*@
+    @*DEPRACATED: This was used in midterm demo to list out the recommendations by title.*@
     @* For loop through list and print. *@
     @recommendations = recommendations.reverse
     @for(recommendation <- recommendations) {
