@@ -8,6 +8,7 @@ import play.data.format.*;
 import play.data.validation.*;
 
 /**
+ * DEPRECATED
  * Links our movieIDs with movieIDs in imdb and tmdb (assists in grabbing movie posters)
  */
 
