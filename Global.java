@@ -28,10 +28,23 @@ import java.nio.file.Files;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.util.List;
 
+/**
+ * Runs tasks and vettes HTTP requests.
+ */
 public class Global extends GlobalSettings {
+    /**
+     * Scheduler used to schedule SVD recalculation.
+     */
     private static Cancellable scheduler;
+    /**
+     * Boolea variable indicating whether SVD is currently being updated.
+     */
     private static boolean updatingSVD = false;
     
+    /**
+     * Checks HTTP Requests. If SVD is currently being updated, redirects to maintenance view.
+     * If not, allows request to go along.
+     */
     public Action onRequest(Request request, Method actionMethod) {
         System.out.println("\nChecking if SVD is currently being updated..." + request.toString());
         if (request.toString().compareTo("GET /maintenance") == 0) {
@@ -53,6 +66,9 @@ public class Global extends GlobalSettings {
         }
     }
 
+    /**
+     * On startup, a timer is set to recalculate SVD every week.
+     */
     @Override
     public void onStart(Application app) {
        scheduler = Akka.system().scheduler().schedule(
@@ -84,6 +100,9 @@ public class Global extends GlobalSettings {
        System.out.println("\n\nTimer started. SVD will be updated every week.\n\n");
     }
     
+    /**
+     * On stop, the scheduler is cancelled.
+     */
     @Override
     public void onStop(Application app) {
         //Stop the scheduler
